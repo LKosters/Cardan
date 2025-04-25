@@ -1,7 +1,7 @@
 <template>
     <div class="bg-black min-h-screen">
         <slot />
-        <!-- <UiNav /> -->
+        <UiNav />
     </div>
 </template>
 

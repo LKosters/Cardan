@@ -3,14 +3,27 @@
         <div v-for="item in items" :key="item.icon" class="group/popup">
             <component :is="item.icon" />
             <div class="opacity-0 group-hover/popup:opacity-100 duration-300">
-                <UiNavTooltip :text="item.tooltip" />
+                <UiNavTooltip :id="item.tooltip" :text="item.tooltip" />
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
+interface PopupItem {
+    icon: any;
+    tooltip: string;
+}
 const props = defineProps({
-    items: Object,
+    items: {
+        type: Array as () => PopupItem[],
+        required: true,
+        validator: (value: PopupItem[]) => {
+            return value.every(item =>
+                item.icon !== undefined &&
+                typeof item.tooltip === 'string'
+            );
+        }
+    },
 });
 </script>

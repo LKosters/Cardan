@@ -19,6 +19,9 @@ import IconPicker from '~/components/icon/picker/index.vue'
 import IconSetting from '~/components/icon/setting/index.vue'
 import IconColorBlindBlueYellow from '~/components/icon/colorBlind/BlueYellow.vue'
 import IconColorBlindPinkBlue from '~/components/icon/colorBlind/PinkBlue.vue'
+import IconVisualBlindChoker from '~/components/icon/visualBlind/Choker.vue'
+import IconVisualBlindBlurred from '~/components/icon/visualBlind/Blurred.vue'
+import IconVisualBlindStains from '~/components/icon/visualBlind/Stains.vue'
 
 const navItems = [
     {
@@ -36,6 +39,20 @@ const navItems = [
     },
     {
         icon: IconEye,
+        items: [
+            {
+                icon: IconVisualBlindChoker,
+                tooltip: 'Choker',
+            },
+            {
+                icon: IconVisualBlindBlurred,
+                tooltip: 'Blurred',
+            },
+            {
+                icon: IconVisualBlindStains,
+                tooltip: 'Stains',
+            },
+        ],
     },
     {
         icon: IconCardan,

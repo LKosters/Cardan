@@ -9,14 +9,14 @@
         >
             <component :is="item.icon" />
             <div class="opacity-0 group-hover/popup:opacity-100 duration-300">
-                <UiNavTooltip :id="item.tooltip" :text="item.tooltip" />
+                <UiNavTooltip :id="`tooltip-${idx}`" :text="item.tooltip" />
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { defineProps, ref, watch, onMounted } from 'vue'
+import { defineProps, ref, watch, onMounted, nextTick } from 'vue'
 interface PopupItem {
     icon: any;
     tooltip: string;
@@ -39,7 +39,7 @@ const menuItemRefs = ref<(HTMLElement | null)[]>([])
 
 watch(() => props.autoFocus, (val) => {
     if (val) {
-        focusFirstMenuItem()
+        nextTick(focusFirstMenuItem)
     }
 })
 

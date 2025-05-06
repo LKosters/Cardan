@@ -1,6 +1,6 @@
 <template>
   <div class="bg-primary text-white px-4 py-2">
-    <div class="flex justify-end items-center gap-[1.5rem]">
+    <div class="flex justify-center md:justify-end items-center gap-[1.5rem]">
       <p class="text-[12px] font-medium flex items-center gap-1.5">
         Ervaringsplein
         <svg
@@ -19,7 +19,9 @@
         </svg>
       </p>
       <p class="text-[12px] font-medium">Mijn Cardan</p>
-      <p class="text-[12px] font-medium flex items-center gap-1.5">
+      <p
+        class="text-[12px] font-medium flex items-center gap-1.5 hidden md:flex"
+      >
         Cookies
         <svg
           xmlns="http://www.w3.org/2000/svg"

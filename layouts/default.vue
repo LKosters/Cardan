@@ -1,6 +1,6 @@
 <template>
   <UiHeader />
-  <div class="bg-black min-h-screen">
+  <div class="min-h-screen">
     <slot />
     <!-- <UiNav /> -->
   </div>

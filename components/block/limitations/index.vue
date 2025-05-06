@@ -20,14 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, h } from 'vue'
-
-interface LimitationProps {
-  title: string
-  description: string
-  image: string
-}
-
 // Define the limitations data
 const limitations = [
   {

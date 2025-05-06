@@ -12,8 +12,8 @@
         <h3 class="font-bold text-lg mb-2">{{ title }}</h3>
         <p class="text-sm text-gray-700 flex-1">{{ description }}</p>
         <div class="mt-4">
-          <button class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
-            <span class="sr-only">Meer informatie over {{ title }}</span>+
+          <button class="bg-secondary text-white rounded-full w-8 h-8 flex items-center justify-center">
+            <span class="sr-only">Meer informatie over {{ title }}</span><IconArrow size="16" />
           </button>
         </div>
       </div>

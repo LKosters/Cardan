@@ -14,8 +14,8 @@
         </div>
         <div class="relative h-64 md:h-80">
           <img
-            alt="VR glasses and technology devices"
-            fill
+            :src="image"
+            :alt="title"
             class="object-cover rounded-lg"
           />
         </div>
@@ -28,5 +28,6 @@
 const props = defineProps({
   title: String,
   description: String,
+  image: String,
 });
 </script>

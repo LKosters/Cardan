@@ -1,13 +1,29 @@
 <template>
-  <footer class="w-full">
-    <div class="bg-primary text-white py-12 px-2 md:px-4 relative overflow-hidden">
+  <footer class="w-full bg-primary">
+    <div class="text-white py-12 container relative overflow-hidden">
       <!-- Background SVG -->
       <div class="absolute inset-0 pointer-events-none hidden md:block">
-        <svg width="450" height="450" viewBox="0 0 688 684" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute right-0 top-0">
+        <svg
+          width="450"
+          height="450"
+          viewBox="0 0 688 684"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="absolute right-0 top-0"
+        >
           <g opacity="0.06">
-            <path d="M255.27 789.313C371.566 789.313 465.842 695.036 465.842 578.74C465.842 462.444 371.566 368.168 255.27 368.168C138.974 368.168 44.6973 462.444 44.6973 578.74C44.6973 695.036 138.974 789.313 255.27 789.313Z" fill="white"/>
-            <path d="M595.629 486.743C711.925 486.743 806.202 392.466 806.202 276.171C806.202 159.875 711.925 65.5981 595.629 65.5981C479.333 65.5981 385.057 159.875 385.057 276.171C385.057 392.466 479.333 486.743 595.629 486.743Z" fill="white"/>
-            <path d="M136.244 635.65H266.432C280.046 635.65 293.21 636.101 303.971 625.039C305.273 623.738 306.374 622.236 307.575 620.835C316.084 610.874 324.593 600.964 333.102 591.003C401.474 511.119 469.796 431.234 538.169 351.35C558.24 327.925 578.261 304.5 598.332 281.076C589.773 284.629 581.264 288.133 572.705 291.687H714.805C733.775 291.687 751.944 275.019 751.043 255.449C750.143 235.878 735.127 219.21 714.805 219.21H584.618C571.003 219.21 557.839 218.76 547.078 229.822C545.777 231.123 544.675 232.625 543.474 234.026C534.965 243.987 526.456 253.897 517.947 263.858C449.575 343.742 381.253 423.626 312.881 503.511C292.809 526.935 272.788 550.36 252.717 573.785C261.276 570.231 269.785 566.727 278.344 563.174H136.244C117.274 563.174 99.1048 579.841 100.006 599.412C100.907 618.983 115.923 635.65 136.244 635.65Z" fill="#654F6F"/>
+            <path
+              d="M255.27 789.313C371.566 789.313 465.842 695.036 465.842 578.74C465.842 462.444 371.566 368.168 255.27 368.168C138.974 368.168 44.6973 462.444 44.6973 578.74C44.6973 695.036 138.974 789.313 255.27 789.313Z"
+              fill="white"
+            />
+            <path
+              d="M595.629 486.743C711.925 486.743 806.202 392.466 806.202 276.171C806.202 159.875 711.925 65.5981 595.629 65.5981C479.333 65.5981 385.057 159.875 385.057 276.171C385.057 392.466 479.333 486.743 595.629 486.743Z"
+              fill="white"
+            />
+            <path
+              d="M136.244 635.65H266.432C280.046 635.65 293.21 636.101 303.971 625.039C305.273 623.738 306.374 622.236 307.575 620.835C316.084 610.874 324.593 600.964 333.102 591.003C401.474 511.119 469.796 431.234 538.169 351.35C558.24 327.925 578.261 304.5 598.332 281.076C589.773 284.629 581.264 288.133 572.705 291.687H714.805C733.775 291.687 751.944 275.019 751.043 255.449C750.143 235.878 735.127 219.21 714.805 219.21H584.618C571.003 219.21 557.839 218.76 547.078 229.822C545.777 231.123 544.675 232.625 543.474 234.026C534.965 243.987 526.456 253.897 517.947 263.858C449.575 343.742 381.253 423.626 312.881 503.511C292.809 526.935 272.788 550.36 252.717 573.785C261.276 570.231 269.785 566.727 278.344 563.174H136.244C117.274 563.174 99.1048 579.841 100.006 599.412C100.907 618.983 115.923 635.65 136.244 635.65Z"
+              fill="#654F6F"
+            />
           </g>
         </svg>
       </div>
@@ -16,7 +32,11 @@
         <div class="mb-12">
           <div class="flex items-center gap-[1.5rem]">
             <div class="text-sm font-bold flex items-center">
-              <img class="h-[30px] objcet-contain" src="/logo/logo_white.png" alt="Cardan logo" />
+              <img
+                class="h-[30px] objcet-contain"
+                src="/logo/logo_white.png"
+                alt="Cardan logo"
+              />
             </div>
             <div class="flex items-center gap-2">
               <!-- <img src="/certifications/drempelvrij-2ster.svg" alt="Drempelvrij 2 sterren" /> -->
@@ -41,16 +61,24 @@
             <h3 class="font-bold text-sm mb-4">Digitale Toegankelijkheid</h3>
             <ul class="space-y-[1rem]">
               <li>
-                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> Diensten </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base">
+                  Diensten
+                </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> Branches </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base">
+                  Branches
+                </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> De WCAG </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base">
+                  De WCAG
+                </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> Blog </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base">
+                  Blog
+                </NuxtLink>
               </li>
               <li>
                 <NuxtLink to="#" class="hover:underline text-sm md:text-base">
@@ -75,7 +103,9 @@
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> Vacatures </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base">
+                  Vacatures
+                </NuxtLink>
               </li>
             </ul>
           </div>
@@ -171,5 +201,4 @@
   </footer>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>

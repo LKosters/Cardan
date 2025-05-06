@@ -1,6 +1,3 @@
-<template>
-    Footer
-</template>
+<template>Footer</template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>

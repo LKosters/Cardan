@@ -33,15 +33,7 @@
         </div>
         
         <div class="md:w-1/2">
-          <div class="grid grid-cols-4 gap-1">
-            <div v-for="i in 12" :key="i" class="aspect-square bg-gray-200">
-              <img 
-                :src="`/placeholder.svg?height=150&width=150`" 
-                alt="Team member" 
-                class="w-full h-full object-cover grayscale"
-              />
-            </div>
-          </div>
+          <img src="/public/cardanners_1.avif" alt="Cardan Team" class="w-full h-full object-cover rounded-4xl">
         </div>
       </div>
     </section>

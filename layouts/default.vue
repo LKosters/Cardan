@@ -2,8 +2,9 @@
   <UiHeader />
   <div class="bg-black min-h-screen">
     <slot />
-    <UiNav />
+    <!-- <UiNav /> -->
   </div>
+  <UiFooter />
 </template>
 
 <script lang="ts" setup></script>

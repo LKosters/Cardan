@@ -197,6 +197,7 @@
       <button
         @click="mobileMenuOpen = !mobileMenuOpen"
         class="md:hidden focus:outline-none"
+        aria-label="Toggle navigation menu"
       >
         <svg
           class="h-6 w-6"

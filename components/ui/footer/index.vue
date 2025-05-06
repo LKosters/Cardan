@@ -1,8 +1,7 @@
 <template>
-  <footer class="w-full">
-    <div
-      class="bg-primary text-white py-12 px-2 md:px-4 relative overflow-hidden"
-    >
+  <footer class="w-full bg-primary">
+    <div class="text-white py-12 container relative overflow-hidden">
+
       <!-- Background SVG -->
       <div class="absolute inset-0 pointer-events-none hidden md:block">
         <svg

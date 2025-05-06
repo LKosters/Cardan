@@ -16,16 +16,16 @@
         <div class="mb-12">
           <div class="flex items-center gap-[1.5rem]">
             <div class="text-sm font-bold flex items-center">
-              <NuxtImg src="/logo/logo_white.png" alt="Cardan logo" />
+              <img class="h-[30px] objcet-contain" src="/logo/logo_white.png" alt="Cardan logo" />
             </div>
             <div class="flex items-center gap-2">
-              <!-- <NuxtImg src="/certifications/drempelvrij-2ster.svg" alt="Drempelvrij 2 sterren" /> -->
-              <NuxtImg
+              <!-- <img src="/certifications/drempelvrij-2ster.svg" alt="Drempelvrij 2 sterren" /> -->
+              <img
                 class="size-[36px]"
                 src="/certifications/ddai-geaccrediteerd.png"
                 alt="Ddai geaccrediteerd"
               />
-              <NuxtImg
+              <img
                 class="size-[36px]"
                 src="/certifications/iso-9001-gecertificeerd.png"
                 alt="ISO 9001 gecertificeerd"

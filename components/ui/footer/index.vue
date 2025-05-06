@@ -2,7 +2,7 @@
   <footer class="w-full">
     <div class="bg-primary text-white py-12 px-2 md:px-4 relative overflow-hidden">
       <!-- Background SVG -->
-      <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute inset-0 pointer-events-none hidden md:block">
         <svg width="450" height="450" viewBox="0 0 688 684" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute right-0 top-0">
           <g opacity="0.06">
             <path d="M255.27 789.313C371.566 789.313 465.842 695.036 465.842 578.74C465.842 462.444 371.566 368.168 255.27 368.168C138.974 368.168 44.6973 462.444 44.6973 578.74C44.6973 695.036 138.974 789.313 255.27 789.313Z" fill="white"/>
@@ -41,19 +41,19 @@
             <h3 class="font-bold text-sm mb-4">Digitale Toegankelijkheid</h3>
             <ul class="space-y-[1rem]">
               <li>
-                <NuxtLink to="#" class="hover:underline"> Diensten </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> Diensten </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline"> Branches </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> Branches </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline"> De WCAG </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> De WCAG </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline"> Blog </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> Blog </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline">
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base">
                   Inschrijven nieuwsbrief
                 </NuxtLink>
               </li>
@@ -65,17 +65,17 @@
             <h3 class="font-bold text-sm mb-4">Cardan</h3>
             <ul class="space-y-[1rem]">
               <li>
-                <NuxtLink to="#" class="hover:underline">
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base">
                   Over Cardan
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline">
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base">
                   Onze mensen
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="#" class="hover:underline"> Vacatures </NuxtLink>
+                <NuxtLink to="#" class="hover:underline text-sm md:text-base"> Vacatures </NuxtLink>
               </li>
             </ul>
           </div>
@@ -84,7 +84,7 @@
           <div>
             <h3 class="font-bold text-sm mb-4">Contact</h3>
             <ul class="space-y-[1rem]">
-              <li>
+              <li class="text-sm md:text-base">
                 Mail ons op
                 <NuxtLink
                   to="mailto:contact@cardan.com"
@@ -93,13 +93,13 @@
                   contact@cardan.com
                 </NuxtLink>
               </li>
-              <li>
+              <li class="text-sm md:text-base">
                 Of bel naar
                 <NuxtLink to="#" class="font-bold hover:underline">
                   +31 (0)88 500 4070
                 </NuxtLink>
               </li>
-              <li>
+              <li class="text-sm md:text-base">
                 Burgemeester Brokxlaan 32
                 <br />
                 5041 SB Tilburg

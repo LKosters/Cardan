@@ -38,7 +38,7 @@
 
       <div class="md:w-1/2">
         <img
-          src="/public/cardanners_1.avif"
+          src="/cardanners_1.avif"
           alt="Cardan Team"
           class="w-full h-full object-cover rounded-4xl"
         />

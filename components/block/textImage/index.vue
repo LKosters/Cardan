@@ -1,4 +1,4 @@
-  <!-- pages/index.vue -->
+<!-- pages/index.vue -->
 <template>
   <main>
     <!-- Hero Section -->
@@ -13,11 +13,7 @@
           </p>
         </div>
         <div class="relative h-64 md:h-80">
-          <img
-            :src="image"
-            :alt="title"
-            class="object-cover rounded-lg"
-          />
+          <img :src="image" :alt="title" class="object-cover rounded-lg" />
         </div>
       </div>
     </section>

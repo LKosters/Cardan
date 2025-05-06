@@ -2,7 +2,7 @@
 <template>
   <main>
     <!-- Hero Section -->
-    <section class="py-16 px-4 max-w-7xl mx-auto">
+    <section class="py-16 container">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h1 class="text-3xl md:text-4xl font-bold mb-4">

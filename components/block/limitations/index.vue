@@ -1,6 +1,6 @@
 <template>
-    <section class="py-16 px-4">
-      <div class="max-w-7xl mx-auto">
+    <section class="py-16">
+      <div class="container">
         <h2 class="text-3xl font-bold mb-4">Soorten beperkingen.</h2>
         <p class="text-gray-700 mb-12 max-w-3xl">
           Inzicht in verschillende beperkingen helpt ons inclusieve oplossingen te ontwikkelen. Door deze beperkingen te begrijpen, kunnen we een toegankelijkere omgeving creëren waarin iedereen gelijkwaardig kan participeren, ongeacht hun uitdagingen.

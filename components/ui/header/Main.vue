@@ -1,6 +1,6 @@
 <template>
   <header :class="{'!bg-white/60 backdrop-blur-md' : scrollY > 10}" class="border-b border-gray-200 sticky z-10 top-0 bg-white">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="container py-4 flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center">
         <NuxtLink to="/" class="flex items-center">

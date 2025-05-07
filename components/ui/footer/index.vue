@@ -1,7 +1,6 @@
 <template>
   <footer class="w-full bg-primary">
     <div class="text-white py-12 container relative overflow-hidden">
-
       <!-- Background SVG -->
       <div class="absolute inset-0 pointer-events-none hidden md:block">
         <svg

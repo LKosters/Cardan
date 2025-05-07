@@ -16,10 +16,7 @@
           type="text"
           placeholder="Website URL..."
         />
-        <button
-          @click="visitWebsite"
-          class="btn-primary"
-        >
+        <button @click="visitWebsite" class="btn-primary">
           Bezoek website
         </button>
       </div>
@@ -35,7 +32,7 @@ function visitWebsite() {
     // check if the url is valid
     const url = new URL(websiteUrl.value);
     if (url.protocol) {
-      console.log("Visiting:", websiteUrl.value);
+      navigateTo(`/eigen-site?website=${websiteUrl.value}`);
     }
   }
 }

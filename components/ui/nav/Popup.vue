@@ -13,6 +13,7 @@
       :tabindex="0"
       :aria-label="item.tooltip"
       @keydown="onKeyDown($event, idx)"
+      @click="submitValue(item.tooltip)"
       :ref="(el) => (menuItemRefs[idx] = el as HTMLElement | null)"
     >
       <component :is="item.icon" />
@@ -25,6 +26,8 @@
 
 <script lang="ts" setup>
 import { defineProps, ref, watch, onMounted, nextTick } from "vue";
+import { useRoute, useRouter } from "nuxt/app";
+
 interface PopupItem {
   icon: any;
   tooltip: string;
@@ -42,7 +45,12 @@ const props = defineProps({
   autoFocus: Boolean,
 });
 
+const emit = defineEmits(["filter", "focusin", "focusout"]);
+
 const menuItemRefs = ref<(HTMLElement | null)[]>([]);
+
+const route = useRoute();
+const router = useRouter();
 
 watch(
   () => props.autoFocus,
@@ -86,5 +94,14 @@ function focusMenuItem(idx: number) {
   if (menuItemRefs.value[idx]) {
     menuItemRefs.value[idx]?.focus();
   }
+}
+
+function submitValue(value: string) {
+  router.push({
+    query: {
+      ...route.query,
+      filter: value.toLowerCase().replace(/\s+/g, "-"),
+    },
+  });
 }
 </script>

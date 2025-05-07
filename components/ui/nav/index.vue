@@ -1,7 +1,7 @@
 <template>
   <nav
     ref="navRoot"
-    class="bg-secondary-alt w-max fixed bottom-14 left-0 right-0 mx-auto rounded-[10px] px-[35px] py-[7px]"
+    class="bg-secondary-alt w-max fixed bottom-14 left-0 right-0 mx-auto rounded-[10px] px-[35px] py-[7px] shadow-lg"
     role="navigation"
     aria-label="Main navigation"
     @focusin="onNavFocusIn"
@@ -48,8 +48,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import type { Ref } from "vue";
 import IconSwatch from "~/components/icon/swatch/index.vue";
 import IconEye from "~/components/icon/eye/index.vue";
 import IconCardan from "~/components/icon/cardan/index.vue";
@@ -109,6 +107,7 @@ const focusedNavIndex = ref<number | null>(null);
 const popupHasFocus = ref(false);
 const navRoot = ref<HTMLElement | null>(null);
 const focusCount = ref(0);
+const selectedOption = ref<{ icon: any, tooltip?: string } | null>(null);
 
 function onKeyDown(e: KeyboardEvent, index: number) {
   if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") {
@@ -141,6 +140,7 @@ function onItemClick(index: number) {
   } else {
     activeIndex.value = index;
     focusedNavIndex.value = null;
+    selectedOption.value = navItems[index];
   }
 }
 

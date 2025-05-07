@@ -50,7 +50,8 @@
   <div class="bg-secondary-alt py-4 px-4">
     <div class="container">
       <div
-        class="mx-auto flex flex-wrap justify-center md:justify-between gap-4 text-sm">
+        class="mx-auto flex flex-wrap justify-center md:justify-between gap-4 text-sm"
+      >
         <div class="flex items-center gap-2">
           <IconCheck class="h-4 w-4 text-secondary" />
           <span>WCAG 2.2 onderzoeken</span>
@@ -65,7 +66,9 @@
         </div>
         <div class="flex items-center gap-2">
           <IconCheck class="h-4 w-4 text-secondary" />
-          <span>Alle hulp bij de <strong>European Acessibility Act</strong></span>
+          <span
+            >Alle hulp bij de <strong>European Acessibility Act</strong></span
+          >
         </div>
       </div>
     </div>

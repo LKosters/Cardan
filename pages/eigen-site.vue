@@ -18,8 +18,6 @@ definePageMeta({
 
 useHead({
   title: "Eigen site | Cardan",
-  meta: [
-    { name: "description", content: "Eigen site | Cardan" },
-  ],
+  meta: [{ name: "description", content: "Eigen site | Cardan" }],
 });
 </script>

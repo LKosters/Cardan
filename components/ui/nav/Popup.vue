@@ -26,7 +26,7 @@
 
 <script lang="ts" setup>
 import { defineProps, ref, watch, onMounted, nextTick } from "vue";
-import { useRoute, useRouter } from 'nuxt/app';
+import { useRoute, useRouter } from "nuxt/app";
 
 interface PopupItem {
   icon: any;
@@ -45,7 +45,7 @@ const props = defineProps({
   autoFocus: Boolean,
 });
 
-const emit = defineEmits(['filter', 'focusin', 'focusout']);
+const emit = defineEmits(["filter", "focusin", "focusout"]);
 
 const menuItemRefs = ref<(HTMLElement | null)[]>([]);
 
@@ -100,8 +100,8 @@ function submitValue(value: string) {
   router.push({
     query: {
       ...route.query,
-      filter: value.toLowerCase().replace(/\s+/g, '-')
-    }
-  })
+      filter: value.toLowerCase().replace(/\s+/g, "-"),
+    },
+  });
 }
 </script>

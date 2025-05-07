@@ -12,7 +12,7 @@
         v-for="(item, index) in navItems"
         :key="index"
         class="hover:bg-white rounded-b-[10px] duration-300 cursor-pointer"
-        :class="{'hover:!bg-transparent': item.link}"
+        :class="{ 'hover:!bg-transparent': item.link }"
         :aria-haspopup="item.items ? 'true' : undefined"
         :aria-expanded="activeIndex === index ? 'true' : 'false'"
         :tabindex="0"
@@ -112,7 +112,7 @@ const focusedNavIndex = ref<number | null>(null);
 const popupHasFocus = ref(false);
 const navRoot = ref<HTMLElement | null>(null);
 const focusCount = ref(0);
-const selectedOption = ref<{ icon: any, tooltip?: string } | null>(null);
+const selectedOption = ref<{ icon: any; tooltip?: string } | null>(null);
 
 function onKeyDown(e: KeyboardEvent, index: number) {
   if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") {

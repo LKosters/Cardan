@@ -1,5 +1,5 @@
 <template>
-  <div :class="filter" style="position: relative; background: black;">
+  <div :class="filter" style="position: relative; background: black">
     <iframe
       :src="url"
       title="Website Preview"
@@ -7,17 +7,30 @@
       sandbox="allow-same-origin allow-scripts"
     />
     <div
-    v-if="filter === 'choker'"
-    class="absolute inset-0 bg-black pointer-events-none"
-    style="
-      mask: radial-gradient(circle at center, transparent 100px, black 220px);
-      WebkitMask: radial-gradient(circle at center, transparent 100px, black 220px);
-    "
-                  ></div>
+      v-if="filter === 'choker'"
+      class="absolute inset-0 bg-black pointer-events-none"
+      style="
+        mask: radial-gradient(circle at center, transparent 100px, black 220px);
+        webkitmask: radial-gradient(
+          circle at center,
+          transparent 100px,
+          black 220px
+        );
+      "
+    ></div>
     <div v-if="filter === 'stains'">
-      <div class="stain" style="top: 35%; left: 35%; width: 220px; height: 220px;"></div>
-      <div class="stain" style="top: 60%; left: 60%; width: 200px; height: 200px;"></div>
-      <div class="stain" style="top: 40%; left: 65%; width: 190px; height: 190px;"></div>
+      <div
+        class="stain"
+        style="top: 35%; left: 35%; width: 220px; height: 220px"
+      ></div>
+      <div
+        class="stain"
+        style="top: 60%; left: 60%; width: 200px; height: 200px"
+      ></div>
+      <div
+        class="stain"
+        style="top: 40%; left: 65%; width: 190px; height: 190px"
+      ></div>
     </div>
   </div>
 </template>

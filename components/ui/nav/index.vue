@@ -12,6 +12,7 @@
         v-for="(item, index) in navItems"
         :key="index"
         class="hover:bg-white rounded-b-[10px] duration-300 cursor-pointer"
+        :class="{'hover:!bg-transparent': item.link}"
         :aria-haspopup="item.items ? 'true' : undefined"
         :aria-expanded="activeIndex === index ? 'true' : 'false'"
         :tabindex="0"
@@ -41,7 +42,10 @@
             />
           </div>
         </transition>
-        <component :is="item.icon" />
+        <a v-if="item.link" :href="item.link">
+          <component :is="item.icon" />
+        </a>
+        <component v-else :is="item.icon" />
       </li>
     </ul>
   </nav>
@@ -92,6 +96,7 @@ const navItems = [
   },
   {
     icon: IconCardan,
+    link: "/kies-website",
   },
   {
     icon: IconPicker,

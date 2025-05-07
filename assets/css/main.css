@@ -8,6 +8,22 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+/* Buttons */
+
+.btn-primary {
+  @apply bg-primary text-white px-4 py-2 rounded-md transition hover:opacity-80 duration-300;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white px-4 py-2 rounded-md transition hover:opacity-80 duration-300;
+}
+
+input {
+  height: 2.5rem;
+  padding-inline: 0.65rem;
+  @apply bg-secondary-alt border border-solid rounded-md;
+}
+
 /* Container classes */
 .container {
   width: 100%;

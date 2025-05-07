@@ -1,5 +1,8 @@
 <template>
-  <div class="bg-secondary-alt rounded-lg overflow-hidden h-full flex flex-col">
+  <a
+    :href="link"
+    class="bg-secondary-alt rounded-lg overflow-hidden h-full flex flex-col"
+  >
     <div class="relative h-48">
       <img :src="image" :alt="title" fill class="object-cover w-full h-full" />
     </div>
@@ -17,7 +20,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script lang="ts" setup>
@@ -25,5 +28,6 @@ const props = defineProps({
   title: String,
   description: String,
   image: String,
+  link: String,
 });
 </script>

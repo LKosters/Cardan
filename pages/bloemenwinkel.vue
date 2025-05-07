@@ -1,5 +1,5 @@
 <template>
-    <div class="coppelmans-homepage">
+    <div class="bloemenwinkel-homepage">
       <!-- Header -->
       <header class="bg-white shadow-sm">
         <div class="container mx-auto px-4 py-4">
@@ -9,7 +9,7 @@
               <NuxtLink to="/" class="flex flex-col items-center md:items-start">
                 <div class="flex items-center">
                   <div class="w-6 h-6 bg-[#a02279] mr-1"></div>
-                  <span class="text-[#2d5741] text-3xl font-bold">coppelmans</span>
+                  <span class="text-[#2d5741] text-3xl font-bold">Bloemenwinkel</span>
                 </div>
                 <span class="text-[#2d5741] text-sm">tuincentrum vol groene ideeën</span>
               </NuxtLink>
@@ -91,7 +91,7 @@
               <div class="relative">
                 <img 
                   src="/" 
-                  alt="Coppelmans folder" 
+                  alt="Bloemenwinkel folder" 
                   class="w-full h-auto rounded-lg shadow-lg"
                 />
                 <div class="absolute bottom-4 right-4 flex flex-col items-end">
@@ -719,7 +719,7 @@
             
             <!-- Column 2 -->
             <div>
-              <h3 class="font-bold text-lg mb-4">Locaties Coppelmans</h3>
+              <h3 class="font-bold text-lg mb-4">Locaties Bloemenwinkel</h3>
               <ul class="space-y-2 text-sm">
                 <li><NuxtLink to="/winkels/nuenen" class="hover:underline">Nuenen</NuxtLink></li>
                 <li><NuxtLink to="/winkels/valkenswaard" class="hover:underline">Valkenswaard</NuxtLink></li>
@@ -769,7 +769,7 @@
           </div>
           
           <div class="border-t border-gray-600 pt-6 text-center text-sm">
-            <p>© {{ new Date().getFullYear() }} Coppelmans Tuincentra. Alle rechten voorbehouden.</p>
+            <p>© {{ new Date().getFullYear() }} Bloemenwinkel. Alle rechten voorbehouden.</p>
           </div>
         </div>
       </footer>
@@ -782,7 +782,7 @@
   
   <style scoped>
   /* Custom styles */
-  .coppelmans-homepage {
+  .Bloemenwinkel-homepage {
     font-family: 'Arial', sans-serif;
   }
   

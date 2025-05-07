@@ -10,11 +10,33 @@
         website URL in.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 max-w-lg">
-        <input class="w-[300px]" type="text" placeholder="Website URL..." />
-        <button class="btn-primary">Bezoek website</button>
+        <input
+          v-model="websiteUrl"
+          class="w-[300px]"
+          type="text"
+          placeholder="Website URL..."
+        />
+        <button
+          @click="visitWebsite"
+          class="btn-primary"
+        >
+          Bezoek website
+        </button>
       </div>
     </div>
   </section>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const websiteUrl = ref("");
+
+function visitWebsite() {
+  if (websiteUrl.value) {
+    // check if the url is valid
+    const url = new URL(websiteUrl.value);
+    if (url.protocol) {
+      console.log("Visiting:", websiteUrl.value);
+    }
+  }
+}
+</script>

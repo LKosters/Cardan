@@ -42,7 +42,7 @@ const websiteUrl = ref("");
 const recentUrls = ref<string[]>([]);
 
 onMounted(() => {
-  const stored = localStorage.getItem('recentWebsiteUrls');
+  const stored = localStorage.getItem("recentWebsiteUrls");
   if (stored) {
     recentUrls.value = JSON.parse(stored);
   }
@@ -55,7 +55,7 @@ function useRecentUrl(url: string) {
 function updateRecentUrls(url: string) {
   const urls = new Set([url, ...recentUrls.value]);
   recentUrls.value = Array.from(urls).slice(0, 3);
-  localStorage.setItem('recentWebsiteUrls', JSON.stringify(recentUrls.value));
+  localStorage.setItem("recentWebsiteUrls", JSON.stringify(recentUrls.value));
 }
 
 function visitWebsite() {

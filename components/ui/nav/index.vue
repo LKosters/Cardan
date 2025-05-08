@@ -23,11 +23,7 @@
         <a v-if="item.link" :href="item.link">
           <component :is="item.icon" />
         </a>
-        <button
-          class="cursor-pointer"
-          v-else-if="item.clear"
-          @click="clear()"
-        >
+        <button class="cursor-pointer" v-else-if="item.clear" @click="clear()">
           <component :is="item.icon" />
         </button>
         <component v-else :is="item.icon" />

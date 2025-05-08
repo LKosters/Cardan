@@ -1,5 +1,5 @@
 <template>
-  <div class="slider-container">
+  <div class="slider-container pr-5 pl-5">
     <!-- <div class="slider-header">
       <label :for="id" class="slider-label">{{ label }}</label>
       <span class="slider-value">{{ displayValue }}</span>

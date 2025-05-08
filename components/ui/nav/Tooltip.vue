@@ -2,7 +2,7 @@
   <div
     :id="id"
     role="tooltip"
-    class="bg-white rounded-[10px] px-[10px] py-[5px] absolute w-max translate-x-[45px] -translate-y-full"
+    class="bg-white rounded-[10px] px-[10px] py-[5px] absolute w-max translate-x-[30px] -translate-y-[50%]"
   >
     {{ text }}
   </div>

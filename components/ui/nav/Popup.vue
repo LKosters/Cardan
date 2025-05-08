@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white rounded-t-[10px] absolute -translate-y-full p-[10px] flex flex-col items-center gap-[10px]"
+    class="bg-white rounded-t-[10px] absolute -translate-y-[calc(100%)] flex flex-col items-center -translate-x-[50%] gap-5 pb-2 pt-5"
     role="menu"
     @focusin="$emit('focusin')"
     @focusout="$emit('focusout')"
@@ -8,11 +8,10 @@
     <div
       v-for="(item, idx) in items"
       :key="item.icon"
-      class="group/popup"
+      class="group/popup w-14 h-max flex items-center justify-center"
       role="menuitem"
       :tabindex="0"
       :aria-label="item.tooltip"
-      @keydown="onKeyDown($event, idx)"
       @click="submitValue(item.tooltip)"
       :ref="(el) => (menuItemRefs[idx] = el as HTMLElement | null)"
     >
@@ -25,8 +24,8 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, ref, watch, onMounted, nextTick } from "vue";
-import { useRoute, useRouter } from "nuxt/app";
+const route = useRoute();
+const router = useRouter();
 
 interface PopupItem {
   icon: any;
@@ -45,12 +44,7 @@ const props = defineProps({
   autoFocus: Boolean,
 });
 
-const emit = defineEmits(["filter", "focusin", "focusout"]);
-
 const menuItemRefs = ref<(HTMLElement | null)[]>([]);
-
-const route = useRoute();
-const router = useRouter();
 
 watch(
   () => props.autoFocus,

@@ -10,7 +10,7 @@
         v-for="(item, index) in navItems"
         :key="index"
         class="nav-item hover:bg-white rounded-b-[10px] duration-300 cursor-pointer size-14 flex items-center justify-center relative"
-        :class="{ 'hover:!bg-transparent': item.link || item.clear }"
+        :class="{ '!rounded-[10px]': item.link || item.clear }"
         :aria-haspopup="item.items ? 'true' : undefined"
         :aria-expanded="false"
         :tabindex="0"

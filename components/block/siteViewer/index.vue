@@ -9,14 +9,14 @@
     <div
       v-if="filter === 'choker'"
       class="absolute inset-0 bg-black pointer-events-none"
-      style="
-        mask: radial-gradient(circle at center, transparent 100px, black 220px);
+      :style="`
+        mask: radial-gradient(circle at center, transparent ${100 * (100 - intensity) / 50}px, black ${220 * (100 - intensity) / 50}px);
         webkitmask: radial-gradient(
           circle at center,
-          transparent 100px,
-          black 220px
+          transparent ${100 * (100 - intensity) / 50}px,
+          black ${220 * (100 - intensity) / 50}px
         );
-      "
+      `"
     ></div>
     <div v-if="filter === 'stains'">
       <div
@@ -45,27 +45,31 @@ const props = defineProps({
     type: String,
     required: false,
   },
+  intensity: {
+    type: Number,
+    default: 50,
+  },
 });
 </script>
 
 <style scoped>
 .pink-blue {
-  filter: hue-rotate(180deg) saturate(1.5);
+  filter: hue-rotate(calc(180deg * v-bind(intensity) / 50)) saturate(calc(1.5 * v-bind(intensity) / 50));
 }
 
 .blue-yellow {
-  filter: hue-rotate(90deg) saturate(1.2);
+  filter: hue-rotate(calc(90deg * v-bind(intensity) / 50)) saturate(calc(1.2 * v-bind(intensity) / 50));
 }
 
 .choker {
 }
 
 .blurred {
-  filter: blur(2px);
+  filter: blur(calc(2px * v-bind(intensity) / 50));
 }
 
 .stains {
-  filter: contrast(0.8) brightness(1.2);
+  filter: contrast(calc(0.8 * v-bind(intensity) / 50)) brightness(calc(1.2 * v-bind(intensity) / 50));
 }
 
 .stain {

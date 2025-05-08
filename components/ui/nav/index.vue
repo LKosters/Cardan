@@ -10,7 +10,7 @@
         v-for="(item, index) in navItems"
         :key="index"
         class="nav-item hover:bg-white rounded-b-[10px] duration-300 cursor-pointer size-14 flex items-center justify-center relative"
-        :class="{ 'hover:!bg-transparent': item.link || !item.items }"
+        :class="{ 'hover:!bg-transparent': item.link || item.clear }"
         :aria-haspopup="item.items ? 'true' : undefined"
         :aria-expanded="false"
         :tabindex="0"
@@ -26,6 +26,15 @@
         <button class="cursor-pointer" v-else-if="item.clear" @click="clear()">
           <component :is="item.icon" />
         </button>
+        <button
+          class="cursor-pointer"
+          v-else-if="item.intensity"
+        >
+          <div class="popup-container bg-white rounded-r-[10px] absolute flex flex-col items-center -translate-y-[300%] -translate-x-[50%] -rotate-90">
+            <UiSlider v-model="sliderValue" />
+          </div>
+          <component :is="item.icon" />
+        </button>
         <component v-else :is="item.icon" />
       </li>
     </ul>
@@ -35,6 +44,8 @@
 <script lang="ts" setup>
 const route = useRoute();
 const router = useRouter();
+
+const sliderValue = ref(50);
 
 import IconSwatch from "~/components/icon/swatch/index.vue";
 import IconEye from "~/components/icon/eye/index.vue";
@@ -89,6 +100,7 @@ const navItems = [
   },
   {
     icon: IconSetting,
+    intensity: true,
   },
 ];
 
@@ -101,6 +113,19 @@ const clear = () => {
     },
   });
 };
+
+const invokeIntensity = () => {
+  router.push({
+    query: {
+      ...route.query,
+      intensity: sliderValue.value,
+    },
+  });
+};
+
+watch(sliderValue, (value) => {
+  invokeIntensity();
+});
 </script>
 
 <style scoped>

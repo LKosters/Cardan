@@ -12,7 +12,7 @@
       <div class="flex flex-col sm:flex-row gap-4 max-w-lg">
         <input
           v-model="websiteUrl"
-          class="md:w-[300px]"
+          class="md:w-[300px] input"
           type="text"
           placeholder="Website URL..."
         />

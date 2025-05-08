@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BlockSiteViewer :url="website" :filter="route.query.filter" />
+    <BlockSiteViewer :url="website" :filter="route.query.filter" :intensity="route.query.intensity" />
   </div>
 </template>
 

@@ -20,18 +20,49 @@
           Bezoek website
         </button>
       </div>
+      <div v-if="recentUrls.length > 0" class="mt-4">
+        <p class="text-sm text-gray-600 mb-2">Recente websites:</p>
+        <div class="flex flex-wrap gap-2">
+          <button
+            v-for="url in recentUrls"
+            :key="url"
+            @click="useRecentUrl(url)"
+            class="text-left text-blue-600 hover:text-blue-800 btn-secondary w-max"
+          >
+            {{ url }}
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
 const websiteUrl = ref("");
+const recentUrls = ref<string[]>([]);
+
+onMounted(() => {
+  const stored = localStorage.getItem('recentWebsiteUrls');
+  if (stored) {
+    recentUrls.value = JSON.parse(stored);
+  }
+});
+
+function useRecentUrl(url: string) {
+  websiteUrl.value = url;
+}
+
+function updateRecentUrls(url: string) {
+  const urls = new Set([url, ...recentUrls.value]);
+  recentUrls.value = Array.from(urls).slice(0, 3);
+  localStorage.setItem('recentWebsiteUrls', JSON.stringify(recentUrls.value));
+}
 
 function visitWebsite() {
   if (websiteUrl.value) {
-    // check if the url is valid
     const url = new URL(websiteUrl.value);
     if (url.protocol) {
+      updateRecentUrls(websiteUrl.value);
       navigateTo(`/eigen-site?website=${websiteUrl.value}`);
     }
   }

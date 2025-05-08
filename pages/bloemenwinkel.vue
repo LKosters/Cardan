@@ -119,11 +119,9 @@
               />
               <div class="absolute bottom-4 right-4 flex flex-col items-end">
                 <h3 class="text-[#e4004f] text-2xl font-medium mb-2">
-                  Bekijk de folder
+                  Bekijk de folder <span class="inline-block bg-[#e4004f] text-white rounded-full pl-2 pr-2 text-center">→</span>
                 </h3>
-                <div class="bg-[#e4004f] text-white rounded-full p-2 text-center">
-                  <span class="inline-block w-5 h-5">→</span>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -133,7 +131,7 @@
             <!-- Promotion 1 -->
             <div class="bg-white rounded-lg overflow-hidden shadow-md relative">
               <img
-                src="/bloemenwinkel/scene1.jpg"
+                src="/bloemenwinkel/plant5.jpg"
                 alt="Elderly couple looking at plants"
                 class="w-full h-auto"
               />
@@ -164,7 +162,6 @@
                   class="absolute top-4 left-4 bg-[#e4004f] text-white rounded-full p-2 flex flex-col items-center"
                 >
                   <span class="text-xl font-bold">20%</span>
-                  <span class="text-xs">KORTING</span>
                 </div>
               </div>
             </div>
@@ -183,12 +180,6 @@
         </div>
 
         <div class="relative">
-          <!-- Previous Button -->
-          <div
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
-          >
-            <span class="block w-6 h-6 text-[#2d5741] text-center">←</span>
-          </div>
 
           <!-- Categories Carousel -->
           <div class="flex overflow-x-auto gap-4 py-4 px-8">
@@ -251,13 +242,6 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Next Button -->
-          <div
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
-          >
-            <span class="block w-6 h-6 text-[#2d5741] text-center">→</span>
           </div>
         </div>
       </div>
@@ -816,26 +800,12 @@
             <h3 class="font-bold text-lg mt-6 mb-4">
               Blijf op de hoogte van de laatste trends
             </h3>
-            <div class="flex space-x-3">
-              <div class="hover:text-gray-300 border rounded-full w-6 h-6 flex items-center justify-center">
-                FB
-              </div>
-              <div class="hover:text-gray-300 border rounded-full w-6 h-6 flex items-center justify-center">
-                IG
-              </div>
-              <div class="hover:text-gray-300 border rounded-full w-6 h-6 flex items-center justify-center">
-                YT
-              </div>
-              <div class="hover:text-gray-300 border rounded-full w-6 h-6 flex items-center justify-center">
-                TW
-              </div>
-            </div>
           </div>
         </div>
 
         <div class="border-t border-gray-600 pt-6 text-center text-sm">
           <p>
-            © {{ new Date().getFullYear() }} Bloemenwinkel. Alle rechten
+            © 2025 Bloemenwinkel. Alle rechten
             voorbehouden.
           </p>
         </div>

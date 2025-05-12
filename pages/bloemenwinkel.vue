@@ -28,9 +28,7 @@
                 class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:ring-[#2d5741]"
                 disabled
               />
-              <div
-                class="absolute right-3 top-1/2 transform -translate-y-1/2"
-              >
+              <div class="absolute right-3 top-1/2 transform -translate-y-1/2">
                 <span class="text-gray-400">zoek</span>
               </div>
             </div>
@@ -64,42 +62,28 @@
           class="flex flex-wrap items-center justify-between md:justify-start"
         >
           <li class="py-4 px-2 md:px-4 relative group">
-            <div
-              class="flex items-center text-[#2d5741] font-medium"
-            >
+            <div class="flex items-center text-[#2d5741] font-medium">
               Assortiment
               <span class="ml-1">▼</span>
             </div>
           </li>
           <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >Inspiratie</div
-            >
+            <div class="text-[#2d5741] font-medium">Inspiratie</div>
           </li>
           <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >Folders</div
-            >
+            <div class="text-[#2d5741] font-medium">Folders</div>
           </li>
           <li class="py-4 px-2 md:px-4">
-            <div class="text-[#e4004f] font-medium"
-              >Aanbiedingen</div
-            >
+            <div class="text-[#e4004f] font-medium">Aanbiedingen</div>
           </li>
           <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >Cadeaukaarten</div
-            >
+            <div class="text-[#2d5741] font-medium">Cadeaukaarten</div>
           </li>
           <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >VIPpas</div
-            >
+            <div class="text-[#2d5741] font-medium">VIPpas</div>
           </li>
           <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >Vacatures</div
-            >
+            <div class="text-[#2d5741] font-medium">Vacatures</div>
           </li>
         </ul>
       </div>
@@ -119,9 +103,12 @@
               />
               <div class="absolute bottom-4 right-4 flex flex-col items-end">
                 <h3 class="text-[#e4004f] text-2xl font-medium mb-2">
-                  Bekijk de folder <span class="inline-block bg-[#e4004f] text-white rounded-full pl-2 pr-2 text-center">→</span>
+                  Bekijk de folder
+                  <span
+                    class="inline-block bg-[#e4004f] text-white rounded-full pl-2 pr-2 text-center"
+                    >→</span
+                  >
                 </h3>
-                
               </div>
             </div>
           </div>
@@ -148,7 +135,11 @@
             <!-- Promotion 2 -->
             <div class="bg-[#f0f5f0] rounded-lg overflow-hidden shadow-md flex">
               <div class="w-1/2 p-4 flex flex-col justify-center">
-                <img src="/bloemenwinkel/vippas.jpg" alt="VIPpas" class="w-full h-auto mb-2" />
+                <img
+                  src="/bloemenwinkel/vippas.jpg"
+                  alt="VIPpas"
+                  class="w-full h-auto mb-2"
+                />
                 <h3 class="text-[#2d5741] font-medium">Alléén met je</h3>
                 <p class="text-[#2d5741] text-xl font-bold">VIPPAS</p>
               </div>
@@ -180,7 +171,6 @@
         </div>
 
         <div class="relative">
-
           <!-- Categories Carousel -->
           <div class="flex overflow-x-auto gap-4 py-4 px-8">
             <!-- Category 1 -->
@@ -202,7 +192,11 @@
             <!-- Category 2 -->
             <div class="min-w-[250px] flex-shrink-0">
               <div class="rounded-lg overflow-hidden shadow-md relative">
-                <img src="/bloemenwinkel/bbq.jpg" alt="BBQ grill" class="w-full h-48 object-cover" />
+                <img
+                  src="/bloemenwinkel/bbq.jpg"
+                  alt="BBQ grill"
+                  class="w-full h-48 object-cover"
+                />
                 <div
                   class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 py-2 px-4 text-center"
                 >
@@ -252,9 +246,7 @@
       <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-[#2d5741] text-2xl font-bold">Aanbiedingen</h2>
-          <div class="text-[#2d5741] text-sm">
-            Bekijk alle aanbiedingen
-          </div>
+          <div class="text-[#2d5741] text-sm">Bekijk alle aanbiedingen</div>
         </div>
 
         <div class="relative">
@@ -324,10 +316,10 @@
                   class="w-full h-48 object-contain p-4"
                 />
                 <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">Gevarieerde boeketten</p>
-                  <h3 class="text-[#2d5741] font-medium text-sm mb-2">
-                    Sarah
-                  </h3>
+                  <p class="text-gray-500 text-xs mb-1">
+                    Gevarieerde boeketten
+                  </p>
+                  <h3 class="text-[#2d5741] font-medium text-sm mb-2">Sarah</h3>
                   <div class="flex justify-between items-center">
                     <span class="text-[#e4004f] font-bold">19,00</span>
                   </div>
@@ -356,7 +348,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Product 5 -->
             <div class="min-w-[220px] flex-shrink-0">
               <div
@@ -368,10 +360,10 @@
                   class="w-full h-48 object-contain p-4"
                 />
                 <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">Gevarieerde boeketten</p>
-                  <h3 class="text-[#2d5741] font-medium text-sm mb-2">
-                    Merel
-                  </h3>
+                  <p class="text-gray-500 text-xs mb-1">
+                    Gevarieerde boeketten
+                  </p>
+                  <h3 class="text-[#2d5741] font-medium text-sm mb-2">Merel</h3>
                   <div class="flex justify-between items-center">
                     <span class="text-[#e4004f] font-bold">19,00</span>
                   </div>
@@ -397,7 +389,11 @@
           <!-- Link 1 -->
           <div class="flex flex-col items-center">
             <div class="relative mb-3 w-24 h-24 rounded-full overflow-hidden">
-              <img src="/bloemenwinkel/folder.jpg" alt="Folders" class="w-full h-full object-cover" />
+              <img
+                src="/bloemenwinkel/folder.jpg"
+                alt="Folders"
+                class="w-full h-full object-cover"
+              />
             </div>
             <h3 class="text-[#2d5741] font-medium uppercase text-sm">
               Folders
@@ -407,7 +403,11 @@
           <!-- Link 2 -->
           <div class="flex flex-col items-center">
             <div class="relative mb-3 w-24 h-24 rounded-full overflow-hidden">
-              <img src="/bloemenwinkel/cadeaukaart.jpg" alt="Cadeaukaart" class="w-full h-full object-cover" />
+              <img
+                src="/bloemenwinkel/cadeaukaart.jpg"
+                alt="Cadeaukaart"
+                class="w-full h-full object-cover"
+              />
             </div>
             <h3 class="text-[#2d5741] font-medium uppercase text-sm">
               Cadeaukaart
@@ -417,7 +417,11 @@
           <!-- Link 3 -->
           <div class="flex flex-col items-center">
             <div class="relative mb-3 w-24 h-24 rounded-full overflow-hidden">
-              <img src="/bloemenwinkel/blog.jpg" alt="Blog" class="w-full h-full object-cover" />
+              <img
+                src="/bloemenwinkel/blog.jpg"
+                alt="Blog"
+                class="w-full h-full object-cover"
+              />
             </div>
             <h3 class="text-[#2d5741] font-medium uppercase text-sm">Blog</h3>
           </div>
@@ -425,7 +429,11 @@
           <!-- Link 4 -->
           <div class="flex flex-col items-center">
             <div class="relative mb-3 w-24 h-24 rounded-full overflow-hidden">
-              <img src="/bloemenwinkel/vippas.jpg" alt="VIPpas" class="w-full h-full object-cover" />
+              <img
+                src="/bloemenwinkel/vippas.jpg"
+                alt="VIPpas"
+                class="w-full h-full object-cover"
+              />
             </div>
             <h3 class="text-[#2d5741] font-medium uppercase text-sm">VIPpas</h3>
           </div>
@@ -433,7 +441,11 @@
           <!-- Link 5 -->
           <div class="flex flex-col items-center">
             <div class="relative mb-3 w-24 h-24 rounded-full overflow-hidden">
-              <img src="/bloemenwinkel/winkels.jpg" alt="Winkels" class="w-full h-full object-cover" />
+              <img
+                src="/bloemenwinkel/winkels.jpg"
+                alt="Winkels"
+                class="w-full h-full object-cover"
+              />
             </div>
             <h3 class="text-[#2d5741] font-medium uppercase text-sm">
               Winkels
@@ -544,9 +556,7 @@
                   class="w-full h-48 object-cover"
                 />
                 <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">
-                    Soho tuinset
-                  </p>
+                  <p class="text-gray-500 text-xs mb-1">Soho tuinset</p>
                   <div class="flex justify-between items-center">
                     <span class="text-[#e4004f] font-bold">499,00</span>
                     <span class="text-gray-400 line-through text-sm"
@@ -611,9 +621,7 @@
                   class="w-full h-48 object-cover"
                 />
                 <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">
-                    Kussen gekleurd
-                  </p>
+                  <p class="text-gray-500 text-xs mb-1">Kussen gekleurd</p>
                   <div class="flex justify-between items-center">
                     <span class="text-[#e4004f] font-bold">24,99</span>
                   </div>
@@ -685,29 +693,19 @@
             <h3 class="font-bold text-lg mb-4">Vacatures</h3>
             <ul class="space-y-2 text-sm">
               <li>
-                <div class="hover:underline"
-                  >Alle vacatures</div
-                >
+                <div class="hover:underline">Alle vacatures</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Verkoop medewerker</div
-                >
+                <div class="hover:underline">Verkoop medewerker</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Kassa medewerker</div
-                >
+                <div class="hover:underline">Kassa medewerker</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Logistiek medewerker</div
-                >
+                <div class="hover:underline">Logistiek medewerker</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Management</div
-                >
+                <div class="hover:underline">Management</div>
               </li>
             </ul>
           </div>
@@ -717,24 +715,16 @@
             <h3 class="font-bold text-lg mb-4">Locaties Bloemenwinkel</h3>
             <ul class="space-y-2 text-sm">
               <li>
-                <div class="hover:underline"
-                  >Nuenen</div
-                >
+                <div class="hover:underline">Nuenen</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Valkenswaard</div
-                >
+                <div class="hover:underline">Valkenswaard</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Helmond</div
-                >
+                <div class="hover:underline">Helmond</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Eindhoven</div
-                >
+                <div class="hover:underline">Eindhoven</div>
               </li>
             </ul>
           </div>
@@ -744,34 +734,22 @@
             <h3 class="font-bold text-lg mb-4">Klantenservice</h3>
             <ul class="space-y-2 text-sm">
               <li>
-                <div class="hover:underline"
-                  >Contact</div
-                >
+                <div class="hover:underline">Contact</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Veelgestelde vragen</div
-                >
+                <div class="hover:underline">Veelgestelde vragen</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Bezorging</div
-                >
+                <div class="hover:underline">Bezorging</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Retourneren</div
-                >
+                <div class="hover:underline">Retourneren</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Privacy</div
-                >
+                <div class="hover:underline">Privacy</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Cookies</div
-                >
+                <div class="hover:underline">Cookies</div>
               </li>
             </ul>
           </div>
@@ -781,19 +759,13 @@
             <h3 class="font-bold text-lg mb-4">VIPpas</h3>
             <ul class="space-y-2 text-sm">
               <li>
-                <div class="hover:underline"
-                  >Voordelen</div
-                >
+                <div class="hover:underline">Voordelen</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Aanvragen</div
-                >
+                <div class="hover:underline">Aanvragen</div>
               </li>
               <li>
-                <div class="hover:underline"
-                  >Voorwaarden</div
-                >
+                <div class="hover:underline">Voorwaarden</div>
               </li>
             </ul>
 
@@ -804,10 +776,7 @@
         </div>
 
         <div class="border-t border-gray-600 pt-6 text-center text-sm">
-          <p>
-            © 2025 Bloemenwinkel. Alle rechten
-            voorbehouden.
-          </p>
+          <p>© 2025 Bloemenwinkel. Alle rechten voorbehouden.</p>
         </div>
       </div>
     </footer>

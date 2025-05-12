@@ -26,11 +26,10 @@
         <button class="cursor-pointer" v-else-if="item.clear" @click="clear()">
           <component :is="item.icon" />
         </button>
-        <button
-          class="cursor-pointer"
-          v-else-if="item.intensity"
-        >
-          <div class="popup-container bg-white rounded-r-[10px] absolute flex flex-col items-center -translate-y-[300%] -translate-x-[50%] -rotate-90">
+        <button class="cursor-pointer" v-else-if="item.intensity">
+          <div
+            class="popup-container bg-white rounded-r-[10px] absolute flex flex-col items-center -translate-y-[300%] -translate-x-[50%] -rotate-90"
+          >
             <UiSlider v-model="sliderValue" />
           </div>
           <component :is="item.icon" />

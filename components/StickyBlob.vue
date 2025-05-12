@@ -1,8 +1,9 @@
 <template>
   <div
     :class="[
-      'fixed z-10 pointer-events-none flex justify-center items-center transition-all duration-700 ease-out w-[60vw] h-[60vw] sm:w-[50vw] sm:h-[50vw] md:w-[32vw] md:h-[32vw] lg:w-[28vw] lg:h-[28vw]',
+      'fixed z-10 pointer-events-none flex justify-center items-center w-[60vw] h-[60vw] sm:w-[50vw] sm:h-[50vw] md:w-[32vw] md:h-[32vw] lg:w-[28vw] lg:h-[28vw]',
       positionClass,
+      'transition-all duration-[1000ms] ease-in-out transform'
     ]"
     @click="handleMisclick"
   >
@@ -14,7 +15,7 @@
     <div
       class="absolute flex flex-col items-center justify-center text-center p-3 sm:p-6 md:p-12 mt-2 sm:mt-8 md:mt-12 pointer-events-auto w-full max-w-[90%]"
     >
-      <div class="font-bold text-white text-[4.5vw] sm:text-[3.5vw] md:text-[2vw] lg:text-[1.6rem] sm:mb-0 pt-6">Beperk jezelf</div>
+      <div class="font-bold text-white text-[4.5vw] sm:text-[3.5vw] md:text-[2vw] lg:text-[1.6rem] mb-3 sm:mb-0 pt-6">Beperk jezelf</div>
       <div class="hidden sm:block text-white mb-3 text-[3.5vw] sm:text-[2.5vw] md:text-[1.3vw] lg:text-[1.1rem]">
         Ervaar een website als een persoon met een beperking.
       </div>
@@ -42,13 +43,13 @@ defineProps({
   },
 });
 
-// Adjusted positions for smoother transitions
+// Simplified, consistent positions
 const positions = [
-  "top-1/3 -right-8 sm:-right-6 md:-right-4 lg:-right-2 transform translate-x-0", 
-  "top-1/4 -right-8 sm:-right-6 md:-right-4 lg:-right-2 transform translate-x-0", 
-  "bottom-24 -right-8 sm:-right-6 md:-right-4 lg:-right-2 transform translate-x-0", 
-  "top-1/2 -right-8 sm:-right-6 md:-right-4 lg:-right-2 transform translate-x-0", 
-  "bottom-40 -right-8 sm:-right-6 md:-right-4 lg:-right-2 transform translate-x-0", 
+  "top-1/3 -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full", 
+  "top-1/4 -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full", 
+  "top-[80%] -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full", 
+  "top-1/2 -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full", 
+  "top-[100%] -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full", 
 ];
 
 const currentPositionIndex = ref(0);
@@ -65,13 +66,20 @@ onMounted(() => {
 const handleMisclick = (event) => {
   // Only trigger if the click is not on the button (misclick)
   if (!event.target.closest("a")) {
-    // Move to next position in the array with animation
-    document.querySelector('[class*="fixed z-10"]').style.transition = 'all 700ms cubic-bezier(0.25, 0.1, 0.25, 1)';
-    
-    setTimeout(() => {
-      currentPositionIndex.value =
-        (currentPositionIndex.value + 1) % positions.length;
-    }, 10);
+    // Use Vue's reactivity system to update position
+    currentPositionIndex.value = (currentPositionIndex.value + 1) % positions.length;
   }
 };
 </script>
+
+<style scoped>
+/* Add CSS transitions for smoother animation */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+</style>

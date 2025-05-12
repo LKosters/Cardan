@@ -1,5 +1,8 @@
 <template>
-        <BlockFlowerStore :filter="route.query.filter" :intensity="route.query.intensity" />
+  <BlockFlowerStore
+    :filter="route.query.filter"
+    :intensity="route.query.intensity"
+  />
 </template>
 
 <script setup lang="ts">

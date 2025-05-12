@@ -8,6 +8,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.font-arial {
+  font-family: "Arial", sans-serif;
+}
+
 /* Buttons */
 
 .btn-primary {
@@ -73,4 +77,13 @@ body {
   --color-primary-alt: #e7e5e9;
   --color-secondary: #008743;
   --color-secondary-alt: #e6f7ea;
+}
+
+.slider {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
 }

@@ -35,6 +35,16 @@ definePageMeta({
   layout: "simulation",
 });
 
+useHead({
+  title: "Bloemenwinkel | Cardan",
+  meta: [
+    {
+      name: "description",
+      content: "Ervaar hoe het is om met een beperking te leven",
+    },
+  ],
+});
+
 const route = useRoute();
 
 const props = defineProps({

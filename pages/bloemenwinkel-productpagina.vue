@@ -1,5 +1,5 @@
 <template>
-  <div class="bloemenwinkel-product-page">
+  <div class="bloemenwinkel-product-page overflow-x-hidden">
     <!-- Header -->
     <header class="bg-white shadow-sm">
       <div class="container mx-auto px-4 py-4">
@@ -77,12 +77,28 @@
     </div>
 
     <!-- Main Content -->
-    <main class="py-8">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row gap-8">
-          <!-- Sidebar Filters -->
-          <div class="lg:w-1/4">
-            <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+    <main class="py-4 md:py-8">
+      <div class="container mx-auto px-3 sm:px-4">
+        <!-- Mobile filters button - only visible on mobile -->
+        <div class="block lg:hidden mb-4">
+          <button 
+            @click="showMobileFilters = !showMobileFilters" 
+            class="flex items-center justify-center w-full bg-[#2d5741] text-white py-3 px-4 rounded-lg text-base font-medium"
+          >
+            <span>{{ showMobileFilters ? 'Verberg filters' : 'Toon filters' }}</span>
+            <span class="ml-2">{{ showMobileFilters ? '▲' : '▼' }}</span>
+          </button>
+        </div>
+        
+        <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
+          <!-- Sidebar Filters - responsive with conditional display on mobile -->
+          <div 
+            :class="[
+              'lg:w-1/4 transition-all duration-300 overflow-hidden', 
+              showMobileFilters ? 'max-h-[2000px] opacity-100 mb-4' : 'max-h-0 opacity-0 lg:opacity-100 lg:max-h-none'
+            ]"
+          >
+            <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
               <h3 class="font-medium text-lg mb-4 text-[#2d5741]">
                 Categorieën
               </h3>
@@ -130,11 +146,27 @@
               </ul>
             </div>
           </div>
+
           <!-- Product Listing -->
           <div class="lg:w-3/4">
             <div class="mb-6">
-              <h1 class="text-3xl font-bold text-[#2d5741] mb-2">Producten</h1>
+              <h1 class="text-2xl md:text-3xl font-bold text-[#2d5741] mb-2">Producten</h1>
               <p class="text-gray-600">Bekijk ons uitgebreide assortiment</p>
+              
+              <!-- Active filters summary - helps with mobile viewing -->
+              <div v-if="selectedSubcategories.length > 0 || userHasAdjustedPrice" class="mt-3 flex flex-wrap gap-2">
+                <span class="text-sm text-gray-600">Actieve filters:</span>
+                <div v-for="subcat in selectedSubcategories" :key="subcat" 
+                  class="bg-[#e8f4ed] text-[#2d5741] text-sm px-2 py-1 rounded-full flex items-center">
+                  <span>{{ subcat }}</span>
+                  <button @click="toggleSubcategory(subcat)" class="ml-1">✕</button>
+                </div>
+                <div v-if="userHasAdjustedPrice" 
+                  class="bg-[#e8f4ed] text-[#2d5741] text-sm px-2 py-1 rounded-full flex items-center">
+                  <span>Prijs: €{{ displayMin }} - €{{ displayMax }}</span>
+                  <button @click="resetFilters" class="ml-1">✕</button>
+                </div>
+              </div>
             </div>
 
             <!-- Sorting and Filters -->
@@ -153,26 +185,31 @@
                   <option value="name">Nieuwste eerst</option>
                 </select>
               </div>
+              
+              <!-- Product count -->
+              <div class="text-sm text-gray-600 w-full md:w-auto">
+                Toon: <span class="font-medium">{{ filteredProducts.length }}</span> producten
+              </div>
             </div>
 
-            <!-- Products Grid -->
+            <!-- Products Grid - responsive across all screen sizes -->
             <div
-              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+              class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4"
             >
               <!-- Dynamic Products -->
               <div
                 v-for="product in filteredProducts"
                 :key="product.id"
-                class="bg-white rounded-lg shadow-sm overflow-hidden"
+                class="bg-white rounded-lg shadow-sm overflow-hidden h-full flex flex-col"
               >
                 <div class="relative">
                   <img
                     :src="product.image"
                     :alt="product.name"
-                    class="w-full h-48 object-cover"
+                    class="w-full h-32 sm:h-40 md:h-48 object-cover"
                   />
-                  <button class="absolute top-2 right-2 z-10">
-                    <span class="text-gray-400">❤️</span>
+                  <button class="absolute top-2 right-2 z-10 p-1.5">
+                    <span class="text-gray-400 text-base">❤️</span>
                   </button>
                   <div
                     v-if="product.sale"
@@ -181,13 +218,13 @@
                     Aanbieding
                   </div>
                 </div>
-                <div class="p-3">
-                  <h3 class="text-[#2d5741] font-medium text-sm mb-1">
+                <div class="p-2 sm:p-3 flex flex-col flex-grow">
+                  <h3 class="text-[#2d5741] font-medium text-sm mb-1 line-clamp-2">
                     {{ product.name }}
                   </h3>
-                  <div class="flex justify-between items-center">
+                  <div class="flex justify-between items-center mt-auto pt-2">
                     <div>
-                      <span class="text-[#e4004f] font-bold">{{
+                      <span class="text-[#e4004f] font-bold text-sm sm:text-base">{{
                         product.price.toFixed(2).replace(".", ",")
                       }}</span>
                       <span
@@ -198,12 +235,20 @@
                         }}</span
                       >
                     </div>
-                    <button class="bg-[#2d5741] text-white rounded-full p-1">
+                    <button class="bg-[#2d5741] text-white rounded-full p-1.5 sm:p-2">
                       <span class="text-sm">🛒</span>
                     </button>
                   </div>
                 </div>
               </div>
+            </div>
+            
+            <!-- Empty state message when no products match filters -->
+            <div v-if="filteredProducts.length === 0" class="bg-white rounded-lg shadow-sm p-8 text-center">
+              <p class="text-gray-600 mb-2">Geen producten gevonden die voldoen aan uw criteria.</p>
+              <button @click="resetFilters" class="text-[#2d5741] font-medium">
+                Wis alle filters
+              </button>
             </div>
           </div>
         </div>
@@ -211,28 +256,27 @@
     </main>
 
     <!-- Newsletter -->
-    <section class="py-8 bg-[#f0f5f0]">
-      <div class="container mx-auto px-4">
+    <section class="py-6 md:py-8 bg-[#f0f5f0]">
+      <div class="container mx-auto px-3 sm:px-4">
         <div
-          class="flex flex-col md:flex-row items-center justify-between gap-6 bg-white p-6 rounded-lg shadow-sm"
+          class="flex flex-col md:flex-row items-center justify-between gap-4 bg-white p-4 sm:p-6 rounded-lg shadow-sm"
         >
           <div>
-            <h2 class="text-xl font-bold text-[#2d5741] mb-2">
-              Wees welkomen voor onze gratis prijsvragen!
+            <h2 class="text-lg sm:text-xl font-bold text-[#2d5741] mb-2">
+              Wees welkomen voor onze nieuwsbrief!
             </h2>
-            <p class="text-gray-600">
-              Schrijf je in voor onze nieuwsbrief en ontvang exclusieve
-              aanbiedingen en tuintips.
+            <p class="text-gray-600 text-sm sm:text-base">
+              Schrijf je in en ontvang exclusieve aanbiedingen.
             </p>
           </div>
-          <div class="flex flex-col sm:flex-row gap-2">
+          <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
             <input
               type="email"
               placeholder="Je e-mailadres"
               class="flex-grow py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:ring-[#2d5741]"
             />
             <button
-              class="bg-[#2d5741] text-white py-2 px-6 rounded-full hover:bg-opacity-90 transition-colors"
+              class="bg-[#2d5741] text-white py-2 px-4 sm:px-6 rounded-full hover:bg-opacity-90 transition-colors"
             >
               Aanmelden
             </button>
@@ -260,7 +304,7 @@
               Krijg je de beste tips en adviezen rechtstreeks op je telefoon.
               Download onze app en ontdek alle voordelen.
             </p>
-            <div class="flex gap-4">
+            <div class="flex flex-wrap gap-4">
               <button
                 class="bg-black text-white px-6 py-3 rounded-lg flex items-center gap-2"
               >
@@ -288,7 +332,7 @@
     <!-- Footer -->
     <footer class="bg-[#2d5741] text-white pt-12 pb-6">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <!-- Column 1 -->
           <div>
             <h3 class="font-bold text-lg mb-4">Locaties bloemenwinkel</h3>
@@ -494,6 +538,9 @@ const products = ref([
   },
 ]);
 
+// State for mobile menu
+const showMobileFilters = ref(false);
+
 // Category and filter states
 const selectedCategory = ref("Alle producten");
 const selectedSubcategories = ref([]);
@@ -673,11 +720,24 @@ const toggleSubcategory = (subcategory) => {
   }
 };
 
-// Initialize on mounted
+// Additional computed property for screen size
+const isMobile = ref(false);
+
+// Check if screen is mobile
+const checkMobile = () => {
+  if (typeof window !== 'undefined') {
+    isMobile.value = window.innerWidth < 768;
+  }
+};
+
+// Set up listener for screen size
 onMounted(() => {
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+  
   calculateAbsolutePriceRange();
   resetPriceRange();
-
+  
   const slider = document.querySelector('div[ref="sliderEl"]');
   if (slider) {
     sliderTrack.value = {
@@ -685,6 +745,12 @@ onMounted(() => {
       left: slider.getBoundingClientRect().left,
     };
   }
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkMobile);
+  document.removeEventListener("mousemove", onMouseMove);
+  document.removeEventListener("mouseup", stopDrag);
 });
 
 // Slider drag events
@@ -755,12 +821,6 @@ const onMouseMove = (e) => {
   // Always mark as user adjusted when dragging
   userHasAdjustedPrice.value = true;
 };
-
-// Clean up event listeners when component is unmounted
-onUnmounted(() => {
-  document.removeEventListener("mousemove", onMouseMove);
-  document.removeEventListener("mouseup", stopDrag);
-});
 
 // Update price range gets input values and updates the model
 const updatePriceRange = () => {

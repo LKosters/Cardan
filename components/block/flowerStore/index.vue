@@ -1,22 +1,17 @@
 <template>
   <div :class="filter">
-    <iframe
-      :src="url"
-      title="Website Preview"
-      class="h-screen w-screen"
-      sandbox="allow-same-origin allow-scripts"
-    />
+    <BlockFlowerStoreWebsite />
     <div
       v-if="filter === 'choker'"
-      class="absolute inset-0 bg-black pointer-events-none"
+      class="fixed inset-0 bg-black pointer-events-none"
       :style="`
-        mask: radial-gradient(circle at center, transparent ${(100 * (100 - intensity)) / 50}px, black ${(220 * (100 - intensity)) / 50}px);
-        webkitmask: radial-gradient(
-          circle at center,
-          transparent ${(100 * (100 - intensity)) / 50}px,
-          black ${(220 * (100 - intensity)) / 50}px
-        );
-      `"
+          mask: radial-gradient(circle at center, transparent ${(100 * (100 - intensity)) / 50}px, black ${(220 * (100 - intensity)) / 50}px);
+          webkitmask: radial-gradient(
+            circle at center,
+            transparent ${(100 * (100 - intensity)) / 50}px,
+            black ${(220 * (100 - intensity)) / 50}px
+          );
+        `"
     ></div>
     <div v-if="filter === 'stains'">
       <div
@@ -37,10 +32,6 @@
 
 <script lang="ts" setup>
 const props = defineProps({
-  url: {
-    type: String,
-    required: true,
-  },
   filter: {
     type: String,
     required: false,
@@ -76,7 +67,7 @@ const props = defineProps({
 }
 
 .stain {
-  position: absolute;
+  position: fixed;
   background: black;
   border-radius: 50%;
   opacity: 0.85;

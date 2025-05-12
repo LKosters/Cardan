@@ -40,7 +40,7 @@ const prefabSites = ref([
     title: "Bloemenwereld",
     imageUrl: "/flowers/thumbnail.jpg",
     showOverlay: true,
-    link: "#",
+    link: "/bloemenwinkel",
   },
 ]);
 </script>

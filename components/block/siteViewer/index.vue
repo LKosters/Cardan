@@ -1,5 +1,5 @@
 <template>
-  <div :class="filter" style="position: relative; background: black">
+  <div :class="filter">
     <iframe
       :src="url"
       title="Website Preview"

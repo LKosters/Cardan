@@ -347,7 +347,7 @@
                   <div class="p-3">
                     <h3 class="text-[#2d5741] font-medium text-sm mb-1">Cactus in pot</h3>
                     <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">34,95</span>
+                      <span class="text-[#e4004f] font-bold">7,95</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
                         <ShoppingCartIcon class="h-4 w-4" />
                       </button>
@@ -508,7 +508,7 @@
                   <div class="p-3">
                     <h3 class="text-[#2d5741] font-medium text-sm mb-1">Rattan lounge set</h3>
                     <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">24,95</span>
+                      <span class="text-[#e4004f] font-bold">824,95</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
                         <ShoppingCartIcon class="h-4 w-4" />
                       </button>
@@ -530,7 +530,7 @@
                   <div class="p-3">
                     <h3 class="text-[#2d5741] font-medium text-sm mb-1">Complete tuinset</h3>
                     <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">24,95</span>
+                      <span class="text-[#e4004f] font-bold">435,95</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
                         <ShoppingCartIcon class="h-4 w-4" />
                       </button>
@@ -552,7 +552,7 @@
                   <div class="p-3">
                     <h3 class="text-[#2d5741] font-medium text-sm mb-1">Vaas</h3>
                     <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">24,95</span>
+                      <span class="text-[#e4004f] font-bold">64,95</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
                         <ShoppingCartIcon class="h-4 w-4" />
                       </button>
@@ -574,7 +574,7 @@
                   <div class="p-3">
                     <h3 class="text-[#2d5741] font-medium text-sm mb-1">Stoelenset Oslo</h3>
                     <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">24,95</span>
+                      <span class="text-[#e4004f] font-bold">73,95</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
                         <ShoppingCartIcon class="h-4 w-4" />
                       </button>

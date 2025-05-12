@@ -38,14 +38,7 @@
             
             <!-- User Actions -->
           <div class="user-actions flex items-center space-x-6">
-            <div class="flex items-center text-sm">
-              <span class="text-gray-600 mr-1">📍</span>
-              <span>Kies je winkel</span>
-            </div>
-            <div class="flex items-center text-sm">
-              <span class="text-gray-600 mr-1">👤</span>
-              <span>Inloggen</span>
-            </div>
+            
             <div class="relative">
               <span class="text-gray-600">❤️</span>
             </div>
@@ -71,36 +64,6 @@
               <span class="ml-1">▼</span>
             </div>
           </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >Inspiratie</div
-            >
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >Folders</div
-            >
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#e4004f] font-medium"
-              >Aanbiedingen</div
-            >
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >Cadeaukaarten</div
-            >
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >VIPpas</div
-            >
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium"
-              >Vacatures</div
-            >
-          </li>
         </ul>
       </div>
     </nav>
@@ -113,7 +76,7 @@
             <ChevronRightIcon class="h-3 w-3 mx-1" />
             <div class="hover:text-[#2d5741]">Assortiment</div>
             <ChevronRightIcon class="h-3 w-3 mx-1" />
-            <span class="text-[#2d5741] font-medium">Bloemen</span>
+            <span class="text-[#2d5741] font-medium">Producten</span>
           </div>
         </div>
       </div>
@@ -127,97 +90,40 @@
               <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
                 <h3 class="font-medium text-lg mb-4 text-[#2d5741]">Categorieën</h3>
                 <ul class="space-y-2">
-                  <li>
-                    <div class="text-[#2d5741] font-medium flex items-center">
-                      <ChevronRightIcon class="h-4 w-4 mr-1" />
-                      Bloemen
-                    </div>
-                  </li>
-                  <li>
-                    <div class="text-gray-600 hover:text-[#2d5741] flex items-center">
-                      <ChevronRightIcon class="h-4 w-4 mr-1 opacity-0" />
-                      Planten
-                    </div>
-                  </li>
-                  <li>
-                    <div class="text-gray-600 hover:text-[#2d5741] flex items-center">
-                      <ChevronRightIcon class="h-4 w-4 mr-1 opacity-0" />
-                      Tuinplanten
-                    </div>
-                  </li>
-                  <li>
-                    <div class="text-gray-600 hover:text-[#2d5741] flex items-center">
-                      <ChevronRightIcon class="h-4 w-4 mr-1 opacity-0" />
-                      Potterie
-                    </div>
-                  </li>
-                  <li>
-                    <div class="text-gray-600 hover:text-[#2d5741] flex items-center">
-                      <ChevronRightIcon class="h-4 w-4 mr-1 opacity-0" />
-                      Tuinmeubelen
+                  <li v-for="category in categories" :key="category">
+                    <div 
+                      :class="[
+                        'flex items-center', 
+                        selectedCategory === category ? 'text-[#2d5741] font-medium' : 'text-gray-600 hover:text-[#2d5741]'
+                      ]"
+                      @click="setCategory(category)"
+                      style="cursor: pointer;"
+                    >
+                      <span class="mr-1" v-if="selectedCategory === category">▶</span>
+                      <span class="mr-1 opacity-0" v-else>▶</span>
+                      {{ category }}
                     </div>
                   </li>
                 </ul>
               </div>
-              
-              <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
-                <h3 class="font-medium text-lg mb-4 text-[#2d5741]">Subcategorieën</h3>
+                
+              <div v-if="showProductTypeFilter" class="bg-white rounded-lg shadow-sm p-4 mb-6">
+                <h3 class="font-medium text-lg mb-4 text-[#2d5741]">Product type</h3>
                 <ul class="space-y-2">
-                  <li>
-                    <label class="flex items-center">
-                      <input type="checkbox" class="form-checkbox text-[#2d5741] rounded mr-2" />
-                      <span>Boeketten (24)</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="flex items-center">
-                      <input type="checkbox" class="form-checkbox text-[#2d5741] rounded mr-2" />
-                      <span>Snijbloemen (18)</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="flex items-center">
-                      <input type="checkbox" class="form-checkbox text-[#2d5741] rounded mr-2" />
-                      <span>Rouwbloemen (12)</span>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="flex items-center">
-                      <input type="checkbox" class="form-checkbox text-[#2d5741] rounded mr-2" />
-                      <span>Droogbloemen (8)</span>
+                  <li v-for="subcat in availableSubcategories" :key="subcat.name">
+                    <label class="flex items-center cursor-pointer">
+                      <input 
+                        type="checkbox" 
+                        class="form-checkbox text-[#2d5741] rounded mr-2" 
+                        :checked="selectedSubcategories.includes(subcat.name)"
+                        @change="toggleSubcategory(subcat.name)"
+                      />
+                      <span>{{ subcat.name }} ({{ subcat.count }})</span>
                     </label>
                   </li>
                 </ul>
               </div>
-              
-              <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
-                <h3 class="font-medium text-lg mb-4 text-[#2d5741]">Prijs</h3>
-                <div class="space-y-4">
-                  <div class="flex items-center justify-between">
-                    <span class="text-sm text-gray-600">€0</span>
-                    <span class="text-sm text-gray-600">€150</span>
-                  </div>
-                  <div class="relative">
-                    <div class="h-2 bg-gray-200 rounded-full">
-                      <div class="absolute h-2 bg-[#2d5741] rounded-full" style="width: 70%; left: 10%"></div>
-                      <div class="absolute h-4 w-4 bg-white border-2 border-[#2d5741] rounded-full -mt-1" style="left: 10%"></div>
-                      <div class="absolute h-4 w-4 bg-white border-2 border-[#2d5741] rounded-full -mt-1" style="left: 80%"></div>
-                    </div>
-                  </div>
-                  <div class="flex gap-2">
-                    <div class="relative flex-1">
-                      <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">€</span>
-                      <input type="number" value="15" class="w-full pl-8 pr-2 py-1 border border-gray-300 rounded" />
-                    </div>
-                    <div class="relative flex-1">
-                      <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">€</span>
-                      <input type="number" value="120" class="w-full pl-8 pr-2 py-1 border border-gray-300 rounded" />
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div>
-            
             <!-- Product Listing -->
             <div class="lg:w-3/4">
               <div class="mb-6">
@@ -229,383 +135,41 @@
               <div class="flex flex-wrap justify-between items-center bg-white p-4 rounded-lg shadow-sm mb-6">
                 <div class="flex items-center mb-2 md:mb-0">
                   <span class="text-sm text-gray-600 mr-2">Sorteer op:</span>
-                  <select class="border border-gray-300 rounded px-2 py-1 text-sm">
-                    <option>Populariteit</option>
-                    <option>Prijs: laag naar hoog</option>
-                    <option>Prijs: hoog naar laag</option>
-                    <option>Nieuwste eerst</option>
+                  <select class="border border-gray-300 rounded px-2 py-1 text-sm" @change="updateSortOption">
+                    <option value="populariteit">Populariteit</option>
+                    <option value="price-asc">Prijs: laag naar hoog</option>
+                    <option value="price-desc">Prijs: hoog naar laag</option>
+                    <option value="name">Nieuwste eerst</option>
                   </select>
                 </div>
               </div>
               
               <!-- Products Grid -->
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Product 1 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <!-- Dynamic Products -->
+                <div v-for="product in filteredProducts" :key="product.id" class="bg-white rounded-lg shadow-sm overflow-hidden">
                   <div class="relative">
                     <img 
-                      src="/bloemenwinkel/bloemenwinkel1.jpg" 
-                      alt="Gemengd boeket" 
+                      :src="product.image" 
+                      :alt="product.name" 
                       class="w-full h-48 object-cover"
                     />
                     <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
+                      <span class="text-gray-400">❤️</span>
                     </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Gemengd boeket</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">24,50</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/boeket.jpg" 
-                      alt="Roze boeket" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Roze boeket</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">19,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/bloemenwinkel2.png" 
-                      alt="Kleurrijk boeket" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Kleurrijk boeket</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">29,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/plant5.jpg" 
-                      alt="cactus" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Selectie cactus</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">4,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 5 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/plant1.jpg" 
-                      alt="Cactus in pot" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Cactus in pot</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">7,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 6 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/boeket4.jpg" 
-                      alt="Boeket wit" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Boeket Veronica</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">19,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 7 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/boeket6.jpg" 
-                      alt="Boeket rood" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Boeket Rasa</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">22,50</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 8 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/boeket3.jpg" 
-                      alt="Veldboeket" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Veldboeket</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">16,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 9 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/boeket2.jpg" 
-                      alt="Witte rozen" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Witte rozen</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">29,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 10 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/lillies.jpg" 
-                      alt="Witte lelies" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Lelies</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">19,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 11 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/boeket.jpg" 
-                      alt="Herfstboeket" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Herfstboeket</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">24,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Product 12 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/tuinmeubel1.jpg" 
-                      alt="rattan lounge set" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Rattan lounge set</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">824,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- Product 11 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/tuinmeubel2.jpg" 
-                      alt="Complete tuinset" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Complete tuinset</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">435,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- Product 11 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/vase.jpg" 
-                      alt="Vaas" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Vaas</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">64,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- Product 11 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/tuinmeubel.jpg" 
-                      alt="tuinmeubel" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                  </div>
-                  <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Stoelenset Oslo</h3>
-                    <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">73,95</span>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Product 12 -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <div class="relative">
-                    <img 
-                      src="/bloemenwinkel/boeket5.jpg" 
-                      alt="Zonnebloemen" 
-                      class="w-full h-48 object-cover"
-                    />
-                    <button class="absolute top-2 right-2 z-10">
-                      <HeartIcon class="h-5 w-5 text-gray-400" />
-                    </button>
-                    <div class="absolute top-2 left-2 bg-[#e4004f] text-white text-xs px-2 py-1 rounded-full">
+                    <div v-if="product.sale" class="absolute top-2 left-2 bg-[#e4004f] text-white text-xs px-2 py-1 rounded-full">
                       Aanbieding
                     </div>
                   </div>
                   <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Zonnebloemen</h3>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">{{ product.name }}</h3>
                     <div class="flex justify-between items-center">
                       <div>
-                        <span class="text-[#e4004f] font-bold">9,99</span>
-                        <span class="text-gray-400 text-xs line-through ml-1">14,95</span>
+                        <span class="text-[#e4004f] font-bold">{{ product.price.toFixed(2).replace('.', ',') }}</span>
+                        <span v-if="product.originalPrice" class="text-gray-400 text-xs line-through ml-1">{{ product.originalPrice.toFixed(2).replace('.', ',') }}</span>
                       </div>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <ShoppingCartIcon class="h-4 w-4" />
+                        <span class="text-sm">🛒</span>
                       </button>
                     </div>
                   </div>
@@ -746,6 +310,350 @@
   <script setup>
     definePageMeta({
     layout: "simulation",
+    });
+
+    import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+
+    // Products data
+    const products = ref([
+      { id: 1, name: 'Gemengd boeket', price: 24.50, image: '/bloemenwinkel/bloemenwinkel1.jpg', category: 'Bloemen', subcategory: 'Boeketten' },
+      { id: 2, name: 'Roze boeket', price: 19.95, image: '/bloemenwinkel/boeket.jpg', category: 'Bloemen', subcategory: 'Boeketten' },
+      { id: 3, name: 'Kleurrijk boeket', price: 29.95, image: '/bloemenwinkel/bloemenwinkel2.png', category: 'Bloemen', subcategory: 'Boeketten' },
+      { id: 4, name: 'Selectie cactus', price: 4.95, image: '/bloemenwinkel/plant5.jpg', category: 'Planten', subcategory: 'Snijbloemen' },
+      { id: 5, name: 'Cactus in pot', price: 7.95, image: '/bloemenwinkel/plant1.jpg', category: 'Planten', subcategory: 'Snijbloemen' },
+      { id: 6, name: 'Boeket Veronica', price: 19.95, image: '/bloemenwinkel/boeket4.jpg', category: 'Bloemen', subcategory: 'Boeketten' },
+      { id: 7, name: 'Boeket Rasa', price: 22.50, image: '/bloemenwinkel/boeket6.jpg', category: 'Bloemen', subcategory: 'Boeketten' },
+      { id: 8, name: 'Veldboeket', price: 16.95, image: '/bloemenwinkel/boeket3.jpg', category: 'Bloemen', subcategory: 'Boeketten' },
+      { id: 9, name: 'Witte rozen', price: 29.95, image: '/bloemenwinkel/boeket2.jpg', category: 'Bloemen', subcategory: 'Snijbloemen' },
+      { id: 10, name: 'Lelies', price: 19.95, image: '/bloemenwinkel/lillies.jpg', category: 'Bloemen', subcategory: 'Snijbloemen' },
+      { id: 11, name: 'Herfstboeket', price: 24.95, image: '/bloemenwinkel/boeket.jpg', category: 'Bloemen', subcategory: 'Boeketten' },
+      { id: 12, name: 'Rattan lounge set', price: 824.95, image: '/bloemenwinkel/tuinmeubel1.jpg', category: 'Tuinmeubelen', subcategory: 'Droogbloemen' },
+      { id: 13, name: 'Complete tuinset', price: 435.95, image: '/bloemenwinkel/tuinmeubel2.jpg', category: 'Tuinmeubelen', subcategory: 'Droogbloemen' },
+      { id: 14, name: 'Vaas', price: 64.95, image: '/bloemenwinkel/vase.jpg', category: 'Potterie', subcategory: 'Droogbloemen' },
+      { id: 15, name: 'Stoelenset Oslo', price: 73.95, image: '/bloemenwinkel/tuinmeubel.jpg', category: 'Tuinmeubelen', subcategory: 'Rouwbloemen' },
+      { id: 16, name: 'Zonnebloemen', price: 9.99, image: '/bloemenwinkel/boeket5.jpg', category: 'Bloemen', subcategory: 'Snijbloemen', sale: true, originalPrice: 14.95 },
+    ]);
+
+    // Category and filter states
+    const selectedCategory = ref('Alle producten');
+    const selectedSubcategories = ref([]);
+    const priceRange = ref({ min: 0, max: 1000 });
+    const minPrice = ref(0);
+    const maxPrice = ref(1000);
+    const sortOption = ref('populariteit');
+    const isDraggingMin = ref(false);
+    const isDraggingMax = ref(false);
+    const sliderTrack = ref(null);
+    const minHandle = ref(null);
+    const maxHandle = ref(null);
+    const userHasAdjustedPrice = ref(false);
+    const absolutePriceRange = ref({ min: 0, max: 1000 });
+    
+    // Calculate overall price range across all products
+    const calculateAbsolutePriceRange = () => {
+      const min = Math.floor(Math.min(...products.value.map(p => p.price)));
+      const max = Math.ceil(Math.max(...products.value.map(p => p.price)));
+      absolutePriceRange.value = { min, max };
+      
+      // Initialize price range values if they're at defaults
+      if (priceRange.value.min === 0 && priceRange.value.max === 1000) {
+        priceRange.value.min = min;
+        priceRange.value.max = max;
+        minPrice.value = min;
+        maxPrice.value = max;
+      }
+    };
+    
+    // Calculate price range for current category
+    const categoryPriceRange = computed(() => {
+      const categoryProducts = products.value.filter(product => 
+        selectedCategory.value === 'Alle producten' ||
+        (product.category === selectedCategory.value &&
+         (selectedSubcategories.value.length === 0 || 
+          selectedSubcategories.value.includes(product.subcategory)))
+      );
+      
+      if (categoryProducts.length === 0) return absolutePriceRange.value;
+      
+      const min = Math.floor(Math.min(...categoryProducts.map(p => p.price)));
+      const max = Math.ceil(Math.max(...categoryProducts.map(p => p.price)));
+      
+      return { min, max };
+    });
+    
+    // For slider calculations - use fixed range to prevent jumps in the UI
+    const sliderBaseRange = computed(() => {
+      // Use the absolute range for slider visualization to prevent UI jumps
+      return absolutePriceRange.value;
+    });
+    
+    // Calculate slider position percentages based on fixed absolute range
+    const sliderPositions = computed(() => {
+      const range = sliderBaseRange.value;
+      const totalRange = range.max - range.min;
+      
+      // Avoid division by zero
+      if (totalRange === 0) return { minPos: 0, maxPos: 100, width: 100 };
+      
+      // Calculate positions based on the fixed absolute range
+      const minPos = ((priceRange.value.min - range.min) / totalRange) * 100;
+      const maxPos = ((priceRange.value.max - range.min) / totalRange) * 100;
+      
+      return {
+        minPos: Math.max(0, Math.min(100, minPos)),
+        maxPos: Math.max(0, Math.min(100, maxPos)),
+        width: Math.max(0, maxPos - minPos)
+      };
+    });
+    
+    // Show the current price range in the UI
+    const displayMin = computed(() => priceRange.value.min);
+    const displayMax = computed(() => priceRange.value.max);
+    
+    // Products filtered by category and subcategory before price filtering
+    const productsBeforePriceFilter = computed(() => {
+      return products.value.filter(product => {
+        // Show all products when "Alle producten" is selected
+        if (selectedCategory.value === 'Alle producten') {
+          return true;
+        }
+        
+        // Category filter
+        if (selectedCategory.value && product.category !== selectedCategory.value) {
+          return false;
+        }
+        
+        // Subcategory filter
+        if (selectedSubcategories.value.length > 0 && !selectedSubcategories.value.includes(product.subcategory)) {
+          return false;
+        }
+        
+        return true;
+      });
+    });
+    
+    // Filter products with price filtering
+    const filteredProducts = computed(() => {
+      let filtered = productsBeforePriceFilter.value.filter(product => {
+        // Price range filter - always apply price filter
+        if (product.price < priceRange.value.min || product.price > priceRange.value.max) {
+          return false;
+        }
+        
+        return true;
+      });
+      
+      // Apply sorting
+      switch(sortOption.value) {
+        case 'price-asc':
+          filtered.sort((a, b) => a.price - b.price);
+          break;
+        case 'price-desc':
+          filtered.sort((a, b) => b.price - a.price);
+          break;
+        case 'name':
+          filtered.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case 'populariteit':
+        default:
+          // Default sorting (already as defined in the products array)
+          break;
+      }
+      
+      return filtered;
+    });
+    
+    // Watch for category changes to reset price range
+    watch(selectedCategory, () => {
+      if (!userHasAdjustedPrice.value) {
+        resetPriceRange();
+      }
+    });
+    
+    // Set category with fixed adjustment to price range
+    const setCategory = (category) => {
+      selectedCategory.value = category;
+      
+      // Only reset price range if user hasn't adjusted manually
+      if (!userHasAdjustedPrice.value) {
+        resetPriceRange();
+      }
+    };
+    
+    // Update price range from category
+    const resetPriceRange = () => {
+      if (categoryPriceRange.value) {
+        const range = categoryPriceRange.value;
+        priceRange.value.min = range.min;
+        priceRange.value.max = range.max;
+        minPrice.value = range.min;
+        maxPrice.value = range.max;
+      }
+    };
+    
+    // Toggle subcategory
+    const toggleSubcategory = (subcategory) => {
+      const index = selectedSubcategories.value.indexOf(subcategory);
+      if (index === -1) {
+        selectedSubcategories.value.push(subcategory);
+      } else {
+        selectedSubcategories.value.splice(index, 1);
+      }
+      
+      // If user hasn't manually adjusted price, update to match new category range
+      if (!userHasAdjustedPrice.value) {
+        resetPriceRange();
+      }
+    };
+    
+    // Initialize on mounted
+    onMounted(() => {
+      calculateAbsolutePriceRange();
+      resetPriceRange();
+      
+      const slider = document.querySelector('div[ref="sliderEl"]');
+      if (slider) {
+        sliderTrack.value = {
+          width: slider.clientWidth,
+          left: slider.getBoundingClientRect().left
+        };
+      }
+    });
+    
+    // Slider drag events
+    const startDragMin = (e) => {
+      e.preventDefault();
+      userHasAdjustedPrice.value = true;
+      isDraggingMin.value = true;
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', stopDrag);
+    };
+    
+    const startDragMax = (e) => {
+      e.preventDefault();
+      userHasAdjustedPrice.value = true;
+      isDraggingMax.value = true;
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', stopDrag);
+    };
+    
+    const stopDrag = () => {
+      isDraggingMin.value = false;
+      isDraggingMax.value = false;
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', stopDrag);
+      updatePriceRange();
+    };
+    
+    // Mouse move handler for slider
+    const onMouseMove = (e) => {
+      if (!isDraggingMin.value && !isDraggingMax.value) return;
+      
+      if (!sliderTrack.value) {
+        // Get the slider track element for position calculations
+        const slider = document.querySelector('div[ref="sliderEl"]') || minHandle.value.parentElement;
+        sliderTrack.value = {
+          width: slider.clientWidth,
+          left: slider.getBoundingClientRect().left
+        };
+      }
+      
+      // Calculate relative position (0-1)
+      let relativePosition = (e.clientX - sliderTrack.value.left) / sliderTrack.value.width;
+      
+      // Ensure it's within 0-1 range
+      relativePosition = Math.max(0, Math.min(1, relativePosition));
+      
+      // Convert to price value based on fixed range
+      const range = sliderBaseRange.value;
+      const priceValue = Math.round(range.min + relativePosition * (range.max - range.min));
+      
+      if (isDraggingMin.value) {
+        // Don't let min exceed max
+        const newMin = Math.min(priceValue, priceRange.value.max - 1);
+        minPrice.value = newMin;
+        priceRange.value.min = newMin;
+      } else if (isDraggingMax.value) {
+        // Don't let max go below min
+        const newMax = Math.max(priceValue, priceRange.value.min + 1);
+        maxPrice.value = newMax;
+        priceRange.value.max = newMax;
+      }
+      
+      // Always mark as user adjusted when dragging
+      userHasAdjustedPrice.value = true;
+    };
+    
+    // Clean up event listeners when component is unmounted
+    onUnmounted(() => {
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', stopDrag);
+    });
+    
+    // Update price range gets input values and updates the model
+    const updatePriceRange = () => {
+      userHasAdjustedPrice.value = true;
+      priceRange.value.min = parseFloat(minPrice.value) || categoryPriceRange.value.min;
+      priceRange.value.max = parseFloat(maxPrice.value) || categoryPriceRange.value.max;
+    };
+
+    // Update sort option
+    const updateSortOption = (e) => {
+      sortOption.value = e.target.value;
+    };
+
+    // Available categories
+    const categories = [
+      'Alle producten',
+      'Bloemen',
+      'Planten',
+      'Potterie',
+      'Tuinmeubelen'
+    ];
+
+    // Available subcategories
+    const subcategories = [
+      { name: 'Boeketten', count: 7 },
+      { name: 'Snijbloemen', count: 5 },
+      { name: 'Rouwbloemen', count: 2 },
+      { name: 'Droogbloemen', count: 3 }
+    ];
+
+    // Reset filters
+    const resetFilters = () => {
+      resetPriceRange();
+      userHasAdjustedPrice.value = false;
+    };
+
+    // Available subcategories based on current category selection
+    const availableSubcategories = computed(() => {
+      if (selectedCategory.value === 'Alle producten') {
+        // Show all subcategories for "Alle producten"
+        return subcategories;
+      }
+      
+      // Get all subcategories that exist in the current category
+      const subCatsInCategory = products.value
+        .filter(p => p.category === selectedCategory.value)
+        .map(p => p.subcategory);
+      
+      // Get unique subcategories
+      const uniqueSubCats = [...new Set(subCatsInCategory)];
+      
+      // Return only subcategories that exist in the current category with their counts
+      return subcategories.filter(sc => uniqueSubCats.includes(sc.name))
+        .map(sc => ({
+          ...sc,
+          count: products.value.filter(p => 
+            p.category === selectedCategory.value && 
+            p.subcategory === sc.name
+          ).length
+        }));
+    });
+    
+    // Determine if product type filter should be shown
+    const showProductTypeFilter = computed(() => {
+      return availableSubcategories.value.length > 0;
     });
   </script>
   

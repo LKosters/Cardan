@@ -1,94 +1,117 @@
 <template>
-    <div class="coppelmans-product-page">
+    <div class="bloemenwinkel-product-page">
       <!-- Header -->
-      <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-          <div class="flex flex-col md:flex-row items-center justify-between">
-            <!-- Logo -->
-            <div class="logo flex items-center mb-4 md:mb-0">
-              <NuxtLink to="/" class="flex flex-col items-center md:items-start">
-                <div class="flex items-center">
-                  <div class="w-6 h-6 bg-[#a02279] mr-1"></div>
-                  <span class="text-[#2d5741] text-3xl font-bold">coppelmans</span>
-                </div>
-                <span class="text-[#2d5741] text-sm">tuincentrum vol groene ideeën</span>
-              </NuxtLink>
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <!-- Logo -->
+          <div class="logo flex items-center mb-4 md:mb-0">
+            <div class="flex flex-col items-center md:items-start">
+              <div class="flex items-center">
+                <div class="w-6 h-6 bg-[#a02279] mr-1"></div>
+                <span class="text-[#2d5741] text-3xl font-bold"
+                  ><a href="/bloemenwinkel">Bloemenwinkel</a></span
+                >
+              </div>
+              <span class="text-[#2d5741] text-sm"
+                >tuincentrum vol groene ideeën</span
+              >
             </div>
-            
-            <!-- Search Bar -->
-            <div class="search-bar w-full md:w-1/3 mb-4 md:mb-0">
-              <div class="relative">
-                <input 
-                  type="text" 
-                  placeholder="Waar ben je naar op zoek?" 
-                  class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:ring-[#2d5741]"
-                />
-                <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
-                  <SearchIcon class="h-5 w-5 text-gray-400" />
-                </button>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="search-bar w-full md:w-1/3 mb-4 md:mb-0">
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Waar ben je naar op zoek?"
+                class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-1 focus:ring-[#2d5741]"
+                disabled
+              />
+              <div
+                class="absolute right-3 top-1/2 transform -translate-y-1/2"
+              >
+                <span class="text-gray-400">zoek</span>
               </div>
             </div>
+          </div>
             
             <!-- User Actions -->
-            <div class="user-actions flex items-center space-x-6">
-              <NuxtLink to="/winkels" class="flex items-center text-sm">
-                <MapPinIcon class="h-5 w-5 mr-1" />
-                <span>Kies je winkel</span>
-              </NuxtLink>
-              <NuxtLink to="/login" class="flex items-center text-sm">
-                <UserIcon class="h-5 w-5 mr-1" />
-                <span>Inloggen</span>
-              </NuxtLink>
-              <NuxtLink to="/favorieten" class="relative">
-                <HeartIcon class="h-5 w-5" />
-              </NuxtLink>
-              <NuxtLink to="/winkelwagen" class="relative">
-                <ShoppingCartIcon class="h-5 w-5" />
-              </NuxtLink>
+          <div class="user-actions flex items-center space-x-6">
+            <div class="flex items-center text-sm">
+              <span class="text-gray-600 mr-1">📍</span>
+              <span>Kies je winkel</span>
+            </div>
+            <div class="flex items-center text-sm">
+              <span class="text-gray-600 mr-1">👤</span>
+              <span>Inloggen</span>
+            </div>
+            <div class="relative">
+              <span class="text-gray-600">❤️</span>
+            </div>
+            <div class="relative">
+              <span class="text-gray-600">🛒</span>
             </div>
           </div>
         </div>
+      </div>
       </header>
       
       <!-- Main Navigation -->
-      <nav class="bg-white border-t border-b border-gray-200">
-        <div class="container mx-auto px-4">
-          <ul class="flex flex-wrap items-center justify-between md:justify-start">
-            <li class="py-4 px-2 md:px-4 relative group">
-              <NuxtLink to="/assortiment" class="flex items-center text-[#2d5741] font-medium">
-                Assortiment
-                <ChevronDownIcon class="h-4 w-4 ml-1" />
-              </NuxtLink>
-            </li>
-            <li class="py-4 px-2 md:px-4">
-              <NuxtLink to="/inspiratie" class="text-[#2d5741] font-medium">Inspiratie</NuxtLink>
-            </li>
-            <li class="py-4 px-2 md:px-4">
-              <NuxtLink to="/folders" class="text-[#2d5741] font-medium">Folders</NuxtLink>
-            </li>
-            <li class="py-4 px-2 md:px-4">
-              <NuxtLink to="/aanbiedingen" class="text-[#e4004f] font-medium">Aanbiedingen</NuxtLink>
-            </li>
-            <li class="py-4 px-2 md:px-4">
-              <NuxtLink to="/cadeaukaarten" class="text-[#2d5741] font-medium">Cadeaukaarten</NuxtLink>
-            </li>
-            <li class="py-4 px-2 md:px-4">
-              <NuxtLink to="/vippas" class="text-[#2d5741] font-medium">VIPpas</NuxtLink>
-            </li>
-            <li class="py-4 px-2 md:px-4">
-              <NuxtLink to="/vacatures" class="text-[#2d5741] font-medium">Vacatures</NuxtLink>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <nav class="bg-white border-t border-b border-gray-200">
+      <div class="container mx-auto px-4">
+        <ul
+          class="flex flex-wrap items-center justify-between md:justify-start"
+        >
+          <li class="py-4 px-2 md:px-4 relative group">
+            <div
+              class="flex items-center text-[#2d5741] font-medium"
+            >
+              Assortiment
+              <span class="ml-1">▼</span>
+            </div>
+          </li>
+          <li class="py-4 px-2 md:px-4">
+            <div class="text-[#2d5741] font-medium"
+              >Inspiratie</div
+            >
+          </li>
+          <li class="py-4 px-2 md:px-4">
+            <div class="text-[#2d5741] font-medium"
+              >Folders</div
+            >
+          </li>
+          <li class="py-4 px-2 md:px-4">
+            <div class="text-[#e4004f] font-medium"
+              >Aanbiedingen</div
+            >
+          </li>
+          <li class="py-4 px-2 md:px-4">
+            <div class="text-[#2d5741] font-medium"
+              >Cadeaukaarten</div
+            >
+          </li>
+          <li class="py-4 px-2 md:px-4">
+            <div class="text-[#2d5741] font-medium"
+              >VIPpas</div
+            >
+          </li>
+          <li class="py-4 px-2 md:px-4">
+            <div class="text-[#2d5741] font-medium"
+              >Vacatures</div
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
       
       <!-- Breadcrumbs -->
       <div class="bg-gray-100 py-2">
         <div class="container mx-auto px-4">
           <div class="flex items-center text-sm text-gray-500">
-            <NuxtLink to="/" class="hover:text-[#2d5741]">Home</NuxtLink>
+            <div class="hover:text-[#2d5741]">Home</div>
             <ChevronRightIcon class="h-3 w-3 mx-1" />
-            <NuxtLink to="/assortiment" class="hover:text-[#2d5741]">Assortiment</NuxtLink>
+            <div class="hover:text-[#2d5741]">Assortiment</div>
             <ChevronRightIcon class="h-3 w-3 mx-1" />
             <span class="text-[#2d5741] font-medium">Bloemen</span>
           </div>
@@ -105,34 +128,34 @@
                 <h3 class="font-medium text-lg mb-4 text-[#2d5741]">Categorieën</h3>
                 <ul class="space-y-2">
                   <li>
-                    <NuxtLink to="/assortiment/bloemen" class="text-[#2d5741] font-medium flex items-center">
+                    <div class="text-[#2d5741] font-medium flex items-center">
                       <ChevronRightIcon class="h-4 w-4 mr-1" />
                       Bloemen
-                    </NuxtLink>
+                    </div>
                   </li>
                   <li>
-                    <NuxtLink to="/assortiment/planten" class="text-gray-600 hover:text-[#2d5741] flex items-center">
+                    <div class="text-gray-600 hover:text-[#2d5741] flex items-center">
                       <ChevronRightIcon class="h-4 w-4 mr-1 opacity-0" />
                       Planten
-                    </NuxtLink>
+                    </div>
                   </li>
                   <li>
-                    <NuxtLink to="/assortiment/tuinplanten" class="text-gray-600 hover:text-[#2d5741] flex items-center">
+                    <div class="text-gray-600 hover:text-[#2d5741] flex items-center">
                       <ChevronRightIcon class="h-4 w-4 mr-1 opacity-0" />
                       Tuinplanten
-                    </NuxtLink>
+                    </div>
                   </li>
                   <li>
-                    <NuxtLink to="/assortiment/potterie" class="text-gray-600 hover:text-[#2d5741] flex items-center">
+                    <div class="text-gray-600 hover:text-[#2d5741] flex items-center">
                       <ChevronRightIcon class="h-4 w-4 mr-1 opacity-0" />
                       Potterie
-                    </NuxtLink>
+                    </div>
                   </li>
                   <li>
-                    <NuxtLink to="/assortiment/tuinmeubelen" class="text-gray-600 hover:text-[#2d5741] flex items-center">
+                    <div class="text-gray-600 hover:text-[#2d5741] flex items-center">
                       <ChevronRightIcon class="h-4 w-4 mr-1 opacity-0" />
                       Tuinmeubelen
-                    </NuxtLink>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -198,8 +221,8 @@
             <!-- Product Listing -->
             <div class="lg:w-3/4">
               <div class="mb-6">
-                <h1 class="text-3xl font-bold text-[#2d5741] mb-2">Bloemen</h1>
-                <p class="text-gray-600">Bekijk ons uitgebreide assortiment bloemen</p>
+                <h1 class="text-3xl font-bold text-[#2d5741] mb-2">Producten</h1>
+                <p class="text-gray-600">Bekijk ons uitgebreide assortiment</p>
               </div>
               
               <!-- Sorting and Filters -->
@@ -211,14 +234,6 @@
                     <option>Prijs: laag naar hoog</option>
                     <option>Prijs: hoog naar laag</option>
                     <option>Nieuwste eerst</option>
-                  </select>
-                </div>
-                <div class="flex items-center">
-                  <span class="text-sm text-gray-600 mr-2">Toon:</span>
-                  <select class="border border-gray-300 rounded px-2 py-1 text-sm">
-                    <option>24 per pagina</option>
-                    <option>48 per pagina</option>
-                    <option>96 per pagina</option>
                   </select>
                 </div>
               </div>
@@ -299,7 +314,7 @@
                   <div class="relative">
                     <img 
                       src="/bloemenwinkel/plant5.jpg" 
-                      alt="Zomers boeket" 
+                      alt="cactus" 
                       class="w-full h-48 object-cover"
                     />
                     <button class="absolute top-2 right-2 z-10">
@@ -307,9 +322,9 @@
                     </button>
                   </div>
                   <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Zomers boeket</h3>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Selectie cactus</h3>
                     <div class="flex justify-between items-center">
-                      <span class="text-[#e4004f] font-bold">24,95</span>
+                      <span class="text-[#e4004f] font-bold">4,95</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
                         <ShoppingCartIcon class="h-4 w-4" />
                       </button>
@@ -322,7 +337,7 @@
                   <div class="relative">
                     <img 
                       src="/bloemenwinkel/plant1.jpg" 
-                      alt="Gemengd boeket luxe" 
+                      alt="Cactus in pot" 
                       class="w-full h-48 object-cover"
                     />
                     <button class="absolute top-2 right-2 z-10">
@@ -330,7 +345,7 @@
                     </button>
                   </div>
                   <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Gemengd boeket luxe</h3>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Cactus in pot</h3>
                     <div class="flex justify-between items-center">
                       <span class="text-[#e4004f] font-bold">34,95</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
@@ -344,7 +359,7 @@
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                   <div class="relative">
                     <img 
-                      src="/bloemenwinkel/kamerplant.jpg" 
+                      src="/bloemenwinkel/boeket4.jpg" 
                       alt="Boeket wit" 
                       class="w-full h-48 object-cover"
                     />
@@ -353,7 +368,7 @@
                     </button>
                   </div>
                   <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Boeket wit</h3>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Boeket Veronica</h3>
                     <div class="flex justify-between items-center">
                       <span class="text-[#e4004f] font-bold">19,95</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
@@ -367,7 +382,7 @@
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                   <div class="relative">
                     <img 
-                      src="/bloemenwinkel/plant3.jpg" 
+                      src="/bloemenwinkel/boeket6.jpg" 
                       alt="Boeket rood" 
                       class="w-full h-48 object-cover"
                     />
@@ -376,7 +391,7 @@
                     </button>
                   </div>
                   <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Boeket rood</h3>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Boeket Rasa</h3>
                     <div class="flex justify-between items-center">
                       <span class="text-[#e4004f] font-bold">22,50</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
@@ -390,7 +405,7 @@
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                   <div class="relative">
                     <img 
-                      src="/bloemenwinkel/plant2.jpg" 
+                      src="/bloemenwinkel/boeket3.jpg" 
                       alt="Veldboeket" 
                       class="w-full h-48 object-cover"
                     />
@@ -413,7 +428,7 @@
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                   <div class="relative">
                     <img 
-                      src="/bloemenwinkel/plant4.jpg" 
+                      src="/bloemenwinkel/boeket2.jpg" 
                       alt="Witte rozen" 
                       class="w-full h-48 object-cover"
                     />
@@ -436,7 +451,7 @@
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                   <div class="relative">
                     <img 
-                      src="/bloemenwinkel/kamerplant2.jpg" 
+                      src="/bloemenwinkel/lillies.jpg" 
                       alt="Witte lelies" 
                       class="w-full h-48 object-cover"
                     />
@@ -445,7 +460,7 @@
                     </button>
                   </div>
                   <div class="p-3">
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Witte lelies</h3>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Lelies</h3>
                     <div class="flex justify-between items-center">
                       <span class="text-[#e4004f] font-bold">19,95</span>
                       <button class="bg-[#2d5741] text-white rounded-full p-1">
@@ -459,7 +474,7 @@
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                   <div class="relative">
                     <img 
-                      src="/bloemenwinkel/vase.jpg" 
+                      src="/bloemenwinkel/boeket.jpg" 
                       alt="Herfstboeket" 
                       class="w-full h-48 object-cover"
                     />
@@ -477,12 +492,101 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- Product 12 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <div class="relative">
+                    <img 
+                      src="/bloemenwinkel/tuinmeubel1.jpg" 
+                      alt="rattan lounge set" 
+                      class="w-full h-48 object-cover"
+                    />
+                    <button class="absolute top-2 right-2 z-10">
+                      <HeartIcon class="h-5 w-5 text-gray-400" />
+                    </button>
+                  </div>
+                  <div class="p-3">
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Rattan lounge set</h3>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">24,95</span>
+                      <button class="bg-[#2d5741] text-white rounded-full p-1">
+                        <ShoppingCartIcon class="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Product 11 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <div class="relative">
+                    <img 
+                      src="/bloemenwinkel/tuinmeubel2.jpg" 
+                      alt="Complete tuinset" 
+                      class="w-full h-48 object-cover"
+                    />
+                    <button class="absolute top-2 right-2 z-10">
+                      <HeartIcon class="h-5 w-5 text-gray-400" />
+                    </button>
+                  </div>
+                  <div class="p-3">
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Complete tuinset</h3>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">24,95</span>
+                      <button class="bg-[#2d5741] text-white rounded-full p-1">
+                        <ShoppingCartIcon class="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Product 11 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <div class="relative">
+                    <img 
+                      src="/bloemenwinkel/vase.jpg" 
+                      alt="Vaas" 
+                      class="w-full h-48 object-cover"
+                    />
+                    <button class="absolute top-2 right-2 z-10">
+                      <HeartIcon class="h-5 w-5 text-gray-400" />
+                    </button>
+                  </div>
+                  <div class="p-3">
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Vaas</h3>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">24,95</span>
+                      <button class="bg-[#2d5741] text-white rounded-full p-1">
+                        <ShoppingCartIcon class="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Product 11 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <div class="relative">
+                    <img 
+                      src="/bloemenwinkel/tuinmeubel.jpg" 
+                      alt="tuinmeubel" 
+                      class="w-full h-48 object-cover"
+                    />
+                    <button class="absolute top-2 right-2 z-10">
+                      <HeartIcon class="h-5 w-5 text-gray-400" />
+                    </button>
+                  </div>
+                  <div class="p-3">
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-1">Stoelenset Oslo</h3>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">24,95</span>
+                      <button class="bg-[#2d5741] text-white rounded-full p-1">
+                        <ShoppingCartIcon class="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
                 
                 <!-- Product 12 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                   <div class="relative">
                     <img 
-                      src="/bloemenwinkel/scene1.jpg" 
+                      src="/bloemenwinkel/boeket5.jpg" 
                       alt="Zonnebloemen" 
                       class="w-full h-48 object-cover"
                     />
@@ -505,22 +609,6 @@
                       </button>
                     </div>
                   </div>
-                </div>
-              </div>
-              
-              <!-- Pagination -->
-              <div class="flex justify-center mt-8">
-                <div class="flex items-center space-x-1">
-                  <button class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">
-                    <ChevronLeftIcon class="h-4 w-4" />
-                  </button>
-                  <button class="px-3 py-1 rounded border border-[#2d5741] bg-[#2d5741] text-white">1</button>
-                  <button class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">2</button>
-                  <button class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">3</button>
-                  <button class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">4</button>
-                  <button class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">
-                    <ChevronRightIcon class="h-4 w-4" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -595,12 +683,12 @@
           <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <!-- Column 1 -->
             <div>
-              <h3 class="font-bold text-lg mb-4">Locaties Coppelmans</h3>
+              <h3 class="font-bold text-lg mb-4">Locaties bloemenwinkel</h3>
               <ul class="space-y-2 text-sm">
-                <li><NuxtLink to="/winkels/nuenen" class="hover:underline">Nuenen</NuxtLink></li>
-                <li><NuxtLink to="/winkels/valkenswaard" class="hover:underline">Valkenswaard</NuxtLink></li>
-                <li><NuxtLink to="/winkels/helmond" class="hover:underline">Helmond</NuxtLink></li>
-                <li><NuxtLink to="/winkels/eindhoven" class="hover:underline">Eindhoven</NuxtLink></li>
+                <li><div class="hover:underline">Nuenen</div></li>
+                <li><div class="hover:underline">Valkenswaard</div></li>
+                <li><div class="hover:underline">Helmond</div></li>
+                <li><div class="hover:underline">Eindhoven</div></li>
               </ul>
             </div>
             
@@ -608,12 +696,12 @@
             <div>
               <h3 class="font-bold text-lg mb-4">Klantenservice</h3>
               <ul class="space-y-2 text-sm">
-                <li><NuxtLink to="/contact" class="hover:underline">Contact</NuxtLink></li>
-                <li><NuxtLink to="/faq" class="hover:underline">Veelgestelde vragen</NuxtLink></li>
-                <li><NuxtLink to="/bezorging" class="hover:underline">Bezorging</NuxtLink></li>
-                <li><NuxtLink to="/retourneren" class="hover:underline">Retourneren</NuxtLink></li>
-                <li><NuxtLink to="/privacy" class="hover:underline">Privacy</NuxtLink></li>
-                <li><NuxtLink to="/cookies" class="hover:underline">Cookies</NuxtLink></li>
+                <li><div class="hover:underline">Contact</div></li>
+                <li><div class="hover:underline">Veelgestelde vragen</div></li>
+                <li><div class="hover:underline">Bezorging</div></li>
+                <li><div class="hover:underline">Retourneren</div></li>
+                <li><div class="hover:underline">Privacy</div></li>
+                <li><div class="hover:underline">Cookies</div></li>
               </ul>
             </div>
             
@@ -621,9 +709,9 @@
             <div>
               <h3 class="font-bold text-lg mb-4">VIPpas</h3>
               <ul class="space-y-2 text-sm">
-                <li><NuxtLink to="/vippas" class="hover:underline">Voordelen</NuxtLink></li>
-                <li><NuxtLink to="/vippas/aanvragen" class="hover:underline">Aanvragen</NuxtLink></li>
-                <li><NuxtLink to="/vippas/voorwaarden" class="hover:underline">Voorwaarden</NuxtLink></li>
+                <li><div class="hover:underline">Voordelen</div></li>
+                <li><div class="hover:underline">Aanvragen</div></li>
+                <li><div class="hover:underline">Voorwaarden</div></li>
               </ul>
             </div>
             
@@ -631,24 +719,24 @@
             <div>
               <h3 class="font-bold text-lg mb-4">Blijf op de hoogte van de laatste trends</h3>
               <div class="flex space-x-3 mb-6">
-                <a href="#" class="hover:text-gray-300">
+                <div class="hover:text-gray-300">
                   <FacebookIcon class="h-6 w-6" />
-                </a>
-                <a href="#" class="hover:text-gray-300">
+                </div>
+                <div class="hover:text-gray-300">
                   <InstagramIcon class="h-6 w-6" />
-                </a>
-                <a href="#" class="hover:text-gray-300">
+                </div>
+                <div class="hover:text-gray-300">
                   <YoutubeIcon class="h-6 w-6" />
-                </a>
-                <a href="#" class="hover:text-gray-300">
+                </div>
+                <div class="hover:text-gray-300">
                   <TwitterIcon class="h-6 w-6" />
-                </a>
+                </div>
               </div>
             </div>
           </div>
           
           <div class="border-t border-gray-600 pt-6 text-center text-sm">
-            <p>© {{ new Date().getFullYear() }} Coppelmans Tuincentra. Alle rechten voorbehouden.</p>
+            <p>©  Bloemenwinkel. Alle rechten voorbehouden.</p>
           </div>
         </div>
       </footer>
@@ -663,7 +751,7 @@
   
   <style scoped>
   /* Custom styles */
-  .coppelmans-product-page {
+  .bloemenwinkel-product-page {
     font-family: 'Arial', sans-serif;
   }
   

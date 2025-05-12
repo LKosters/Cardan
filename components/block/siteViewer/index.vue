@@ -10,11 +10,11 @@
       v-if="filter === 'choker'"
       class="absolute inset-0 bg-black pointer-events-none"
       :style="`
-        mask: radial-gradient(circle at center, transparent ${100 * (100 - intensity) / 50}px, black ${220 * (100 - intensity) / 50}px);
+        mask: radial-gradient(circle at center, transparent ${(100 * (100 - intensity)) / 50}px, black ${(220 * (100 - intensity)) / 50}px);
         webkitmask: radial-gradient(
           circle at center,
-          transparent ${100 * (100 - intensity) / 50}px,
-          black ${220 * (100 - intensity) / 50}px
+          transparent ${(100 * (100 - intensity)) / 50}px,
+          black ${(220 * (100 - intensity)) / 50}px
         );
       `"
     ></div>
@@ -54,11 +54,13 @@ const props = defineProps({
 
 <style scoped>
 .pink-blue {
-  filter: hue-rotate(calc(180deg * v-bind(intensity) / 50)) saturate(calc(1.5 * v-bind(intensity) / 50));
+  filter: hue-rotate(calc(180deg * v-bind(intensity) / 50))
+    saturate(calc(1.5 * v-bind(intensity) / 50));
 }
 
 .blue-yellow {
-  filter: hue-rotate(calc(90deg * v-bind(intensity) / 50)) saturate(calc(1.2 * v-bind(intensity) / 50));
+  filter: hue-rotate(calc(90deg * v-bind(intensity) / 50))
+    saturate(calc(1.2 * v-bind(intensity) / 50));
 }
 
 .choker {
@@ -69,7 +71,8 @@ const props = defineProps({
 }
 
 .stains {
-  filter: contrast(calc(0.8 * v-bind(intensity) / 50)) brightness(calc(1.2 * v-bind(intensity) / 50));
+  filter: contrast(calc(0.8 * v-bind(intensity) / 50))
+    brightness(calc(1.2 * v-bind(intensity) / 50));
 }
 
 .stain {

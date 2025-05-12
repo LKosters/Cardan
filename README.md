@@ -26,6 +26,7 @@ This is a Nuxt.js application configured with Tailwind CSS and other modern web 
 ### Development
 
 To start the development server, run:
+
 ```bash
 npm run dev
 ```
@@ -33,6 +34,7 @@ npm run dev
 ### Build
 
 To build the application for production, use:
+
 ```bash
 npm run build
 ```
@@ -40,6 +42,7 @@ npm run build
 ### Generate Static Files
 
 To generate static files, run:
+
 ```bash
 npm run generate
 ```
@@ -47,6 +50,7 @@ npm run generate
 ### Preview
 
 To preview the production build locally, use:
+
 ```bash
 npm run preview
 ```
@@ -54,6 +58,7 @@ npm run preview
 ### Formatting
 
 To format the code using Prettier, run:
+
 ```bash
 npm run format
 ```

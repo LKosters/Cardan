@@ -12,7 +12,7 @@
       role="menuitem"
       :tabindex="0"
       :aria-label="item.tooltip"
-      @click="submitValue(item.tooltip)"
+      @click="submitValue(item.value)"
       :ref="(el) => (menuItemRefs[idx] = el as HTMLElement | null)"
     >
       <component :is="item.icon" />

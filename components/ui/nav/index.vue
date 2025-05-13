@@ -91,11 +91,13 @@ const navItems = [
     items: [
       {
         icon: IconColorBlindBlueYellow,
-        tooltip: "Blue Yellow",
+        tooltip: "Blauw Geel",
+        value: "Blue Yellow",
       },
       {
         icon: IconColorBlindPinkBlue,
-        tooltip: "Pink Blue",
+        tooltip: "Roze Blauw",
+        value: "Pink Blue",
       },
     ],
   },
@@ -104,15 +106,18 @@ const navItems = [
     items: [
       {
         icon: IconVisualBlindChoker,
-        tooltip: "Choker",
+        tooltip: "Kokervisie",
+        value: "Choker",
       },
       {
         icon: IconVisualBlindBlurred,
-        tooltip: "Blurred",
+        tooltip: "Wazig zicht",
+        value: "Blurred",
       },
       {
         icon: IconVisualBlindStains,
-        tooltip: "Stains",
+        tooltip: "Vlekken zicht",
+        value: "Stains",
       },
     ],
   },

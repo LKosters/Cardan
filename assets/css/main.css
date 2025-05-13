@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* Tailwindcss Theme */
+
+@theme {
+  --color-primary: #654e6f;
+  --color-primary-alt: #e7e5e9;
+  --color-secondary: #008743;
+  --color-secondary-alt: #e6f7ea;
+}
+
+
+/* Fonts */
+
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -12,23 +24,7 @@ body {
   font-family: "Arial", sans-serif;
 }
 
-/* Buttons */
-
-.btn-primary {
-  @apply cursor-pointer bg-primary text-white px-4 py-2 rounded-md transition hover:opacity-80 duration-300;
-}
-
-.btn-secondary {
-  @apply cursor-pointer bg-secondary text-white px-4 py-2 rounded-md transition hover:opacity-80 duration-300;
-}
-
-.input {
-  height: 2.5rem;
-  padding-inline: 0.65rem;
-  @apply bg-secondary-alt border border-solid rounded-md;
-}
-
-/* Container classes */
+/* Containers */
 .container {
   width: 100%;
   margin-left: auto;
@@ -37,7 +33,6 @@ body {
   padding-right: 1rem;
 }
 
-/* Responsive container sizes */
 @media (min-width: 640px) {
   .container {
     max-width: 640px;
@@ -62,7 +57,6 @@ body {
   }
 }
 
-/* Container with larger max-width for hero sections */
 .container-wide {
   width: 100%;
   margin-left: auto;
@@ -72,12 +66,25 @@ body {
   max-width: 1440px;
 }
 
-@theme {
-  --color-primary: #654e6f;
-  --color-primary-alt: #e7e5e9;
-  --color-secondary: #008743;
-  --color-secondary-alt: #e6f7ea;
+/* Buttons */
+
+.btn-primary {
+  @apply cursor-pointer bg-primary text-white px-4 py-2 rounded-md transition hover:opacity-80 duration-300;
 }
+
+.btn-secondary {
+  @apply cursor-pointer bg-secondary text-white px-4 py-2 rounded-md transition hover:opacity-80 duration-300;
+}
+
+/* Inputs */
+
+.input {
+  height: 2.5rem;
+  padding-inline: 0.65rem;
+  @apply bg-secondary-alt border border-solid rounded-md;
+}
+
+/* Sliders */
 
 .slider {
   scrollbar-width: none;

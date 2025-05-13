@@ -14,18 +14,17 @@
           );
         `"
     ></div>
-    <div v-if="filter === 'stains'">
+    <div class="fixed z-0 left-0 top-0 w-screen h-screen" v-if="filter === 'stains'">
       <div
-        class="stain"
-        style="top: 35%; left: 35%; width: 220px; height: 220px"
-      ></div>
-      <div
-        class="stain"
-        style="top: 60%; left: 60%; width: 200px; height: 200px"
-      ></div>
-      <div
-        class="stain"
-        style="top: 40%; left: 65%; width: 190px; height: 190px"
+        v-for="(stain, index) in stains"
+        :key="index"
+        class="stain z-0"
+        :style="{
+          top: `${stain.top}%`,
+          left: `${stain.left}%`,
+          width: `${stain.size}px`,
+          height: `${stain.size}px`
+        }"
       ></div>
     </div>
   </div>
@@ -47,17 +46,32 @@ const props = defineProps({
     default: 50,
   },
 });
+
+const stains = computed(() => {
+  const count = Math.floor(props.intensity / 10);
+  return Array.from({ length: count }, () => ({
+    top: Math.random() * 85,
+    left: Math.random() * 85,
+    size: Math.random() * 50 + 150 + (props.intensity * 2)
+  }));
+});
 </script>
 
 <style scoped>
 .pink-blue {
-  filter: hue-rotate(calc(180deg * v-bind(intensity) / 50))
-    saturate(calc(1.5 * v-bind(intensity) / 50));
+  filter: brightness(calc(1 - (0.1 * v-bind(intensity) / 100))) 
+    contrast(calc(1 + (0.1 * v-bind(intensity) / 100))) 
+    sepia(calc(0.2 * v-bind(intensity) / 100)) 
+    saturate(calc(1 - (0.2 * v-bind(intensity) / 100))) 
+    hue-rotate(calc(180deg * v-bind(intensity) / 100));
 }
 
 .blue-yellow {
-  filter: hue-rotate(calc(90deg * v-bind(intensity) / 50))
-    saturate(calc(1.2 * v-bind(intensity) / 50));
+  filter: brightness(calc(1 - (0.1 * v-bind(intensity) / 100))) 
+    contrast(calc(1 + (0.1 * v-bind(intensity) / 100))) 
+    sepia(calc(0.2 * v-bind(intensity) / 100)) 
+    saturate(calc(1 - (0.2 * v-bind(intensity) / 100))) 
+    hue-rotate(calc(90deg * v-bind(intensity) / 100));
 }
 
 .choker {
@@ -68,12 +82,11 @@ const props = defineProps({
 }
 
 .stains {
-  filter: contrast(calc(0.8 * v-bind(intensity) / 50))
-    brightness(calc(1.2 * v-bind(intensity) / 50));
+  filter: none;
 }
 
 .stain {
-  position: fixed;
+  position: absolute;
   background: black;
   border-radius: 50%;
   opacity: 0.85;

@@ -40,10 +40,10 @@
             <!-- User Actions -->
             <div class="user-actions flex items-center space-x-6">
               <div class="relative">
-                <span class="text-gray-600">❤️</span>
+                <IconHeart :size="16"/>
               </div>
               <div class="relative">
-                <span class="text-gray-600">🛒</span>
+                <IconCart :size="16" class="text-black"/>
               </div>
             </div>
           </div>
@@ -100,10 +100,12 @@
                       @click="setCategory(category)"
                       style="cursor: pointer"
                     >
-                      <span class="mr-1" v-if="selectedCategory === category"
-                        >▶</span
-                      >
-                      <span class="mr-1 opacity-0" v-else>▶</span>
+                      <span class="mr-1" v-if="selectedCategory === category">
+                        <IconTriangle :size="12" />
+                      </span>
+                      <span class="mr-1 opacity-0" v-else>
+                        <IconTriangle :size="12" />
+                      </span>
                       {{ category }}
                     </div>
                   </li>
@@ -202,8 +204,8 @@
                           }}</span
                         >
                       </div>
-                      <button class="bg-[#2d5741] text-white rounded-full p-1">
-                        <span class="text-sm">🛒</span>
+                      <button class="bg-[#2d5741] text-white rounded-full p-2">
+                        <IconCart :size="12" class="text-white"/>
                       </button>
                     </div>
                   </div>
@@ -360,6 +362,7 @@
 </template>
 
 <script lang="ts" setup>
+
 const products = ref([
   {
     id: 1,

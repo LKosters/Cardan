@@ -14,7 +14,10 @@
           );
         `"
     ></div>
-    <div class="fixed z-0 left-0 top-0 w-screen h-screen" v-if="filter === 'stains'">
+    <div
+      class="fixed z-0 left-0 top-0 w-screen h-screen"
+      v-if="filter === 'stains'"
+    >
       <div
         v-for="(stain, index) in stains"
         :key="index"
@@ -23,7 +26,7 @@
           top: `${stain.top}%`,
           left: `${stain.left}%`,
           width: `${stain.size}px`,
-          height: `${stain.size}px`
+          height: `${stain.size}px`,
         }"
       ></div>
     </div>
@@ -52,25 +55,25 @@ const stains = computed(() => {
   return Array.from({ length: count }, () => ({
     top: Math.random() * 100,
     left: Math.random() * 100,
-    size: Math.random() * 50 + 150 + (props.intensity * 2)
+    size: Math.random() * 50 + 150 + props.intensity * 2,
   }));
 });
 </script>
 
 <style scoped>
 .pink-blue {
-  filter: brightness(calc(1 - (0.1 * v-bind(intensity) / 100))) 
-    contrast(calc(1 + (0.1 * v-bind(intensity) / 100))) 
-    sepia(calc(0.2 * v-bind(intensity) / 100)) 
-    saturate(calc(1 - (0.2 * v-bind(intensity) / 100))) 
+  filter: brightness(calc(1 - (0.1 * v-bind(intensity) / 100)))
+    contrast(calc(1 + (0.1 * v-bind(intensity) / 100)))
+    sepia(calc(0.2 * v-bind(intensity) / 100))
+    saturate(calc(1 - (0.2 * v-bind(intensity) / 100)))
     hue-rotate(calc(180deg * v-bind(intensity) / 100));
 }
 
 .blue-yellow {
-  filter: brightness(calc(1 - (0.1 * v-bind(intensity) / 100))) 
-    contrast(calc(1 + (0.1 * v-bind(intensity) / 100))) 
-    sepia(calc(0.2 * v-bind(intensity) / 100)) 
-    saturate(calc(1 - (0.2 * v-bind(intensity) / 100))) 
+  filter: brightness(calc(1 - (0.1 * v-bind(intensity) / 100)))
+    contrast(calc(1 + (0.1 * v-bind(intensity) / 100)))
+    sepia(calc(0.2 * v-bind(intensity) / 100))
+    saturate(calc(1 - (0.2 * v-bind(intensity) / 100)))
     hue-rotate(calc(90deg * v-bind(intensity) / 100));
 }
 

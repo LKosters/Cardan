@@ -1,6 +1,7 @@
 <template>
   <div :class="filter">
-    <BlockFlowerStoreWebsite />
+    <BlockFlowerStoreHome v-if="page === 'home'" />
+    <BlockFlowerStoreProducts v-if="page === 'products'" />
     <div
       v-if="filter === 'choker'"
       class="fixed inset-0 bg-black pointer-events-none"
@@ -32,6 +33,11 @@
 
 <script lang="ts" setup>
 const props = defineProps({
+  page: {
+    type: String,
+    required: false,
+    default: "home",
+  },
   filter: {
     type: String,
     required: false,

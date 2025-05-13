@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="step < tutorial.length"
-    class="gap-2 absolute top-0 left-0 w-max h-max bg-white rounded-lg p-4 -translate-x-[calc(100%+50px)] -translate-y-[calc(100%+50px)] max-w-[300px]"
+    class="gap-2 absolute top-0 left-0 w-max h-max bg-white rounded-lg p-4 md:-translate-x-[calc(100%+50px)] -translate-y-[calc(100%+150px)] md:-translate-y-[calc(100%+50px)] max-w-[300px]"
   >
     <h2 v-if="step === 0" class="text-xl font-bold mb-2">Tutorial</h2>
     <h3 class="text-lg font-bold mb-2">{{ tutorial[step].title }}</h3>

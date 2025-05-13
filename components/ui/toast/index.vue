@@ -9,7 +9,7 @@
   >
     <div
       v-if="isVisible"
-      class="text-black fixed bottom-24 right-5 bg-secondary-alt px-4 py-2 rounded-lg shadow-lg z-50"
+      class="text-black fixed bottom-34 right-14 bg-secondary-alt px-4 py-2 rounded-lg shadow-lg z-50"
     >
       {{ message }}
     </div>

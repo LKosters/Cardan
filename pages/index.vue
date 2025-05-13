@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <StickyBlob linkUrl="https://example.com" />
+    <StickyBlob/>
     <section class="hero py-16">
       <div
         class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8"

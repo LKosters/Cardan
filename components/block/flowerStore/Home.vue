@@ -55,7 +55,10 @@
           class="flex flex-wrap items-center justify-between md:justify-start"
         >
           <li class="py-4 px-2 md:px-4 relative group">
-            <a href="/bloemenwinkel/producten/" class="flex items-center text-[#2d5741] font-medium">
+            <a
+              href="/bloemenwinkel/producten/"
+              class="flex items-center text-[#2d5741] font-medium"
+            >
               Assortiment
               <span class="ml-1">▼</span>
             </a>
@@ -91,21 +94,23 @@
           <!-- Promotions -->
           <div class="md:w-1/3 flex flex-col gap-4">
             <!-- Promotion 1 -->
-             <a href="/bloemenwinkel/producten/">
-                <div class="bg-white rounded-lg overflow-hidden shadow-md relative">
-                  <img
-                    src="/bloemenwinkel/plant5.jpg"
-                    alt="Elderly couple looking at plants"
-                    class="w-full h-auto"
-                  />
-                  <div
-                    class="absolute bottom-4 right-4 bg-white p-2 rounded-lg shadow-md"
-                  >
-                    <div class="text-center">
-                      <span class="text-[#e4004f] text-3xl font-bold">2</span>
-                      <sup class="text-[#e4004f] text-xl font-bold">99</sup>
-                    </div>
+            <a href="/bloemenwinkel/producten/">
+              <div
+                class="bg-white rounded-lg overflow-hidden shadow-md relative"
+              >
+                <img
+                  src="/bloemenwinkel/plant5.jpg"
+                  alt="Elderly couple looking at plants"
+                  class="w-full h-auto"
+                />
+                <div
+                  class="absolute bottom-4 right-4 bg-white p-2 rounded-lg shadow-md"
+                >
+                  <div class="text-center">
+                    <span class="text-[#e4004f] text-3xl font-bold">2</span>
+                    <sup class="text-[#e4004f] text-xl font-bold">99</sup>
                   </div>
+                </div>
               </div>
             </a>
 
@@ -309,7 +314,9 @@
                     <p class="text-gray-500 text-xs mb-1">
                       Gevarieerde boeketten
                     </p>
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-2">Sarah</h3>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-2">
+                      Sarah
+                    </h3>
                     <div class="flex justify-between items-center">
                       <span class="text-[#e4004f] font-bold">19,00</span>
                     </div>
@@ -357,7 +364,9 @@
                     <p class="text-gray-500 text-xs mb-1">
                       Gevarieerde boeketten
                     </p>
-                    <h3 class="text-[#2d5741] font-medium text-sm mb-2">Merel</h3>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-2">
+                      Merel
+                    </h3>
                     <div class="flex justify-between items-center">
                       <span class="text-[#e4004f] font-bold">19,00</span>
                     </div>

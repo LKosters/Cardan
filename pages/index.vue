@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <StickyBlob/>
+    <StickyBlob />
     <section class="hero py-16">
       <div
         class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8"
@@ -11,7 +11,9 @@
             digitale toegankelijkheid
           </h1>
           <p class="text-gray-700">
-            Samen met jou maken wij de hele wereld digitaal toegankelijk én inclusief. Deze branches helpen wij met het borgen van digitale toegankelijkheid:
+            Samen met jou maken wij de hele wereld digitaal toegankelijk én
+            inclusief. Deze branches helpen wij met het borgen van digitale
+            toegankelijkheid:
           </p>
 
           <div class="space-y-4 mt-6">

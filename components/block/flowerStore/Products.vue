@@ -599,14 +599,14 @@ const categories = [
 // Dynamic calculation of all available subcategories from product data
 const allSubcategories = computed(() => {
   const subcats = new Map();
-  
-  products.value.forEach(product => {
+
+  products.value.forEach((product) => {
     if (!subcats.has(product.subcategory)) {
       subcats.set(product.subcategory, 0);
     }
     subcats.set(product.subcategory, subcats.get(product.subcategory) + 1);
   });
-  
+
   return Array.from(subcats).map(([name, count]) => ({ name, count }));
 });
 
@@ -625,18 +625,21 @@ const availableSubcategories = computed(() => {
 
   // Get all products in the selected category
   const productsInCategory = products.value.filter(
-    p => p.category === selectedCategory.value
+    (p) => p.category === selectedCategory.value,
   );
-  
+
   // Count occurrences of each subcategory within the selected category
   const subcatCounts = new Map();
-  productsInCategory.forEach(product => {
+  productsInCategory.forEach((product) => {
     if (!subcatCounts.has(product.subcategory)) {
       subcatCounts.set(product.subcategory, 0);
     }
-    subcatCounts.set(product.subcategory, subcatCounts.get(product.subcategory) + 1);
+    subcatCounts.set(
+      product.subcategory,
+      subcatCounts.get(product.subcategory) + 1,
+    );
   });
-  
+
   // Convert to array of objects with name and count properties
   return Array.from(subcatCounts).map(([name, count]) => ({ name, count }));
 });

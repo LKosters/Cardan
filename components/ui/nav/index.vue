@@ -1,5 +1,8 @@
 <template>
-  <div v-if="tutorialStep < 5" class="bg-black/70 w-full h-full absolute top-0 left-0 z-0"></div>
+  <div
+    v-if="tutorialStep < 5"
+    class="bg-black/70 w-full h-full absolute top-0 left-0 z-0 fixed"
+  ></div>
   <nav
     ref="navRoot"
     class="bg-secondary-alt w-max fixed bottom-14 left-0 right-0 mx-auto rounded-[10px] px-[35px] py-[7px] shadow-lg"
@@ -7,8 +10,7 @@
     aria-label="Main navigation"
   >
     <UiNavTutorial @step="updateTutorialStep" />
-    <ul 
-    class="flex items-center gap-2">
+    <ul class="flex items-center gap-2">
       <li
         v-for="(item, index) in navItems"
         :key="index"

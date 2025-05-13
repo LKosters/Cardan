@@ -91,21 +91,23 @@
           <!-- Promotions -->
           <div class="md:w-1/3 flex flex-col gap-4">
             <!-- Promotion 1 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md relative">
-              <img
-                src="/bloemenwinkel/plant5.jpg"
-                alt="Elderly couple looking at plants"
-                class="w-full h-auto"
-              />
-              <div
-                class="absolute bottom-4 right-4 bg-white p-2 rounded-lg shadow-md"
-              >
-                <div class="text-center">
-                  <span class="text-[#e4004f] text-3xl font-bold">2</span>
-                  <sup class="text-[#e4004f] text-xl font-bold">99</sup>
-                </div>
+             <a href="/bloemenwinkel/producten/">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md relative">
+                  <img
+                    src="/bloemenwinkel/plant5.jpg"
+                    alt="Elderly couple looking at plants"
+                    class="w-full h-auto"
+                  />
+                  <div
+                    class="absolute bottom-4 right-4 bg-white p-2 rounded-lg shadow-md"
+                  >
+                    <div class="text-center">
+                      <span class="text-[#e4004f] text-3xl font-bold">2</span>
+                      <sup class="text-[#e4004f] text-xl font-bold">99</sup>
+                    </div>
+                  </div>
               </div>
-            </div>
+            </a>
 
             <!-- Promotion 2 -->
             <div class="bg-[#f0f5f0] rounded-lg overflow-hidden shadow-md flex">

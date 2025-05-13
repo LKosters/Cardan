@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="tutorialStep < 5"
-    class="bg-black/70 w-full h-full absolute top-0 left-0 z-0 fixed"
+    class="bg-black/70 w-full h-full absolute top-0 left-0 z-[2] fixed"
   ></div>
   <nav
     ref="navRoot"

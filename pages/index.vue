@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <StickyBlob linkUrl="https://example.com" />
+    <StickyBlob/>
     <section class="hero py-16">
       <div
         class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8"
@@ -11,9 +11,7 @@
             digitale toegankelijkheid
           </h1>
           <p class="text-gray-700">
-            Samen met jou maken wij de hele wereld digitaal toegankelijk en
-            inclusief. Deze branches helpen wij met het borgen van digitale
-            toegankelijkheid:
+            Samen met jou maken wij de hele wereld digitaal toegankelijk én inclusief. Deze branches helpen wij met het borgen van digitale toegankelijkheid:
           </p>
 
           <div class="space-y-4 mt-6">
@@ -32,7 +30,7 @@
           </div>
 
           <button
-            class="bg-[#0a8a4a] text-white px-6 py-3 rounded hover:bg-[#077a40] transition-colors"
+            class="bg-[#0a8a4a] font-bold text-white px-6 py-3 rounded hover:bg-[#077a40] transition-colors"
           >
             Word nu digitaal toegankelijk
           </button>
@@ -56,7 +54,7 @@
         >
           <div class="flex items-center gap-2">
             <IconCheck class="h-4 w-4 text-secondary" />
-            <span>WCAG 2.2 onderzoeken</span>
+            <span><strong>WCAG 2.2</strong> onderzoeken</span>
           </div>
           <div class="flex items-center gap-2">
             <IconCheck class="h-4 w-4 text-secondary" />

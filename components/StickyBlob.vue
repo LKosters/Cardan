@@ -30,20 +30,21 @@
       </svg>
     </button>
     <img
-      src="/blob3.png"
+      src="/blob4.png"
       alt="Icoon blob ontdek jezelf"
       class="w-full h-full object-contain"
     />
     <div
-      class="absolute flex flex-col items-center justify-center text-center p-3 sm:p-6 md:p-12 mt-2 sm:mt-8 md:mt-12 pointer-events-auto w-full max-w-[90%]"
+      class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-auto"
+      style="width: 70%; height: 70%; margin: auto; transform: translateY(15%);"
     >
       <div
-        class="font-bold text-white text-[4.5vw] sm:text-[3.5vw] md:text-[2vw] lg:text-[1.6rem] mb-3 sm:mb-0 pt-6"
+        class="font-bold text-white text-[clamp(1rem,3vw,1.6rem)] mb-1 sm:mb-2"
       >
         Beperk jezelf
       </div>
       <p
-        class="hidden sm:block text-white mb-3 text-[3.5vw] sm:text-[2.5vw] md:text-[1.3vw] lg:text-[1rem]"
+        class="hidden sm:block text-white mb-2 text-[clamp(0.75rem,1.5vw,1rem)]"
       >
         Ervaar een website als een persoon met een beperking.
       </p>
@@ -52,9 +53,9 @@
         target="_blank"
         rel="noopener noreferrer"
         @click.stop
-        class="bg-white text-white p-2 rounded-full no-underline transition-all duration-200 hover:bg-gray-200 hover:scale-105 text-[3vw] sm:text-[2vw] md:text-[1.3vw] lg:text-[1.2rem]"
+        class="bg-white text-white p-2 rounded-full no-underline transition-all duration-200 hover:bg-gray-200 hover:scale-105"
       >
-        <IconArrow class="fill-secondary w-4 h-4 sm:w-7 sm:h-7" />
+        <IconArrow class="fill-secondary w-4 h-4 sm:w-6 sm:h-6" />
       </a>
     </div>
   </div>

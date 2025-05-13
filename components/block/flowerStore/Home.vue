@@ -252,7 +252,7 @@
         <div class="relative">
           <!-- Previous Button -->
           <div
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 z-[1] bg-white rounded-full p-2 shadow-md"
           >
             <span class="block w-6 h-6 text-[#2d5741] text-center">←</span>
           </div>
@@ -374,7 +374,7 @@
 
           <!-- Next Button -->
           <div
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 z-[1] bg-white rounded-full p-2 shadow-md"
           >
             <span class="block w-6 h-6 text-[#2d5741] text-center">→</span>
           </div>
@@ -538,7 +538,7 @@
         <div class="relative">
           <!-- Previous Button -->
           <div
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 z-[1] bg-white rounded-full p-2 shadow-md"
           >
             <span class="block w-6 h-6 text-[#2d5741] text-center">←</span>
           </div>
@@ -632,7 +632,7 @@
 
           <!-- Next Button -->
           <div
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 z-[1] bg-white rounded-full p-2 shadow-md"
           >
             <span class="block w-6 h-6 text-[#2d5741] text-center">→</span>
           </div>

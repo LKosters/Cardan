@@ -2,7 +2,7 @@
   <div>
     <BlockTextImage
       title="Beperk jezelf."
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum est et quam vestibulum, eget iaculis magna feugiat. Sed vitae ante nec nulla faucibus malesuada eget nec quam. Donec arcu tellus, mattis a orci nec, facilisis dapibus nulla."
+      description="Ontdek hoe het is om met een beperking te leven. Door jezelf bewust te beperken, ervaar je de uitdagingen waar mensen met een handicap dagelijks mee te maken hebben. Deze ervaring opent je ogen voor de obstakels in onze samenleving en helpt je begrip te ontwikkelen voor mensen met een beperking."
       image="/images/beperk-jezelf.png"
     />
     <BlockDivider />

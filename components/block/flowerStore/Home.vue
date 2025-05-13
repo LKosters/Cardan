@@ -35,15 +35,15 @@
           </div>
 
           <!-- User Actions -->
+          <!-- User Actions -->
           <div class="user-actions flex items-center space-x-6">
-            <
-            <div class="relative">
-              <span class="text-gray-600">❤️</span>
+              <div class="relative">
+                <IconHeart :size="16"/>
+              </div>
+              <div class="relative">
+                <IconCart :size="16" class="text-black"/>
+              </div>
             </div>
-            <div class="relative">
-              <span class="text-gray-600">🛒</span>
-            </div>
-          </div>
         </div>
       </div>
     </header>
@@ -60,7 +60,6 @@
               class="flex items-center text-[#2d5741] font-medium"
             >
               Assortiment
-              <span class="ml-1">▼</span>
             </a>
           </li>
         </ul>

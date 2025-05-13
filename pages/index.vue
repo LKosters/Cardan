@@ -32,7 +32,7 @@
           </div>
 
           <button
-            class="bg-[#0a8a4a] font-bold text-white px-6 py-3 rounded hover:bg-[#077a40] transition-colors"
+            class="btn-secondary"
           >
             Word nu digitaal toegankelijk
           </button>

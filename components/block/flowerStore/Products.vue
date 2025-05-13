@@ -59,7 +59,6 @@
             <li class="py-4 px-2 md:px-4 relative group">
               <div class="flex items-center text-[#2d5741] font-medium">
                 Assortiment
-                <span class="ml-1">▼</span>
               </div>
             </li>
           </ul>
@@ -179,9 +178,6 @@
                       :alt="product.name"
                       class="w-full h-48 object-cover"
                     />
-                    <button class="absolute top-2 right-2 z-10">
-                      <span class="text-gray-400">❤️</span>
-                    </button>
                     <div
                       v-if="product.sale"
                       class="absolute top-2 left-2 bg-[#e4004f] text-white text-xs px-2 py-1 rounded-full"
@@ -395,7 +391,7 @@ const products = ref([
     price: 4.95,
     image: "/bloemenwinkel/plant5.jpg",
     category: "Planten",
-    subcategory: "Snijbloemen",
+    subcategory: "Cactus",
   },
   {
     id: 5,
@@ -403,7 +399,7 @@ const products = ref([
     price: 7.95,
     image: "/bloemenwinkel/plant1.jpg",
     category: "Planten",
-    subcategory: "Snijbloemen",
+    subcategory: "Cactus",
   },
   {
     id: 6,
@@ -459,7 +455,7 @@ const products = ref([
     price: 824.95,
     image: "/bloemenwinkel/tuinmeubel1.jpg",
     category: "Tuinmeubelen",
-    subcategory: "Droogbloemen",
+    subcategory: "Loungeset",
   },
   {
     id: 13,
@@ -467,7 +463,7 @@ const products = ref([
     price: 435.95,
     image: "/bloemenwinkel/tuinmeubel2.jpg",
     category: "Tuinmeubelen",
-    subcategory: "Droogbloemen",
+    subcategory: "Tuinset",
   },
   {
     id: 14,
@@ -475,7 +471,7 @@ const products = ref([
     price: 64.95,
     image: "/bloemenwinkel/vase.jpg",
     category: "Potterie",
-    subcategory: "Droogbloemen",
+    subcategory: "Buitenpotten",
   },
   {
     id: 15,
@@ -483,7 +479,7 @@ const products = ref([
     price: 73.95,
     image: "/bloemenwinkel/tuinmeubel.jpg",
     category: "Tuinmeubelen",
-    subcategory: "Rouwbloemen",
+    subcategory: "Stoelen",
   },
   {
     id: 16,
@@ -495,117 +491,52 @@ const products = ref([
     sale: true,
     originalPrice: 14.95,
   },
+  {
+    id: 17,
+    name: "Kaartspel",
+    price: 9.99,
+    image: "/bloemenwinkel/spel1.jpg",
+    category: "Spellen",
+    subcategory: "Spellen",
+  },
+  {
+    id: 18,
+    name: "BBQ Gerta",
+    price: 7.99,
+    image: "/bloemenwinkel/bbq.jpg",
+    category: "BBQ",
+    subcategory: "BBQ",
+    sale: true,
+    originalPrice: 9.95,
+  },
 ]);
 
 // Category and filter states
 const selectedCategory = ref("Alle producten");
-const selectedSubcategories = ref([]);
-const priceRange = ref({ min: 0, max: 1000 });
-const minPrice = ref(0);
-const maxPrice = ref(1000);
+const selectedSubcategories = ref<string[]>([]);
 const sortOption = ref("populariteit");
-const isDraggingMin = ref(false);
-const isDraggingMax = ref(false);
-const sliderTrack = ref(null);
-const minHandle = ref(null);
-const maxHandle = ref(null);
-const userHasAdjustedPrice = ref(false);
-const absolutePriceRange = ref({ min: 0, max: 1000 });
 
-// Calculate overall price range across all products
-const calculateAbsolutePriceRange = () => {
-  const min = Math.floor(Math.min(...products.value.map((p) => p.price)));
-  const max = Math.ceil(Math.max(...products.value.map((p) => p.price)));
-  absolutePriceRange.value = { min, max };
-
-  // Initialize price range values if they're at defaults
-  if (priceRange.value.min === 0 && priceRange.value.max === 1000) {
-    priceRange.value.min = min;
-    priceRange.value.max = max;
-    minPrice.value = min;
-    maxPrice.value = max;
-  }
-};
-
-// Calculate price range for current category
-const categoryPriceRange = computed(() => {
-  const categoryProducts = products.value.filter(
-    (product) =>
-      selectedCategory.value === "Alle producten" ||
-      (product.category === selectedCategory.value &&
-        (selectedSubcategories.value.length === 0 ||
-          selectedSubcategories.value.includes(product.subcategory))),
-  );
-
-  if (categoryProducts.length === 0) return absolutePriceRange.value;
-
-  const min = Math.floor(Math.min(...categoryProducts.map((p) => p.price)));
-  const max = Math.ceil(Math.max(...categoryProducts.map((p) => p.price)));
-
-  return { min, max };
-});
-
-// For slider calculations - use fixed range to prevent jumps in the UI
-const sliderBaseRange = computed(() => {
-  // Use the absolute range for slider visualization to prevent UI jumps
-  return absolutePriceRange.value;
-});
-
-// Calculate slider position percentages based on fixed absolute range
-const sliderPositions = computed(() => {
-  const range = sliderBaseRange.value;
-  const totalRange = range.max - range.min;
-
-  // Avoid division by zero
-  if (totalRange === 0) return { minPos: 0, maxPos: 100, width: 100 };
-
-  // Calculate positions based on the fixed absolute range
-  const minPos = ((priceRange.value.min - range.min) / totalRange) * 100;
-  const maxPos = ((priceRange.value.max - range.min) / totalRange) * 100;
-
-  return {
-    minPos: Math.max(0, Math.min(100, minPos)),
-    maxPos: Math.max(0, Math.min(100, maxPos)),
-    width: Math.max(0, maxPos - minPos),
-  };
-});
-
-// Show the current price range in the UI
-const displayMin = computed(() => priceRange.value.min);
-const displayMax = computed(() => priceRange.value.max);
-
-// Products filtered by category and subcategory before price filtering
-const productsBeforePriceFilter = computed(() => {
-  return products.value.filter((product) => {
+// Filter products with category and subcategory filtering
+const filteredProducts = computed(() => {
+  let filtered = products.value.filter((product) => {
     // Show all products when "Alle producten" is selected
     if (selectedCategory.value === "Alle producten") {
+      // Apply subcategory filter if any subcategories are selected
+      if (selectedSubcategories.value.length > 0) {
+        return selectedSubcategories.value.includes(product.subcategory);
+      }
       return true;
     }
 
     // Category filter
-    if (selectedCategory.value && product.category !== selectedCategory.value) {
+    if (product.category !== selectedCategory.value) {
       return false;
     }
 
-    // Subcategory filter
+    // Subcategory filter - only apply if subcategories are selected
     if (
       selectedSubcategories.value.length > 0 &&
       !selectedSubcategories.value.includes(product.subcategory)
-    ) {
-      return false;
-    }
-
-    return true;
-  });
-});
-
-// Filter products with price filtering
-const filteredProducts = computed(() => {
-  let filtered = productsBeforePriceFilter.value.filter((product) => {
-    // Price range filter - always apply price filter
-    if (
-      product.price < priceRange.value.min ||
-      product.price > priceRange.value.max
     ) {
       return false;
     }
@@ -633,150 +564,25 @@ const filteredProducts = computed(() => {
   return filtered;
 });
 
-// Watch for category changes to reset price range
-watch(selectedCategory, () => {
-  if (!userHasAdjustedPrice.value) {
-    resetPriceRange();
-  }
-});
-
-// Set category with fixed adjustment to price range
-const setCategory = (category) => {
+// Set category and reset subcategory selection when changing category
+const setCategory = (category: string) => {
   selectedCategory.value = category;
-
-  // Only reset price range if user hasn't adjusted manually
-  if (!userHasAdjustedPrice.value) {
-    resetPriceRange();
-  }
-};
-
-// Update price range from category
-const resetPriceRange = () => {
-  if (categoryPriceRange.value) {
-    const range = categoryPriceRange.value;
-    priceRange.value.min = range.min;
-    priceRange.value.max = range.max;
-    minPrice.value = range.min;
-    maxPrice.value = range.max;
-  }
+  selectedSubcategories.value = []; // Reset subcategory selection when changing category
 };
 
 // Toggle subcategory
-const toggleSubcategory = (subcategory) => {
+const toggleSubcategory = (subcategory: string) => {
   const index = selectedSubcategories.value.indexOf(subcategory);
   if (index === -1) {
     selectedSubcategories.value.push(subcategory);
   } else {
     selectedSubcategories.value.splice(index, 1);
   }
-
-  // If user hasn't manually adjusted price, update to match new category range
-  if (!userHasAdjustedPrice.value) {
-    resetPriceRange();
-  }
-};
-
-// Initialize on mounted
-onMounted(() => {
-  calculateAbsolutePriceRange();
-  resetPriceRange();
-
-  const slider = document.querySelector('div[ref="sliderEl"]');
-  if (slider) {
-    sliderTrack.value = {
-      width: slider.clientWidth,
-      left: slider.getBoundingClientRect().left,
-    };
-  }
-});
-
-// Slider drag events
-const startDragMin = (e) => {
-  e.preventDefault();
-  userHasAdjustedPrice.value = true;
-  isDraggingMin.value = true;
-  document.addEventListener("mousemove", onMouseMove);
-  document.addEventListener("mouseup", stopDrag);
-};
-
-const startDragMax = (e) => {
-  e.preventDefault();
-  userHasAdjustedPrice.value = true;
-  isDraggingMax.value = true;
-  document.addEventListener("mousemove", onMouseMove);
-  document.addEventListener("mouseup", stopDrag);
-};
-
-const stopDrag = () => {
-  isDraggingMin.value = false;
-  isDraggingMax.value = false;
-  document.removeEventListener("mousemove", onMouseMove);
-  document.removeEventListener("mouseup", stopDrag);
-  updatePriceRange();
-};
-
-// Mouse move handler for slider
-const onMouseMove = (e) => {
-  if (!isDraggingMin.value && !isDraggingMax.value) return;
-
-  if (!sliderTrack.value) {
-    // Get the slider track element for position calculations
-    const slider =
-      document.querySelector('div[ref="sliderEl"]') ||
-      minHandle.value.parentElement;
-    sliderTrack.value = {
-      width: slider.clientWidth,
-      left: slider.getBoundingClientRect().left,
-    };
-  }
-
-  // Calculate relative position (0-1)
-  let relativePosition =
-    (e.clientX - sliderTrack.value.left) / sliderTrack.value.width;
-
-  // Ensure it's within 0-1 range
-  relativePosition = Math.max(0, Math.min(1, relativePosition));
-
-  // Convert to price value based on fixed range
-  const range = sliderBaseRange.value;
-  const priceValue = Math.round(
-    range.min + relativePosition * (range.max - range.min),
-  );
-
-  if (isDraggingMin.value) {
-    // Don't let min exceed max
-    const newMin = Math.min(priceValue, priceRange.value.max - 1);
-    minPrice.value = newMin;
-    priceRange.value.min = newMin;
-  } else if (isDraggingMax.value) {
-    // Don't let max go below min
-    const newMax = Math.max(priceValue, priceRange.value.min + 1);
-    maxPrice.value = newMax;
-    priceRange.value.max = newMax;
-  }
-
-  // Always mark as user adjusted when dragging
-  userHasAdjustedPrice.value = true;
-};
-
-// Clean up event listeners when component is unmounted
-onUnmounted(() => {
-  document.removeEventListener("mousemove", onMouseMove);
-  document.removeEventListener("mouseup", stopDrag);
-});
-
-// Update price range gets input values and updates the model
-const updatePriceRange = () => {
-  userHasAdjustedPrice.value = true;
-  priceRange.value.min =
-    parseFloat(minPrice.value) || categoryPriceRange.value.min;
-  priceRange.value.max =
-    parseFloat(maxPrice.value) || categoryPriceRange.value.max;
 };
 
 // Update sort option
-const updateSortOption = (e) => {
-  sortOption.value = e.target.value;
+const updateSortOption = (e: Event) => {
+  sortOption.value = (e.target as HTMLSelectElement).value;
 };
 
 // Available categories
@@ -786,47 +592,56 @@ const categories = [
   "Planten",
   "Potterie",
   "Tuinmeubelen",
+  "Spellen",
+  "BBQ",
 ];
 
-// Available subcategories
-const subcategories = [
-  { name: "Boeketten", count: 7 },
-  { name: "Snijbloemen", count: 5 },
-  { name: "Rouwbloemen", count: 2 },
-  { name: "Droogbloemen", count: 3 },
-];
+// Dynamic calculation of all available subcategories from product data
+const allSubcategories = computed(() => {
+  const subcats = new Map();
+
+  products.value.forEach((product) => {
+    if (!subcats.has(product.subcategory)) {
+      subcats.set(product.subcategory, 0);
+    }
+    subcats.set(product.subcategory, subcats.get(product.subcategory) + 1);
+  });
+
+  return Array.from(subcats).map(([name, count]) => ({ name, count }));
+});
 
 // Reset filters
 const resetFilters = () => {
-  resetPriceRange();
-  userHasAdjustedPrice.value = false;
+  selectedCategory.value = "Alle producten";
+  selectedSubcategories.value = [];
 };
 
 // Available subcategories based on current category selection
 const availableSubcategories = computed(() => {
   if (selectedCategory.value === "Alle producten") {
     // Show all subcategories for "Alle producten"
-    return subcategories;
+    return allSubcategories.value;
   }
 
-  // Get all subcategories that exist in the current category
-  const subCatsInCategory = products.value
-    .filter((p) => p.category === selectedCategory.value)
-    .map((p) => p.subcategory);
+  // Get all products in the selected category
+  const productsInCategory = products.value.filter(
+    (p) => p.category === selectedCategory.value,
+  );
 
-  // Get unique subcategories
-  const uniqueSubCats = [...new Set(subCatsInCategory)];
+  // Count occurrences of each subcategory within the selected category
+  const subcatCounts = new Map();
+  productsInCategory.forEach((product) => {
+    if (!subcatCounts.has(product.subcategory)) {
+      subcatCounts.set(product.subcategory, 0);
+    }
+    subcatCounts.set(
+      product.subcategory,
+      subcatCounts.get(product.subcategory) + 1,
+    );
+  });
 
-  // Return only subcategories that exist in the current category with their counts
-  return subcategories
-    .filter((sc) => uniqueSubCats.includes(sc.name))
-    .map((sc) => ({
-      ...sc,
-      count: products.value.filter(
-        (p) =>
-          p.category === selectedCategory.value && p.subcategory === sc.name,
-      ).length,
-    }));
+  // Convert to array of objects with name and count properties
+  return Array.from(subcatCounts).map(([name, count]) => ({ name, count }));
 });
 
 // Determine if product type filter should be shown

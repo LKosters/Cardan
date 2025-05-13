@@ -36,14 +36,7 @@
 
           <!-- User Actions -->
           <div class="user-actions flex items-center space-x-6">
-            <div class="flex items-center text-sm">
-              <span class="text-gray-600 mr-1">📍</span>
-              <span>Kies je winkel</span>
-            </div>
-            <div class="flex items-center text-sm">
-              <span class="text-gray-600 mr-1">👤</span>
-              <span>Inloggen</span>
-            </div>
+            <
             <div class="relative">
               <span class="text-gray-600">❤️</span>
             </div>
@@ -62,28 +55,13 @@
           class="flex flex-wrap items-center justify-between md:justify-start"
         >
           <li class="py-4 px-2 md:px-4 relative group">
-            <div class="flex items-center text-[#2d5741] font-medium">
+            <a
+              href="/bloemenwinkel/producten/"
+              class="flex items-center text-[#2d5741] font-medium"
+            >
               Assortiment
               <span class="ml-1">▼</span>
-            </div>
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium">Inspiratie</div>
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium">Folders</div>
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#e4004f] font-medium">Aanbiedingen</div>
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium">Cadeaukaarten</div>
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium">VIPpas</div>
-          </li>
-          <li class="py-4 px-2 md:px-4">
-            <div class="text-[#2d5741] font-medium">Vacatures</div>
+            </a>
           </li>
         </ul>
       </div>
@@ -116,21 +94,25 @@
           <!-- Promotions -->
           <div class="md:w-1/3 flex flex-col gap-4">
             <!-- Promotion 1 -->
-            <div class="bg-white rounded-lg overflow-hidden shadow-md relative">
-              <img
-                src="/bloemenwinkel/plant5.jpg"
-                alt="Elderly couple looking at plants"
-                class="w-full h-auto"
-              />
+            <a href="/bloemenwinkel/producten/">
               <div
-                class="absolute bottom-4 right-4 bg-white p-2 rounded-lg shadow-md"
+                class="bg-white rounded-lg overflow-hidden shadow-md relative"
               >
-                <div class="text-center">
-                  <span class="text-[#e4004f] text-3xl font-bold">2</span>
-                  <sup class="text-[#e4004f] text-xl font-bold">99</sup>
+                <img
+                  src="/bloemenwinkel/plant5.jpg"
+                  alt="Elderly couple looking at plants"
+                  class="w-full h-auto"
+                />
+                <div
+                  class="absolute bottom-4 right-4 bg-white p-2 rounded-lg shadow-md"
+                >
+                  <div class="text-center">
+                    <span class="text-[#e4004f] text-3xl font-bold">2</span>
+                    <sup class="text-[#e4004f] text-xl font-bold">99</sup>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
 
             <!-- Promotion 2 -->
             <div class="bg-[#f0f5f0] rounded-lg overflow-hidden shadow-md flex">
@@ -175,66 +157,74 @@
           <div class="slider flex overflow-x-auto gap-4 py-4 px-8">
             <!-- Category 1 -->
             <div class="min-w-[250px] flex-shrink-0">
-              <div class="rounded-lg overflow-hidden shadow-md relative">
-                <img
-                  src="/bloemenwinkel/tuinmeubel.jpg"
-                  alt="Hanging egg chair"
-                  class="w-full h-48 object-cover"
-                />
-                <div
-                  class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 py-2 px-4 text-center"
-                >
-                  <h3 class="text-[#2d5741] font-medium">Tuinmeubelen</h3>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div class="rounded-lg overflow-hidden shadow-md relative">
+                  <img
+                    src="/bloemenwinkel/tuinmeubel.jpg"
+                    alt="Hanging egg chair"
+                    class="w-full h-48 object-cover"
+                  />
+                  <div
+                    class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 py-2 px-4 text-center"
+                  >
+                    <h3 class="text-[#2d5741] font-medium">Tuinmeubelen</h3>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Category 2 -->
             <div class="min-w-[250px] flex-shrink-0">
-              <div class="rounded-lg overflow-hidden shadow-md relative">
-                <img
-                  src="/bloemenwinkel/bbq.jpg"
-                  alt="BBQ grill"
-                  class="w-full h-48 object-cover"
-                />
-                <div
-                  class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 py-2 px-4 text-center"
-                >
-                  <h3 class="text-[#2d5741] font-medium">Barbecues</h3>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div class="rounded-lg overflow-hidden shadow-md relative">
+                  <img
+                    src="/bloemenwinkel/bbq.jpg"
+                    alt="BBQ grill"
+                    class="w-full h-48 object-cover"
+                  />
+                  <div
+                    class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 py-2 px-4 text-center"
+                  >
+                    <h3 class="text-[#2d5741] font-medium">Barbecues</h3>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Category 3 -->
             <div class="min-w-[250px] flex-shrink-0">
-              <div class="rounded-lg overflow-hidden shadow-md relative">
-                <img
-                  src="/bloemenwinkel/kamerplant.jpg"
-                  alt="Houseplant"
-                  class="w-full h-48 object-cover"
-                />
-                <div
-                  class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 py-2 px-4 text-center"
-                >
-                  <h3 class="text-[#2d5741] font-medium">Kamerplanten</h3>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div class="rounded-lg overflow-hidden shadow-md relative">
+                  <img
+                    src="/bloemenwinkel/kamerplant.jpg"
+                    alt="Houseplant"
+                    class="w-full h-48 object-cover"
+                  />
+                  <div
+                    class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 py-2 px-4 text-center"
+                  >
+                    <h3 class="text-[#2d5741] font-medium">Kamerplanten</h3>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Category 4 -->
             <div class="min-w-[250px] flex-shrink-0">
-              <div class="rounded-lg overflow-hidden shadow-md relative">
-                <img
-                  src="/bloemenwinkel/spel1.jpg"
-                  alt="Puzzles and games"
-                  class="w-full h-48 object-cover"
-                />
-                <div
-                  class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 py-2 px-4 text-center"
-                >
-                  <h3 class="text-[#2d5741] font-medium">Spellen</h3>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div class="rounded-lg overflow-hidden shadow-md relative">
+                  <img
+                    src="/bloemenwinkel/spel1.jpg"
+                    alt="Puzzles and games"
+                    class="w-full h-48 object-cover"
+                  />
+                  <div
+                    class="absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 py-2 px-4 text-center"
+                  >
+                    <h3 class="text-[#2d5741] font-medium">Spellen</h3>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -261,114 +251,128 @@
           <div class="slider flex overflow-x-auto gap-4 py-4 px-8">
             <!-- Product 1 -->
             <div class="min-w-[220px] flex-shrink-0">
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden relative"
-              >
-                <img
-                  src="/bloemenwinkel/vase.jpg"
-                  alt="Concrete pot"
-                  class="w-full h-48 object-contain p-4"
-                />
-                <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">
-                    Decoratieve pot van...
-                  </p>
-                  <h3 class="text-[#2d5741] font-medium text-sm mb-2">
-                    Betonnen pot
-                  </h3>
-                  <div class="flex justify-between items-center">
-                    <span class="text-[#e4004f] font-bold">109,00</span>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div
+                  class="bg-white rounded-lg shadow-md overflow-hidden relative"
+                >
+                  <img
+                    src="/bloemenwinkel/vase.jpg"
+                    alt="Concrete pot"
+                    class="w-full h-48 object-contain p-4"
+                  />
+                  <div class="p-4">
+                    <p class="text-gray-500 text-xs mb-1">
+                      Decoratieve pot van...
+                    </p>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-2">
+                      Betonnen pot
+                    </h3>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">109,00</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Product 2 -->
             <div class="min-w-[220px] flex-shrink-0">
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden relative"
-              >
-                <img
-                  src="/bloemenwinkel/plant3.jpg"
-                  alt="Artificial tree"
-                  class="w-full h-48 object-contain p-4"
-                />
-                <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">Losse stekjes</p>
-                  <h3 class="text-[#2d5741] font-medium text-sm mb-2">
-                    Stekjes
-                  </h3>
-                  <div class="flex justify-between items-center">
-                    <span class="text-[#e4004f] font-bold">2,99</span>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div
+                  class="bg-white rounded-lg shadow-md overflow-hidden relative"
+                >
+                  <img
+                    src="/bloemenwinkel/plant3.jpg"
+                    alt="Artificial tree"
+                    class="w-full h-48 object-contain p-4"
+                  />
+                  <div class="p-4">
+                    <p class="text-gray-500 text-xs mb-1">Losse stekjes</p>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-2">
+                      Stekjes
+                    </h3>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">2,99</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Product 3 -->
             <div class="min-w-[220px] flex-shrink-0">
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden relative"
-              >
-                <img
-                  src="/bloemenwinkel/bloemenwinkel2.png"
-                  alt="Ceramic pot"
-                  class="w-full h-48 object-contain p-4"
-                />
-                <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">
-                    Gevarieerde boeketten
-                  </p>
-                  <h3 class="text-[#2d5741] font-medium text-sm mb-2">Sarah</h3>
-                  <div class="flex justify-between items-center">
-                    <span class="text-[#e4004f] font-bold">19,00</span>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div
+                  class="bg-white rounded-lg shadow-md overflow-hidden relative"
+                >
+                  <img
+                    src="/bloemenwinkel/bloemenwinkel2.png"
+                    alt="Ceramic pot"
+                    class="w-full h-48 object-contain p-4"
+                  />
+                  <div class="p-4">
+                    <p class="text-gray-500 text-xs mb-1">
+                      Gevarieerde boeketten
+                    </p>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-2">
+                      Sarah
+                    </h3>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">19,00</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Product 4 -->
             <div class="min-w-[220px] flex-shrink-0">
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden relative"
-              >
-                <img
-                  src="/bloemenwinkel/plant1.jpg"
-                  alt="Flowering plant"
-                  class="w-full h-48 object-contain p-4"
-                />
-                <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">Cactussen</p>
-                  <h3 class="text-[#2d5741] font-medium text-sm mb-2">
-                    Cactus
-                  </h3>
-                  <div class="flex justify-between items-center">
-                    <span class="text-[#e4004f] font-bold">3,99</span>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div
+                  class="bg-white rounded-lg shadow-md overflow-hidden relative"
+                >
+                  <img
+                    src="/bloemenwinkel/plant1.jpg"
+                    alt="Flowering plant"
+                    class="w-full h-48 object-contain p-4"
+                  />
+                  <div class="p-4">
+                    <p class="text-gray-500 text-xs mb-1">Cactussen</p>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-2">
+                      Cactus
+                    </h3>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">3,99</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Product 5 -->
             <div class="min-w-[220px] flex-shrink-0">
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden relative"
-              >
-                <img
-                  src="/bloemenwinkel/boeket.jpg"
-                  alt="Ceramic pot"
-                  class="w-full h-48 object-contain p-4"
-                />
-                <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">
-                    Gevarieerde boeketten
-                  </p>
-                  <h3 class="text-[#2d5741] font-medium text-sm mb-2">Merel</h3>
-                  <div class="flex justify-between items-center">
-                    <span class="text-[#e4004f] font-bold">19,00</span>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div
+                  class="bg-white rounded-lg shadow-md overflow-hidden relative"
+                >
+                  <img
+                    src="/bloemenwinkel/boeket.jpg"
+                    alt="Ceramic pot"
+                    class="w-full h-48 object-contain p-4"
+                  />
+                  <div class="p-4">
+                    <p class="text-gray-500 text-xs mb-1">
+                      Gevarieerde boeketten
+                    </p>
+                    <h3 class="text-[#2d5741] font-medium text-sm mb-2">
+                      Merel
+                    </h3>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">19,00</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -547,86 +551,94 @@
           <div class="slider flex overflow-x-auto gap-4 py-4 px-8">
             <!-- Product 1 -->
             <div class="min-w-[280px] flex-shrink-0">
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden relative"
-              >
-                <img
-                  src="/bloemenwinkel/tuinmeubel2.jpg"
-                  alt="Garden furniture"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">Soho tuinset</p>
-                  <div class="flex justify-between items-center">
-                    <span class="text-[#e4004f] font-bold">499,00</span>
-                    <span class="text-gray-400 line-through text-sm"
-                      >699,00</span
-                    >
+              <a href="/bloemenwinkel/producten" class="block">
+                <div
+                  class="bg-white rounded-lg shadow-md overflow-hidden relative"
+                >
+                  <img
+                    src="/bloemenwinkel/tuinmeubel2.jpg"
+                    alt="Garden furniture"
+                    class="w-full h-48 object-cover"
+                  />
+                  <div class="p-4">
+                    <p class="text-gray-500 text-xs mb-1">Soho tuinset</p>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">499,00</span>
+                      <span class="text-gray-400 line-through text-sm"
+                        >699,00</span
+                      >
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Product 2 -->
             <div class="min-w-[280px] flex-shrink-0">
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden relative"
-              >
-                <img
-                  src="/bloemenwinkel/tuinmeubel3.jpg"
-                  alt="Lounge set"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">
-                    Baltimore loungebank set
-                  </p>
-                  <div class="flex justify-between items-center">
-                    <span class="text-[#e4004f] font-bold">1.199,00</span>
-                    <span class="text-gray-400 line-through text-sm"
-                      >1.399,00</span
-                    >
+              <a href="/bloemenwinkel/producten" class="block">
+                <div
+                  class="bg-white rounded-lg shadow-md overflow-hidden relative"
+                >
+                  <img
+                    src="/bloemenwinkel/tuinmeubel3.jpg"
+                    alt="Lounge set"
+                    class="w-full h-48 object-cover"
+                  />
+                  <div class="p-4">
+                    <p class="text-gray-500 text-xs mb-1">
+                      Baltimore loungebank set
+                    </p>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">1.199,00</span>
+                      <span class="text-gray-400 line-through text-sm"
+                        >1.399,00</span
+                      >
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Product 3 -->
             <div class="min-w-[280px] flex-shrink-0">
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden relative"
-              >
-                <img
-                  src="/bloemenwinkel/tuinmeubel4.jpg"
-                  alt="Corner sofa"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">Rio loungebank</p>
-                  <div class="flex justify-between items-center">
-                    <span class="text-[#e4004f] font-bold">1.299,00</span>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div
+                  class="bg-white rounded-lg shadow-md overflow-hidden relative"
+                >
+                  <img
+                    src="/bloemenwinkel/tuinmeubel4.jpg"
+                    alt="Corner sofa"
+                    class="w-full h-48 object-cover"
+                  />
+                  <div class="p-4">
+                    <p class="text-gray-500 text-xs mb-1">Rio loungebank</p>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">1.299,00</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- Product 4 -->
             <div class="min-w-[280px] flex-shrink-0">
-              <div
-                class="bg-white rounded-lg shadow-md overflow-hidden relative"
-              >
-                <img
-                  src="/bloemenwinkel/kussen.jpg"
-                  alt="Colorful cushions"
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  <p class="text-gray-500 text-xs mb-1">Kussen gekleurd</p>
-                  <div class="flex justify-between items-center">
-                    <span class="text-[#e4004f] font-bold">24,99</span>
+              <a href="/bloemenwinkel/producten" class="block">
+                <div
+                  class="bg-white rounded-lg shadow-md overflow-hidden relative"
+                >
+                  <img
+                    src="/bloemenwinkel/kussen.jpg"
+                    alt="Colorful cushions"
+                    class="w-full h-48 object-cover"
+                  />
+                  <div class="p-4">
+                    <p class="text-gray-500 text-xs mb-1">Kussen gekleurd</p>
+                    <div class="flex justify-between items-center">
+                      <span class="text-[#e4004f] font-bold">24,99</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 

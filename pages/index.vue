@@ -89,4 +89,14 @@
 
 <script lang="ts" setup>
 import StickyBlob from "~/components/StickyBlob.vue";
+
+useHead({
+  title: "Home | Cardan",
+  meta: [
+    {
+      name: "description",
+      content: "Homepagina van Cardan",
+    },
+  ],
+});
 </script>

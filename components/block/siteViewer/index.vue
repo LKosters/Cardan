@@ -8,7 +8,7 @@
     />
     <div
       v-if="filter === 'choker'"
-      class="absolute inset-0 bg-black pointer-events-none"
+      class="z-10 absolute inset-0 bg-black pointer-events-none"
       :style="`
         mask: radial-gradient(circle at center, transparent ${(100 * (100 - intensity)) / 50}px, black ${(220 * (100 - intensity)) / 50}px);
         webkitmask: radial-gradient(
@@ -55,8 +55,8 @@ const props = defineProps({
 const stains = computed(() => {
   const count = Math.floor(props.intensity / 10);
   return Array.from({ length: count }, () => ({
-    top: Math.random() * 85,
-    left: Math.random() * 85,
+    top: Math.random() * 100,
+    left: Math.random() * 100,
     size: Math.random() * 50 + 150 + (props.intensity * 2)
   }));
 });

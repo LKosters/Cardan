@@ -2,7 +2,7 @@
   <div
     v-if="isVisible"
     :class="[
-      'fixed z-10 pointer-events-none flex justify-center items-center w-[60vw] h-[60vw] sm:w-[50vw] sm:h-[50vw] md:w-[32vw] md:h-[32vw] lg:w-[25vw] lg:h-[25vw]',
+      'fixed z-10 pointer-events-none flex justify-center items-center w-[40vw] h-[40vw] sm:w-[40vw] sm:h-[40vw] md:w-[26vw] md:h-[26vw] lg:w-[20vw] lg:h-[20vw]',
       positionClass,
       'transition-all duration-[1000ms] ease-in-out transform',
     ]"
@@ -10,7 +10,7 @@
   >
     <button
       @click.stop="closeBlob"
-      class="absolute top-0 right-[20%] top-[25%] sm:hidden z-20 bg-white/90 rounded-full w-6 h-6 flex items-center justify-center pointer-events-auto shadow-md transform -translate-y-2"
+      class="absolute top-0 right-[15%] top-[10%] sm:hidden z-20 bg-white/90 rounded-full w-6 h-6 flex items-center justify-center pointer-events-auto shadow-md transform -translate-y-2"
       aria-label="Close"
     >
       <svg
@@ -30,13 +30,13 @@
       </svg>
     </button>
     <img
-      src="/blob4.png"
+      src="/blob5.png"
       alt="Icoon blob ontdek jezelf"
       class="w-full h-full object-contain"
     />
     <div
       class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-auto"
-      style="width: 70%; height: 70%; margin: auto; transform: translateY(15%);"
+      style="width: 70%; height: 70%; margin: auto; transform: translateY(8%);"
     >
       <div
         class="font-bold text-white text-[clamp(1rem,3vw,1.6rem)] mb-1 sm:mb-2"
@@ -74,11 +74,11 @@ defineProps({
 
 // Simplified, consistent positions
 const positions = [
-  "top-[70%] -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full",
-  "top-[60%] -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full",
-  "top-[80%] -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full",
-  "top-[40%] -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full",
-  "top-[100%] -right-8 sm:-right-6 md:-right-4 lg:-right-2 -translate-y-full",
+  "top-[70%] right-0 sm:right-0 md:right-0 lg:right-0 -translate-y-full",
+  "top-[60%] right-0 sm:right-0 md:right-0 lg:right-0 -translate-y-full",
+  "top-[80%] right-0 sm:right-0 md:right-0 lg:right-0 -translate-y-full",
+  "top-[40%] right-0 sm:right-0 md:right-0 lg:right-0 -translate-y-full",
+  "top-[100%] right-0 sm:right-0 md:right-0 lg:right-0 -translate-y-full",
 ];
 
 const currentPositionIndex = ref(0);
@@ -92,6 +92,14 @@ const isVisible = ref(true);
 // Add overflow-x-hidden to body on mount to prevent horizontal scrolling
 onMounted(() => {
   document.body.classList.add("overflow-x-hidden");
+  
+  // Also add viewport meta tag to ensure proper mobile rendering
+  if (!document.querySelector('meta[name="viewport"]')) {
+    const meta = document.createElement('meta');
+    meta.name = 'viewport';
+    meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+    document.head.appendChild(meta);
+  }
 });
 
 const closeBlob = () => {

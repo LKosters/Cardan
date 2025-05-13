@@ -1,8 +1,7 @@
 <template>
   <div class="relative h-16 md:h-24">
     <svg
-      width="557"
-      height="98"
+      class="w-[300px] md:w-[557px] h-[53px] md:h-[98px]"
       viewBox="0 0 557 98"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

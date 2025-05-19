@@ -10,7 +10,7 @@
     aria-label="Main navigation"
   >
     <UiNavTutorial @step="updateTutorialStep" />
-    <ul class="flex items-center gap-2">
+    <ul :class="{'pointer-events-none': tutorialStep < 5}" class="flex items-center gap-2">
       <li
         v-for="(item, index) in navItems"
         :key="index"
@@ -28,8 +28,10 @@
         @mouseenter="selectItem(index)"
         @mouseleave="
           () => {
-            hoveredItemIndex = null;
-            selectedItemIndex = null;
+            if (tutorialStep >= 5) {
+              hoveredItemIndex = null;
+              selectedItemIndex = null;
+            }
           }
         "
       >
@@ -38,7 +40,7 @@
           class="popup-container"
           ref="`popupContainer${index}`"
         >
-          <UiNavPopup :items="item.items" class="popup" />
+          <UiNavPopup :items="item.items" :tutorial-step="tutorialStep" class="popup" />
         </div>
         <a v-if="item.link" :href="item.link">
           <component :is="item.icon" />
@@ -155,7 +157,9 @@ const invokeIntensity = () => {
 };
 
 const selectItem = (index: number) => {
-  selectedItemIndex.value = index;
+  if (tutorialStep.value >= 5) {
+    selectedItemIndex.value = index;
+  }
 };
 
 watch(sliderValue, (value) => {
@@ -172,16 +176,20 @@ onMounted(() => {
     ) as HTMLElement;
     if (navItem && popupContainer) {
       navItem.addEventListener("mouseenter", () => {
-        hoveredItemIndex.value = index;
-        popupContainer.style.opacity = "1";
-        popupContainer.style.visibility = "visible";
-        popupContainer.style.pointerEvents = "auto";
+        if (tutorialStep.value >= 5) {
+          hoveredItemIndex.value = index;
+          popupContainer.style.opacity = "1";
+          popupContainer.style.visibility = "visible";
+          popupContainer.style.pointerEvents = "auto";
+        }
       });
       navItem.addEventListener("mouseleave", () => {
-        hoveredItemIndex.value = null;
-        popupContainer.style.opacity = "0";
-        popupContainer.style.visibility = "hidden";
-        popupContainer.style.pointerEvents = "none";
+        if (tutorialStep.value >= 5) {
+          hoveredItemIndex.value = null;
+          popupContainer.style.opacity = "0";
+          popupContainer.style.visibility = "hidden";
+          popupContainer.style.pointerEvents = "none";
+        }
       });
       navItem.addEventListener("click", () => {
         selectItem(index);

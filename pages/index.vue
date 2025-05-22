@@ -31,11 +31,7 @@
             </div>
           </div>
 
-          <button
-            class="btn-secondary"
-          >
-            Word nu digitaal toegankelijk
-          </button>
+          <button class="btn-secondary">Word nu digitaal toegankelijk</button>
         </div>
 
         <div class="md:w-1/2">

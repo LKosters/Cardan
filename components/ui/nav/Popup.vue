@@ -46,8 +46,8 @@ const props = defineProps({
   autoFocus: Boolean,
   tutorialStep: {
     type: Number,
-    default: 0
-  }
+    default: 0,
+  },
 });
 
 const menuItemRefs = ref<(HTMLElement | null)[]>([]);

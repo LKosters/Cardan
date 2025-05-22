@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-16 md:h-24">
+  <div :class="reverse ? 'rotate-180' : ''" class="relative h-16 md:h-24">
     <svg
       class="w-[300px] md:w-[557px] h-[53px] md:h-[98px]"
       viewBox="0 0 557 98"
@@ -18,4 +18,8 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const props = defineProps<{
+  reverse?: boolean;
+}>();
+</script>

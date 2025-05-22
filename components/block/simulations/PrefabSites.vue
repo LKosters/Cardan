@@ -37,7 +37,7 @@
 <script lang="ts" setup>
 const prefabSites = ref([
   {
-    title: "Bloemenwereld",
+    title: "Bloemenwinkel",
     imageUrl: "/flowers/thumbnail.jpg",
     showOverlay: true,
     link: "/bloemenwinkel",

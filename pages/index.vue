@@ -31,11 +31,7 @@
             </div>
           </div>
 
-          <button
-            class="bg-[#0a8a4a] font-bold text-white px-6 py-3 rounded hover:bg-[#077a40] transition-colors"
-          >
-            Word nu digitaal toegankelijk
-          </button>
+          <button class="btn-secondary">Word nu digitaal toegankelijk</button>
         </div>
 
         <div class="md:w-1/2">

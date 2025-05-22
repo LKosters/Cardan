@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white rounded-t-[10px] absolute -translate-y-[calc(100%-2px)] flex flex-col items-center -translate-x-[50%] gap-5 pb-2 pt-5 border-l-2 border-r-2 border-t-2 border-[#008743] border-b-0"
+    class="bg-white rounded-t-[10px] absolute -translate-y-[calc(100%-2px)] flex flex-col items-center -translate-x-[50%] gap-5 pb-2 pt-5 border-2 border-secondary border-b-0"
     role="menu"
     @focusin="$emit('focusin')"
     @focusout="$emit('focusout')"

@@ -17,7 +17,10 @@
           class="size-4 bg-primary-alt rounded-full"
         ></div>
       </div>
-      <button class="btn-primary ml-2 cursor-pointer text-sm" @click="invokeStep(step + 1)">
+      <button
+        class="btn-primary ml-2 cursor-pointer text-sm"
+        @click="invokeStep(step + 1)"
+      >
         Volgende
       </button>
     </div>

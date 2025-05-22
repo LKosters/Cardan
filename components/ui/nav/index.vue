@@ -17,8 +17,9 @@
       <li
         v-for="(item, index) in navItems"
         :key="index"
-        class="nav-item hover:bg-white hover:outline hover:outline-2 hover:outline-[#008743] rounded-b-[10px] cursor-pointer size-14 flex items-center justify-center relative"
+        class="duration-300 nav-item hover:bg-white border border-2 border-transparent rounded-b-[10px] cursor-pointer size-15 flex items-center justify-center relative"
         :class="{
+          '!border-t-0': item.items || item.intensity,
           '!rounded-[10px]': item.link || item.clear,
           selected: selectedItemIndex === index,
         }"
@@ -233,6 +234,7 @@ const updateTutorialStep = (step: number) => {
 
 .nav-item.selected {
   background-color: white !important;
+  border: 2px solid #008743 !important;
 }
 
 .nav-item:hover .popup-container {

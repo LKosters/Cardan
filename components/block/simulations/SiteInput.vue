@@ -1,5 +1,5 @@
 <template>
-  <section class="container pb-60 pt-20">
+  <section class="container pb-20 lg:pb-60 pt-20">
     <div class="md:w-[50%]">
       <h1 class="text-3xl font-bold mb-2">
         Kies uw eigen website om in te laden als simulatie
@@ -19,8 +19,12 @@
             type="text"
             placeholder="Website URL..."
           />
-          <span v-if="urlError" class="text-red-500 text-sm mt-1">{{ urlError }}</span>
-          <span v-else class="text-gray-500 text-sm mt-1">Voer een volledige URL in, bijvoorbeeld:<br>https://www.voorbeeld.nl</span>
+          <span v-if="urlError" class="text-red-500 text-sm mt-1">{{
+            urlError
+          }}</span>
+          <span v-else class="text-gray-500 text-sm mt-1"
+            >Voer een volledige URL in, bijvoorbeeld:<br />https://www.voorbeeld.nl</span
+          >
         </div>
         <button @click="visitWebsite" class="btn-primary h-max">
           Bezoek website

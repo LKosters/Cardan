@@ -36,7 +36,7 @@
     />
     <div
       class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-auto"
-      style="width: 70%; height: 70%; margin: auto; transform: translateY(8%);"
+      style="width: 70%; height: 70%; margin: auto; transform: translateY(8%)"
     >
       <div
         class="font-bold text-white text-[clamp(1rem,3vw,1.6rem)] mb-1 sm:mb-2"
@@ -92,12 +92,13 @@ const isVisible = ref(true);
 // Add overflow-x-hidden to body on mount to prevent horizontal scrolling
 onMounted(() => {
   document.body.classList.add("overflow-x-hidden");
-  
+
   // Also add viewport meta tag to ensure proper mobile rendering
   if (!document.querySelector('meta[name="viewport"]')) {
-    const meta = document.createElement('meta');
-    meta.name = 'viewport';
-    meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+    const meta = document.createElement("meta");
+    meta.name = "viewport";
+    meta.content =
+      "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
     document.head.appendChild(meta);
   }
 });

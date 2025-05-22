@@ -10,7 +10,10 @@
     aria-label="Main navigation"
   >
     <UiNavTutorial @step="updateTutorialStep" />
-    <ul :class="{'pointer-events-none': tutorialStep < 5}" class="flex items-center gap-2">
+    <ul
+      :class="{ 'pointer-events-none': tutorialStep < 5 }"
+      class="flex items-center gap-2"
+    >
       <li
         v-for="(item, index) in navItems"
         :key="index"
@@ -40,7 +43,11 @@
           class="popup-container"
           ref="`popupContainer${index}`"
         >
-          <UiNavPopup :items="item.items" :tutorial-step="tutorialStep" class="popup" />
+          <UiNavPopup
+            :items="item.items"
+            :tutorial-step="tutorialStep"
+            class="popup"
+          />
         </div>
         <a v-if="item.link" :href="item.link">
           <component :is="item.icon" />

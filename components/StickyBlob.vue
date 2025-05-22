@@ -2,7 +2,7 @@
   <div
     v-if="isVisible"
     :class="[
-      'fixed z-10 pointer-events-none flex justify-center items-center w-[40vw] h-[40vw] sm:w-[40vw] sm:h-[40vw] md:w-[26vw] md:h-[26vw] lg:w-[20vw] lg:h-[20vw]',
+      'fixed z-10 pointer-events-none flex justify-center items-center w-[45vw] h-[45vw] sm:w-[40vw] sm:h-[40vw] md:w-[26vw] md:h-[26vw] lg:w-[20vw] lg:h-[20vw]',
       positionClass,
       'transition-all duration-[1000ms] ease-in-out transform',
     ]"
@@ -29,34 +29,36 @@
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
-    <img
-      src="/blob5.png"
-      alt="Icoon blob ontdek jezelf"
-      class="w-full h-full object-contain"
-    />
-    <div
-      class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-auto"
-      style="width: 70%; height: 70%; margin: auto; transform: translateY(8%);"
-    >
+    <div>
+      <img
+        src="/blob5.png"
+        alt="Icoon blob ontdek jezelf"
+        class="w-full h-full object-contain "
+      />
       <div
-        class="font-bold text-white text-[clamp(1rem,3vw,1.6rem)] mb-1 sm:mb-2"
+        class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-auto mr-4"
+        style="width: 70%; height: 70%; margin: auto; transform: translateY(8%);"
       >
-        Beperk jezelf
+        <div
+          class="font-bold text-white text-[clamp(1rem,3vw,1.6rem)] mb-1 sm:mb-2"
+        >
+          Beperk jezelf!
+        </div>
+        <p
+          class="hidden sm:block text-white mb-2 text-[clamp(0.75rem,1.5vw,1rem)]"
+        >
+          Ervaar zelf digitale drempels op het ervaringsplein.
+        </p>
+        <a
+          :href="linkUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          @click.stop
+          class="bg-white text-white p-2 rounded-full no-underline transition-all duration-200 hover:bg-gray-200 hover:scale-105"
+        >
+          <IconArrow class="fill-secondary w-4 h-4 sm:w-6 sm:h-6" />
+        </a>
       </div>
-      <p
-        class="hidden sm:block text-white mb-2 text-[clamp(0.75rem,1.5vw,1rem)]"
-      >
-        Ervaar een website als een persoon met een beperking.
-      </p>
-      <a
-        :href="linkUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        @click.stop
-        class="bg-white text-white p-2 rounded-full no-underline transition-all duration-200 hover:bg-gray-200 hover:scale-105"
-      >
-        <IconArrow class="fill-secondary w-4 h-4 sm:w-6 sm:h-6" />
-      </a>
     </div>
   </div>
 </template>

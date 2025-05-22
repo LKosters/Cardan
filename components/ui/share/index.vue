@@ -1,6 +1,6 @@
 <template>
   <div
-    class="group flex items-center p-5 bg-secondary-alt rounded-full shadow-lg fixed bottom-14 right-14 cursor-pointer hover:bg-secondary duration-300"
+    class="z-10 group flex items-center p-5 bg-secondary-alt rounded-full shadow-lg fixed bottom-14 right-14 cursor-pointer hover:bg-secondary duration-300"
     @click="copyUrl"
   >
     <svg

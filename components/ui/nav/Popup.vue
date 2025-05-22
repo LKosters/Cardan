@@ -26,10 +26,12 @@
 <script lang="ts" setup>
 const route = useRoute();
 const router = useRouter();
+const tutorialStep = ref(0);
 
 interface PopupItem {
   icon: any;
   tooltip: string;
+  value: string;
 }
 const props = defineProps({
   items: {
@@ -42,6 +44,10 @@ const props = defineProps({
     },
   },
   autoFocus: Boolean,
+  tutorialStep: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const menuItemRefs = ref<(HTMLElement | null)[]>([]);
@@ -91,11 +97,13 @@ function focusMenuItem(idx: number) {
 }
 
 function submitValue(value: string) {
-  router.push({
-    query: {
-      ...route.query,
-      filter: value.toLowerCase().replace(/\s+/g, "-"),
-    },
-  });
+  if (props.tutorialStep >= 5) {
+    router.push({
+      query: {
+        ...route.query,
+        filter: value.toLowerCase().replace(/\s+/g, "-"),
+      },
+    });
+  }
 }
 </script>

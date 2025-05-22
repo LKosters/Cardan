@@ -94,12 +94,13 @@ const isVisible = ref(true);
 // Add overflow-x-hidden to body on mount to prevent horizontal scrolling
 onMounted(() => {
   document.body.classList.add("overflow-x-hidden");
-  
+
   // Also add viewport meta tag to ensure proper mobile rendering
   if (!document.querySelector('meta[name="viewport"]')) {
-    const meta = document.createElement('meta');
-    meta.name = 'viewport';
-    meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+    const meta = document.createElement("meta");
+    meta.name = "viewport";
+    meta.content =
+      "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
     document.head.appendChild(meta);
   }
 });

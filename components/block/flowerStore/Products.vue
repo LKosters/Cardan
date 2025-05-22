@@ -40,10 +40,10 @@
             <!-- User Actions -->
             <div class="user-actions flex items-center space-x-6">
               <div class="relative">
-                <IconHeart :size="16"/>
+                <IconHeart :size="16" />
               </div>
               <div class="relative">
-                <IconCart :size="16" class="text-black"/>
+                <IconCart :size="16" class="text-black" />
               </div>
             </div>
           </div>
@@ -205,7 +205,7 @@
                         >
                       </div>
                       <button class="bg-[#2d5741] text-white rounded-full p-2">
-                        <IconCart :size="12" class="text-white"/>
+                        <IconCart :size="12" class="text-white" />
                       </button>
                     </div>
                   </div>
@@ -362,7 +362,6 @@
 </template>
 
 <script lang="ts" setup>
-
 const products = ref([
   {
     id: 1,

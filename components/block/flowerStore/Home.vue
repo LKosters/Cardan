@@ -37,13 +37,13 @@
           <!-- User Actions -->
           <!-- User Actions -->
           <div class="user-actions flex items-center space-x-6">
-              <div class="relative">
-                <IconHeart :size="16"/>
-              </div>
-              <div class="relative">
-                <IconCart :size="16" class="text-black"/>
-              </div>
+            <div class="relative">
+              <IconHeart :size="16" />
             </div>
+            <div class="relative">
+              <IconCart :size="16" class="text-black" />
+            </div>
+          </div>
         </div>
       </div>
     </header>

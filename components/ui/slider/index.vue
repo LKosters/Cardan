@@ -1,5 +1,5 @@
 <template>
-  <div class="slider-container pr-5 pl-5">
+  <div class="slider-container pr-5 pl-5 border-l-0 border-r-2 border-t-2 border-[#008743] border-b-2 rounded-tr-[10px] rounded-r-[10px]  bg-white">
     <!-- <div class="slider-header">
       <label :for="id" class="slider-label">{{ label }}</label>
       <span class="slider-value">{{ displayValue }}</span>
@@ -109,7 +109,6 @@ const displayValue = computed(() => {
 <style scoped>
 .slider-container {
   width: 200px;
-  border: none;
 }
 
 .slider-header {

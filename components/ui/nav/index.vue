@@ -17,7 +17,7 @@
       <li
         v-for="(item, index) in navItems"
         :key="index"
-        class="nav-item hover:bg-white rounded-b-[10px] duration-300 cursor-pointer size-14 flex items-center justify-center relative"
+        class="nav-item hover:bg-white hover:outline hover:outline-2 hover:outline-[#008743] rounded-b-[10px] cursor-pointer size-14 flex items-center justify-center relative"
         :class="{
           '!rounded-[10px]': item.link || item.clear,
           selected: selectedItemIndex === index,
@@ -57,7 +57,7 @@
         </button>
         <button class="cursor-pointer" v-else-if="item.intensity">
           <div
-            class="popup-container bg-white rounded-r-[10px] absolute flex flex-col items-center -translate-y-[300%] -translate-x-[50%] -rotate-90"
+            class="popup-container bg-white rounded-r-[10px] absolute flex flex-col items-center -translate-y-[calc(300%-20px)] -translate-x-[50%] -rotate-90"
           >
             <UiSlider v-model="sliderValue" />
           </div>

@@ -1,5 +1,5 @@
 <template>
-  <section class="container py-20">
+  <section class="container pb-60 pt-20">
     <div class="md:w-[50%]">
       <h1 class="text-3xl font-bold mb-2">
         Kies uw eigen website om in te laden als simulatie
@@ -9,14 +9,20 @@
         realistische ervaring te creëren tijdens de simulatie. Vul hieronder de
         website URL in.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 max-w-lg">
-        <input
-          v-model="websiteUrl"
-          class="md:w-[300px] input"
-          type="text"
-          placeholder="Website URL..."
-        />
-        <button @click="visitWebsite" class="btn-primary">
+      <div class="flex flex-col sm:flex-row gap-4 w-full">
+        <div class="flex flex-col">
+          <input
+            v-model="websiteUrl"
+            @blur="validateUrl"
+            class="md:w-[300px] input"
+            :class="{ 'border-red-500': urlError }"
+            type="text"
+            placeholder="Website URL..."
+          />
+          <span v-if="urlError" class="text-red-500 text-sm mt-1">{{ urlError }}</span>
+          <span v-else class="text-gray-500 text-sm mt-1">Voer een volledige URL in, bijvoorbeeld:<br>https://www.voorbeeld.nl</span>
+        </div>
+        <button @click="visitWebsite" class="btn-primary h-max">
           Bezoek website
         </button>
       </div>
@@ -40,6 +46,7 @@
 <script lang="ts" setup>
 const websiteUrl = ref("");
 const recentUrls = ref<string[]>([]);
+const urlError = ref("");
 
 onMounted(() => {
   const stored = localStorage.getItem("recentWebsiteUrls");
@@ -58,13 +65,30 @@ function updateRecentUrls(url: string) {
   localStorage.setItem("recentWebsiteUrls", JSON.stringify(recentUrls.value));
 }
 
-function visitWebsite() {
-  if (websiteUrl.value) {
+function validateUrl() {
+  if (!websiteUrl.value) {
+    urlError.value = "Vul een website URL in";
+    return false;
+  }
+
+  try {
     const url = new URL(websiteUrl.value);
-    if (url.protocol) {
-      updateRecentUrls(websiteUrl.value);
-      navigateTo(`/eigen-site?website=${websiteUrl.value}`);
+    if (url.protocol !== "https:" && url.protocol !== "http:") {
+      urlError.value = "URL moet beginnen met http:// of https://";
+      return false;
     }
+    urlError.value = "";
+    return true;
+  } catch {
+    urlError.value = "Gebruik een geldige website URL";
+    return false;
+  }
+}
+
+function visitWebsite() {
+  if (validateUrl()) {
+    updateRecentUrls(websiteUrl.value);
+    navigateTo(`/eigen-site?website=${websiteUrl.value}`);
   }
 }
 </script>

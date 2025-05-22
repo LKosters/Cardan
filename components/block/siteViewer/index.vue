@@ -1,5 +1,5 @@
 <template>
-  <div :class="filter">
+  <div class="w-screen overflow-hidden" :class="filter">
     <iframe
       :src="url"
       title="Website Preview"

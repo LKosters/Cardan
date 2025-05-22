@@ -43,6 +43,18 @@
           </button>
         </div>
       </div>
+      <div class="mt-4">
+        <p class="text-sm text-gray-600 mb-2">Of gebruik onze website:</p>
+        <div class="flex flex-wrap gap-2">
+          <button
+            key="https://www.cardan.com/"
+            @click="useRecentUrl('https://www.cardan.com/')"
+            class="text-left text-blue-600 hover:text-blue-800 btn-secondary w-max"
+          >
+          https://www.cardan.com/
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 </template>

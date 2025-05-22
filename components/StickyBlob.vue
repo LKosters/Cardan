@@ -2,7 +2,7 @@
   <div
     v-if="isVisible"
     :class="[
-      'fixed z-10 pointer-events-none flex justify-center items-center w-[45vw] h-[45vw] sm:w-[40vw] sm:h-[40vw] md:w-[26vw] md:h-[26vw] lg:w-[20vw] lg:h-[20vw]',
+      'fixed z-10 pointer-events-none flex justify-center items-center w-[170px] h-[170px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]',
       positionClass,
       'transition-all duration-[1000ms] ease-in-out transform',
     ]"
@@ -10,7 +10,7 @@
   >
     <button
       @click.stop="closeBlob"
-      class="absolute top-0 right-[15%] top-[10%] sm:hidden z-20 bg-white/90 rounded-full w-6 h-6 flex items-center justify-center pointer-events-auto shadow-md transform -translate-y-2"
+      class="absolute top-0 right-[15%] top-[25%] sm:hidden z-20 bg-white/90 rounded-full w-6 h-6 flex items-center justify-center pointer-events-auto shadow-md transform -translate-y-2"
       aria-label="Close"
     >
       <svg

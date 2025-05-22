@@ -13,11 +13,11 @@
         <div
           v-for="(urmom, index) in tutorial.length"
           :key="index"
-          :class="{ '!bg-primary': index === step }"
-          class="size-3 bg-primary-alt rounded-full"
+          :class="{ '!bg-secondary': index === step }"
+          class="size-4 bg-primary-alt rounded-full"
         ></div>
       </div>
-      <button class="ml-2 cursor-pointer text-sm" @click="invokeStep(step + 1)">
+      <button class="btn-primary ml-2 cursor-pointer text-sm" @click="invokeStep(step + 1)">
         Volgende
       </button>
     </div>

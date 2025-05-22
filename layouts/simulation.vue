@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen w-screen overflow-x-hidden relative">
     <slot />
     <UiNav />
     <UiShare />
@@ -7,3 +7,4 @@
 </template>
 
 <script lang="ts" setup></script>
+ 

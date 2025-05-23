@@ -51,7 +51,6 @@
         </p>
         <a
           :href="linkUrl"
-          target="_blank"
           rel="noopener noreferrer"
           @click.stop
           class="bg-white text-white p-2 rounded-full no-underline transition-all duration-200 hover:bg-gray-200 hover:scale-105"

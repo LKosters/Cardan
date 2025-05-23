@@ -1,5 +1,5 @@
 <template>
-  <section class="container pb-20 lg:pb-60 pt-20">
+  <section class="container pb-10 pt-20">
     <div class="md:w-[50%]">
       <h1 class="text-3xl font-bold mb-2">
         Kies uw eigen website om in te laden als simulatie

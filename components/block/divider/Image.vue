@@ -22,7 +22,7 @@
       <div class="flex justify-end py-40 mr-[116px]">
         <img class="size-[360px] rounded-full" :src="image" alt="Image" />
       </div>
-      <svg
+      <!-- <svg
         class="absolute bottom-0 -left-[320px] -z-10"
         width="1168"
         height="169"
@@ -38,7 +38,7 @@
           d="M1002 127.115L1120.57 8.54167C1125.29 3.82414 1132.94 3.82414 1137.66 8.54168L1159.46 30.3488C1164.18 35.0664 1164.18 42.715 1159.46 47.4326L1040.89 166.006L1002 127.115Z"
           fill="#E7E3E8"
         />
-      </svg>
+      </svg> -->
     </div>
   </div>
 </template>
